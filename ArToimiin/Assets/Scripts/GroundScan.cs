@@ -59,6 +59,7 @@ public class GroundScan : MonoBehaviour
         if (navMeshIsActive)
         {
             GameObject character = Instantiate(prefabCharacter, navMeshSurface.transform.position, Quaternion.identity);
+            GetComponent<CatchScript>().hahmo = character;
             CancelInvoke("SpawnCharacter");
         }
     }

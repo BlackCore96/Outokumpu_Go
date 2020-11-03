@@ -4,25 +4,44 @@ using UnityEngine;
 
 public class CatchScript : MonoBehaviour
 {
+    [HideInInspector]
     public GameObject hahmo;
-    public GameObject hahmo2;
-    RaycastHit hit;
+    public float angle = 45f;
+    public GameObject placeholder;
+    private new Camera camera;
+    private GameObject cameraObject;
+    Vector3 characterVector;
+    Vector3 cameraVector;
+    float characterAngleDistance;
+    bool isInNet;
 
-    public void Button()
+    private void Start()
     {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit))
+        camera = Camera.main;
+        cameraObject = camera.gameObject;
+    }
+
+    private void Update()
+    {
+        try
         {
-            if (hit.collider.gameObject.Equals(hahmo))
-            
+            characterVector = hahmo.transform.position - cameraObject.transform.position;
+            cameraVector = cameraObject.transform.forward;
+            characterAngleDistance = Vector3.Angle(cameraVector, characterVector);
+            if (characterAngleDistance <= angle)
             {
-                Destroy(hit.collider.gameObject);
+                isInNet = true;
+                placeholder.SetActive(true);
             }
-
-            if (hit.collider.gameObject.Equals(hahmo2))
-
+            else
             {
-                Destroy(hit.collider.gameObject);
+                isInNet = false;
+                placeholder.SetActive(false);
             }
+        }
+        catch
+        {
+
         }
     }
 }

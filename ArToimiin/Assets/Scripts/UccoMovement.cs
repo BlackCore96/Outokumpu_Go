@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class UccoMovement : MonoBehaviour
 {
+    [Range(0, 4)]
     public float movementSpeed;
     private NavMeshSurface navMeshSurface;
     private NavMeshAgent navMeshAgent;
@@ -18,6 +19,7 @@ public class UccoMovement : MonoBehaviour
 
     private void Update()
     {
+        navMeshAgent.speed = movementSpeed;
         if (!navMeshAgent.hasPath)
         {
             SetDestination();
