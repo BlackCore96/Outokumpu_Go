@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class UccoMovement : MonoBehaviour
 {
     [Range(0, 4)]
-    public float movementSpeed;
+    public float movementSpeed = 1;
     private NavMeshSurface navMeshSurface;
     private NavMeshAgent navMeshAgent;
 
