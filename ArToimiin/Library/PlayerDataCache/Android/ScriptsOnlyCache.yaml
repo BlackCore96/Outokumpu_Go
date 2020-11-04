@@ -29,14 +29,6 @@ ScriptsOnlyBuild:
     Unity.XR.Management.dll:
     - UnityEngine.XR.Management.XRGeneralSettings
     - UnityEngine.XR.Management.XRManagerSettings
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -47,6 +39,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
@@ -70,32 +63,36 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
-    - Class: 65
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11852}
+      Script: {instanceID: 11846}
     - Class: 114
-      Script: {instanceID: 11868}
+      Script: {instanceID: 11862}
     - Class: 114
-      Script: {instanceID: 12068}
+      Script: {instanceID: 12066}
     - Class: 114
-      Script: {instanceID: 12078}
+      Script: {instanceID: 12076}
     - Class: 114
-      Script: {instanceID: 12116}
+      Script: {instanceID: 12114}
     - Class: 114
-      Script: {instanceID: 12160}
+      Script: {instanceID: 12158}
     - Class: 114
-      Script: {instanceID: 12338}
+      Script: {instanceID: 12336}
     - Class: 114
-      Script: {instanceID: 12606}
+      Script: {instanceID: 12604}
     - Class: 114
-      Script: {instanceID: 12672}
+      Script: {instanceID: 12670}
     - Class: 114
-      Script: {instanceID: 12932}
+      Script: {instanceID: 12930}
     - Class: 114
       Script: {instanceID: 13156}
     - Class: 114
@@ -111,22 +108,26 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13902}
     - Class: 114
-      Script: {instanceID: 13942}
+      Script: {instanceID: 13944}
     - Class: 114
-      Script: {instanceID: 13970}
+      Script: {instanceID: 13972}
     - Class: 114
-      Script: {instanceID: 14168}
+      Script: {instanceID: 14170}
     - Class: 114
-      Script: {instanceID: 14306}
+      Script: {instanceID: 14308}
     - Class: 114
-      Script: {instanceID: 14422}
+      Script: {instanceID: 14424}
     - Class: 114
-      Script: {instanceID: 14516}
+      Script: {instanceID: 14464}
+    - Class: 114
+      Script: {instanceID: 14518}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 137
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -137,6 +138,8 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
+      Script: {instanceID: 0}
+    - Class: 213
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -479,6 +482,12 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: 06201cfa1a27791e50455caa9b7b646d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MunaSpawnScript
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -527,7 +536,7 @@ ScriptsOnlyBuild:
     className: ARFaceMeshVisualizer
   - hash:
       serializedVersion: 2
-      Hash: 254a4532515110a75e70318b7c71f0eb
+      Hash: dfeded84c408e242f36e2f02ed0e17d9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CatchScript
