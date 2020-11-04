@@ -19,6 +19,7 @@ public class CatchScript : MonoBehaviour
     float progress;
     bool isDecaying;
     bool isProgressing;
+    AnimatorScript animatorScript;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class CatchScript : MonoBehaviour
         placeholder.SetActive(false);
         progress = 0;
         progressSlider.maxValue = catchTime;
+        animatorScript = FindObjectOfType < AnimatorScript>();
     }
 
     private void Update()
@@ -73,6 +75,7 @@ public class CatchScript : MonoBehaviour
         if (progress.Equals(catchTime))
         {
             Debug.Log("caught");
+            animatorScript.IsCatched();
         }
     }
 
