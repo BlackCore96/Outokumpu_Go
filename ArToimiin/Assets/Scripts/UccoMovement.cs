@@ -9,9 +9,11 @@ public class UccoMovement : MonoBehaviour
     public float movementSpeed = 1;
     private NavMeshSurface navMeshSurface;
     private NavMeshAgent navMeshAgent;
+    AnimatorScript animatorScript;
 
     private void Start()
     {
+        animatorScript = FindObjectOfType<AnimatorScript>();
         navMeshSurface = FindObjectOfType<NavMeshSurface>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         SetDestination();
@@ -20,15 +22,18 @@ public class UccoMovement : MonoBehaviour
     private void Update()
     {
         navMeshAgent.speed = movementSpeed;
-        if (!navMeshAgent.hasPath)
+        if (!navMeshAgent.hasPath && !IsInvoking("SetDestination"))
         {
-            SetDestination();
+
+            animatorScript.IsStill();
+            Invoke("SetDestination", 3f);
         }
     }
 
     void SetDestination()
     {
         navMeshAgent.SetDestination(navMeshSurface.transform.position + (Vector3.forward * Random.Range(-4f, 4f)) + (Vector3.right * Random.Range(-4f, 4f)));
+        animatorScript.IsMoving();
     }
 
 }

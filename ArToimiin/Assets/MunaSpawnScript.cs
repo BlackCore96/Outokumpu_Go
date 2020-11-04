@@ -6,11 +6,13 @@ public class MunaSpawnScript : MonoBehaviour
 {
 
     public GameObject spawnattavaUkko;
+    GroundScan groundScan;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        groundScan = FindObjectOfType<GroundScan>();
+        spawnattavaUkko = groundScan.prefabCharacter;
     }
 
     // Update is called once per frame

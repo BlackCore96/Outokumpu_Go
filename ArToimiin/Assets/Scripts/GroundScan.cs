@@ -12,6 +12,7 @@ public class GroundScan : MonoBehaviour
 {
     public Text debugLogText;
     public GameObject prefabCharacter;
+    public GameObject prefabMuna;
     private ARSessionOrigin arOrigin;
     private ARRaycastManager arRayCastManager;
     private NavMeshSurface navMeshSurface;
@@ -58,7 +59,7 @@ public class GroundScan : MonoBehaviour
     {
         if (navMeshIsActive)
         {
-            GameObject character = Instantiate(prefabCharacter, navMeshSurface.transform.position, Quaternion.identity);
+            GameObject character = Instantiate(prefabMuna, navMeshSurface.transform.position, Quaternion.identity);
             GetComponent<CatchScript>().hahmo = character;
             CancelInvoke("SpawnCharacter");
         }
