@@ -17,4 +17,9 @@ public class AnimatorScript : MonoBehaviour
     {
         
     }
+
+    public void IsCatched ()
+    {
+        animator.SetTrigger(0);
+    }
 }
