@@ -1532,8 +1532,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0045cf7d9f1d9448fae1e60472a383e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomLevel: 15
-  worldScale: 0.75
+  zoomLevel: 16
+  worldScale: 1
   desiredAccuracy: 70
   currentLocation:
     latitude: 0
@@ -1545,6 +1545,17 @@ MonoBehaviour:
     longitude: 29.055588
     altitude: 0
     timestampLastUpdate: 1569804125.1495
+  useRiveriaOrigin: 1
+  riveria:
+    latitude: 62.732038
+    longitude: 29.055588
+    altitude: 0
+    timestampLastUpdate: 0
+  sMarket:
+    latitude: 62.727334
+    longitude: 29.012511
+    altitude: 0
+    timestampLastUpdate: 0
   onOriginSet:
     m_PersistentCalls:
       m_Calls: []
@@ -1742,9 +1753,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1379913657}
   - component: {fileID: 1379913658}
+  - component: {fileID: 1379913659}
   m_Layer: 0
   m_Name: Avatar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1785,6 +1797,18 @@ MonoBehaviour:
   OnAnimationStateChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1379913659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379913656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846db3e1a3e748041bc2508a929ab10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1456769790
 GameObject:
   m_ObjectHideFlags: 0
@@ -2024,6 +2048,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1658062781}
   - component: {fileID: 1658062780}
+  - component: {fileID: 1658062782}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2044,6 +2069,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stopPrefab: {fileID: 6138439223090090883, guid: b132162948c43bb4fa86a18f187c77cb, type: 3}
+  poiCoordinates: []
+  riveriaTestCoordinates:
+  - latitude: 62.732302
+    longitude: 29.054962
+    altitude: 0
+    timestampLastUpdate: 0
+  - latitude: 62.731978
+    longitude: 29.055226
+    altitude: 0
+    timestampLastUpdate: 0
+  - latitude: 62.731272
+    longitude: 29.053952
+    altitude: 0
+    timestampLastUpdate: 0
 --- !u!4 &1658062781
 Transform:
   m_ObjectHideFlags: 0
@@ -2058,6 +2097,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1658062782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658062779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe37a2253b027143ae47461d73b2ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pOIs: []
 --- !u!1 &1955776652
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,16 +7,37 @@ using UnityEngine;
 
 public class SpawnWorldObjects : MonoBehaviour
 {
+    BaseLocationManager locationManager;
+    MapManager mapManager;
     public GameObject stopPrefab;
-    Coordinates coordinates = new Coordinates(62.725284000000, 29.018918000000, 0);
+    [Header("Points of Interest")]
+    public List<Coordinates> poiCoordinates;
+    [Header("Testing Points of Interest")]
+    public List<Coordinates> riveriaTestCoordinates;
+    bool useTestingPois;
+    Vector3 position;
+    GameObject stop;
 
     private void Start()
     {
-        GameObject stop = Instantiate(stopPrefab);
-        Vector3 position = coordinates.convertCoordinateToVector(0);
-        Debug.Log(Coordinates.convertVectorToCoordinates(position).latitude.ToString() + " / " + Coordinates.convertVectorToCoordinates(position).longitude.ToString());
-        Debug.Log(coordinates.latitude.ToString() + " / " + coordinates.longitude.ToString());
-        Debug.Log(position.x.ToString() + " / " + position.z.ToString());
-        stop.transform.localPosition = position;
+        Invoke("LateStart", .5f);
+    }
+
+    void LateStart()
+    {
+        locationManager = FindObjectOfType<BaseLocationManager>();
+        mapManager = FindObjectOfType<MapManager>();
+        useTestingPois = locationManager.useRiveriaOrigin;
+        if (useTestingPois)
+        {
+            poiCoordinates = riveriaTestCoordinates;
+        } //testaus stopit
+        foreach (Coordinates coordinates in poiCoordinates)
+        {
+            stop = Instantiate(stopPrefab);          
+            mapManager.pOIs.Add(stop); //lisää map managerin listaan kyseisen stopin
+            position = coordinates.convertCoordinateToVector();
+            stop.transform.position = position; //siirtää stopin oikeaan paikkaan
+        }
     }
 }
