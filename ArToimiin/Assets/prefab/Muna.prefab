@@ -108,4 +108,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c12a607d193acb4ab913b6d86106997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnattavaUkko: {fileID: 0}
+  spawnattavaUkko: {fileID: 1420495262814169741, guid: f5df2ab987fd09a49812fade02e731b2, type: 3}
