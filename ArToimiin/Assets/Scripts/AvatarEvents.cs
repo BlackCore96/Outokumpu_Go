@@ -12,11 +12,19 @@ public class AvatarEvents : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        mapManager.Trigger(other, MapManager.TriggerState.Enter);
+        Debug.Log("Coll");
+        if (other.gameObject.CompareTag("POI"))
+        {
+            mapManager.Trigger(MapManager.TriggerState.Enter);
+            Debug.Log("Enter");
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        mapManager.Trigger(other, MapManager.TriggerState.Exit);
-
+        if (other.gameObject.CompareTag("POI"))
+        {
+            mapManager.Trigger(MapManager.TriggerState.Exit);
+            Debug.Log("Exit");
+        }
     }
 }

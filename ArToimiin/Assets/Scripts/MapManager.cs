@@ -1,25 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using GoShared;
-using GoMap;
-using System.Linq;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    public enum TriggerState
+    public class TriggerState
     {
-        Enter,
-        Exit
+        public const bool Enter = true;
+        public const bool Exit = false;
     }
 
+    public Button miniGameButton;
     public List<GameObject> pOIs = new List<GameObject>();
 
-    public void Trigger(Collider collider, TriggerState state)
+    private void Start()
     {
-        if (collider.CompareTag("POI"))
-        {
+        miniGameButton.gameObject.SetActive(false);
+    }
 
-        }
+    public void Trigger(bool state)
+    {
+        miniGameButton.gameObject.SetActive(state);
+    }
+
+    public void MiniGameOnButtonPress()
+    {
+        SceneManager.LoadScene(1);
     }
 }
