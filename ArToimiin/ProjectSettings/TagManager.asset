@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hahmo
   - ARPlane
+  - POI
   layers:
   - Default
   - TransparentFX

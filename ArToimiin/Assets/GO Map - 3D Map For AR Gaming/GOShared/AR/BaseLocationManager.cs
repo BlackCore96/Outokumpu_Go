@@ -15,6 +15,13 @@ namespace GoShared
 
         public Coordinates currentLocation = null;
         public Coordinates worldOrigin = null;
+        public bool useRiveriaOrigin;
+
+        [Header("World Origins")]
+        public Coordinates riveria;
+        public Coordinates sMarket;
+
+        [Space]
 
         public static bool IsOriginSet;
 
@@ -27,6 +34,18 @@ namespace GoShared
         [HideInInspector] public MotionState currentMotionState = MotionState.Idle;
         [HideInInspector] float currentSpeed = 0;
 
+
+        private void Awake()
+        {
+            if (!useRiveriaOrigin)
+            {
+                worldOrigin = sMarket;
+            }
+            else
+            {
+                worldOrigin = riveria;
+            }
+        }
 
         #region Origin
 

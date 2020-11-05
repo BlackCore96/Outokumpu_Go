@@ -7,20 +7,37 @@ using UnityEngine;
 
 public class SpawnWorldObjects : MonoBehaviour
 {
+    BaseLocationManager locationManager;
+    MapManager mapManager;
     public GameObject stopPrefab;
-    Coordinates coordinates = new Coordinates(62.732301, 29.054945, 0);
+    [Header("Points of Interest")]
+    public List<Coordinates> poiCoordinates;
+    [Header("Testing Points of Interest")]
+    public List<Coordinates> riveriaTestCoordinates;
+    bool useTestingPois;
     Vector3 position;
     GameObject stop;
 
     private void Start()
     {
-        Invoke("LateStart", .5f);     
+        Invoke("LateStart", .5f);
     }
 
     void LateStart()
     {
-        stop = Instantiate(stopPrefab);
-        position = coordinates.convertCoordinateToVector();
-        stop.transform.position = position;
+        locationManager = FindObjectOfType<BaseLocationManager>();
+        mapManager = FindObjectOfType<MapManager>();
+        useTestingPois = locationManager.useRiveriaOrigin;
+        if (useTestingPois)
+        {
+            poiCoordinates = riveriaTestCoordinates;
+        } //testaus stopit
+        foreach (Coordinates coordinates in poiCoordinates)
+        {
+            stop = Instantiate(stopPrefab);          
+            mapManager.pOIs.Add(stop); //lisää map managerin listaan kyseisen stopin
+            position = coordinates.convertCoordinateToVector();
+            stop.transform.position = position; //siirtää stopin oikeaan paikkaan
+        }
     }
 }
