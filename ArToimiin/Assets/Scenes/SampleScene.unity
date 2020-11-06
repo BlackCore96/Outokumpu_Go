@@ -619,9 +619,10 @@ GameObject:
   - component: {fileID: 1198276282}
   - component: {fileID: 1198276281}
   - component: {fileID: 1198276283}
+  - component: {fileID: 1198276284}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -641,6 +642,7 @@ MonoBehaviour:
   debugLogText: {fileID: 1898735718}
   prefabCharacter: {fileID: 1420495262814169741, guid: f5df2ab987fd09a49812fade02e731b2, type: 3}
   prefabMuna: {fileID: 729536665950159814, guid: d90e356f97e83244686240ec3e6083ef, type: 3}
+  camera: {fileID: 0}
 --- !u!4 &1198276282
 Transform:
   m_ObjectHideFlags: 0
@@ -672,6 +674,21 @@ MonoBehaviour:
   placeholder: {fileID: 1178166245}
   catchTime: 5
   progressSlider: {fileID: 1429062049}
+--- !u!114 &1198276284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198276280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b89da2742af7dc4aa7605178e4631ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  catchParticle: {fileID: 4713616923847460960, guid: f5df2ab987fd09a49812fade02e731b2, type: 3}
+  dustTrailParticle: {fileID: 576574809524391736, guid: f5df2ab987fd09a49812fade02e731b2, type: 3}
 --- !u!1 &1207409700
 GameObject:
   m_ObjectHideFlags: 0

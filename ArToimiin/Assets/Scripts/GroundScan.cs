@@ -16,7 +16,7 @@ public class GroundScan : MonoBehaviour
     private ARSessionOrigin arOrigin;
     private ARRaycastManager arRayCastManager;
     private NavMeshSurface navMeshSurface;
-    private new Camera camera;
+    public new Camera camera;
     bool navMeshIsActive;
     Vector3 screenCenter;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
@@ -59,8 +59,7 @@ public class GroundScan : MonoBehaviour
     {
         if (navMeshIsActive)
         {
-            GameObject character = Instantiate(prefabMuna, navMeshSurface.transform.position, Quaternion.identity);
-            GetComponent<CatchScript>().hahmo = character;
+            GameObject muna = Instantiate(prefabMuna, navMeshSurface.transform.position, Quaternion.identity);
             CancelInvoke("SpawnCharacter");
         }
     }

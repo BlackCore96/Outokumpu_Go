@@ -19,6 +19,7 @@ public class CatchScript : MonoBehaviour
     float progress;
     bool isDecaying;
     bool isProgressing;
+    bool isCaught;
     AnimatorScript animatorScript;
 
     private void Start()
@@ -26,9 +27,12 @@ public class CatchScript : MonoBehaviour
         camera = Camera.main;
         cameraObject = camera.gameObject;
         placeholder.SetActive(false);
+        isProgressing = false;
+        isDecaying = false;
+        isCaught = false;
         progress = 0;
         progressSlider.maxValue = catchTime;
-        animatorScript = FindObjectOfType < AnimatorScript>();
+        animatorScript = FindObjectOfType<AnimatorScript>();
     }
 
     private void Update()
@@ -38,22 +42,25 @@ public class CatchScript : MonoBehaviour
             characterVector = hahmo.transform.position - cameraObject.transform.position;
             cameraVector = cameraObject.transform.forward;
             characterAngleDistance = Vector3.Angle(cameraVector, characterVector);
-            if (characterAngleDistance <= angle)
+            if (!isCaught)
             {
-                isProgressing = true;
-                placeholder.SetActive(true);
-                StopCoroutine("ProgressBarDecayDelay");
-                isDecaying = false;
-            }
-            else
-            {
-                isProgressing = false;
-
-                if (!IsInvoking("ProgressBarDecayDelay"))
+                if (characterAngleDistance <= angle)
                 {
-                    Invoke("ProgressBarDecayDelay", 1f);
+                    isProgressing = true;
+                    placeholder.SetActive(true);
+                    StopCoroutine("ProgressBarDecayDelay");
+                    isDecaying = false;
                 }
-                placeholder.SetActive(false);
+                else
+                {
+                    isProgressing = false;
+
+                    if (!IsInvoking("ProgressBarDecayDelay"))
+                    {
+                        Invoke("ProgressBarDecayDelay", .3f);
+                    }
+                    placeholder.SetActive(false);
+                }
             }
         }
         catch
@@ -64,19 +71,31 @@ public class CatchScript : MonoBehaviour
         if (isDecaying)
         {
             progress -= Time.deltaTime;
+            if (progress <= 0)
+            {
+                progress = 0;
+            }
         }
         else if(isProgressing)
         {
             progress += Time.deltaTime;
+            if (progress >= catchTime)
+            {
+                Caught();
+            }
         }
-        Mathf.Clamp(progress, 0, catchTime);
         progressSlider.value = progress;
+    }
 
-        if (progress.Equals(catchTime))
-        {
-            Debug.Log("caught");
-            animatorScript.IsCatched();
-        }
+    void Caught()
+    {
+        Debug.Log("caught");
+        hahmo.GetComponent<UccoMovement>().Stop();
+        hahmo.GetComponent<UccoMovement>().isCaught = true;
+        isProgressing = false;
+        isDecaying = false;
+        isCaught = true;
+        animatorScript.IsCatched();
     }
 
     void ProgressBarDecayDelay()
