@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CatchScript
+    - GoMap.GOAlert
     - GroundScan
     - UccoMovement
     NavMeshComponents.dll:
@@ -36,11 +37,19 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.LayoutElement
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Shadow
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
+    - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -74,53 +83,73 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11846}
+      Script: {instanceID: 12366}
     - Class: 114
-      Script: {instanceID: 11862}
+      Script: {instanceID: 12384}
     - Class: 114
-      Script: {instanceID: 12066}
+      Script: {instanceID: 12628}
     - Class: 114
-      Script: {instanceID: 12076}
+      Script: {instanceID: 12638}
     - Class: 114
-      Script: {instanceID: 12114}
+      Script: {instanceID: 12682}
     - Class: 114
-      Script: {instanceID: 12158}
+      Script: {instanceID: 12740}
     - Class: 114
-      Script: {instanceID: 12336}
+      Script: {instanceID: 12856}
     - Class: 114
-      Script: {instanceID: 12604}
+      Script: {instanceID: 12892}
     - Class: 114
-      Script: {instanceID: 12670}
+      Script: {instanceID: 12958}
     - Class: 114
-      Script: {instanceID: 12930}
+      Script: {instanceID: 13190}
     - Class: 114
-      Script: {instanceID: 13156}
+      Script: {instanceID: 13216}
     - Class: 114
-      Script: {instanceID: 13412}
+      Script: {instanceID: 13256}
     - Class: 114
-      Script: {instanceID: 13514}
+      Script: {instanceID: 13330}
     - Class: 114
-      Script: {instanceID: 13584}
+      Script: {instanceID: 13636}
     - Class: 114
-      Script: {instanceID: 13808}
+      Script: {instanceID: 13688}
     - Class: 114
-      Script: {instanceID: 13892}
+      Script: {instanceID: 13884}
     - Class: 114
-      Script: {instanceID: 13902}
+      Script: {instanceID: 14032}
     - Class: 114
-      Script: {instanceID: 13944}
+      Script: {instanceID: 14188}
     - Class: 114
-      Script: {instanceID: 13972}
+      Script: {instanceID: 14192}
     - Class: 114
-      Script: {instanceID: 14170}
+      Script: {instanceID: 14298}
     - Class: 114
-      Script: {instanceID: 14308}
+      Script: {instanceID: 14374}
     - Class: 114
-      Script: {instanceID: 14424}
+      Script: {instanceID: 14386}
     - Class: 114
-      Script: {instanceID: 14464}
+      Script: {instanceID: 14634}
     - Class: 114
-      Script: {instanceID: 14518}
+      Script: {instanceID: 14726}
+    - Class: 114
+      Script: {instanceID: 14736}
+    - Class: 114
+      Script: {instanceID: 14780}
+    - Class: 114
+      Script: {instanceID: 14808}
+    - Class: 114
+      Script: {instanceID: 15038}
+    - Class: 114
+      Script: {instanceID: 15208}
+    - Class: 114
+      Script: {instanceID: 15320}
+    - Class: 114
+      Script: {instanceID: 15342}
+    - Class: 114
+      Script: {instanceID: 15388}
+    - Class: 114
+      Script: {instanceID: 15460}
+    - Class: 114
+      Script: {instanceID: 19134}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -147,9 +176,23 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
+    - Class: 225
+      Script: {instanceID: 0}
     - Class: 850595691
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: c054126ecd4714000363c669f39791b8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GOSlippyCameraTouch
+  - hash:
+      serializedVersion: 2
+      Hash: 7db2d8268fc14e2c4d9ba03fbaa71994
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GotoURLButton
   - hash:
       serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
@@ -164,10 +207,22 @@ ScriptsOnlyBuild:
     className: ARPoseDriver
   - hash:
       serializedVersion: 2
+      Hash: a92ee8a8185703581abe231019178cd4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOMapEditor
+  - hash:
+      serializedVersion: 2
       Hash: f40fedccd4adbc76605bea6d67537e4b
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SelectionCaret
+  - hash:
+      serializedVersion: 2
+      Hash: 9eac6f1c999639e1d93f69ced8db5453
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoShared
+    className: GOCameraDrone
   - hash:
       serializedVersion: 2
       Hash: 87ff43d2baf3385cba327d8f803a4ebb
@@ -182,10 +237,28 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
+      Hash: 30f4a5885eff356bd4f58446b4f19892
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MaraudersGym
+  - hash:
+      serializedVersion: 2
+      Hash: d58503beab25899f5a0dfaf0f2387306
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LinkPosition
+  - hash:
+      serializedVersion: 2
       Hash: 2b19be13f00df62e6d4d4f5539bcad51
     assemblyName: NavMeshComponents.dll
     namespaceName: UnityEngine.AI
     className: NavMeshModifier
+  - hash:
+      serializedVersion: 2
+      Hash: d8109a8b41f84dfca81b22d3fba0ed3c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOCoordinatesRaycast
   - hash:
       serializedVersion: 2
       Hash: c8c672fee8a258266e51b55a210b8083
@@ -206,6 +279,18 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
+      Hash: 219e4a056448aa87cd86cb29bcfcbe24
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOMapzenProtoTile
+  - hash:
+      serializedVersion: 2
+      Hash: 219e4a056448aa87cd86cb29bcfcbe24
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOMapboxTile
+  - hash:
+      serializedVersion: 2
       Hash: 04e4a8b0447477cc4e933d9e5311188f
     assemblyName: UnityEngine.XR.LegacyInputHelpers.dll
     namespaceName: UnityEngine.XR.LegacyInputHelpers
@@ -222,6 +307,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 1f7260e1fd3a6e5575f60234bc5dd7f9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AnimateProjector
   - hash:
       serializedVersion: 2
       Hash: 699619b86d9359741a4f58540298c80b
@@ -242,6 +333,12 @@ ScriptsOnlyBuild:
     className: UccoMovement
   - hash:
       serializedVersion: 2
+      Hash: 01e7fcca671bc421ee95aeb952720293
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoShared
+    className: IALocationManager
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -252,6 +349,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: 54c5828939bcdffd21c7db32fc6f2884
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoShared
+    className: GOOrbit
   - hash:
       serializedVersion: 2
       Hash: 98aa0a0c8ff2910eb12af89c7e0eb661
@@ -273,6 +376,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AvatarEvents
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: TestResultRendererCallback
@@ -290,10 +399,46 @@ ScriptsOnlyBuild:
     className: ARRaycastManager
   - hash:
       serializedVersion: 2
+      Hash: 8d24f25503209227601e9b0332657736
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MapManager
+  - hash:
+      serializedVersion: 2
+      Hash: bded9a1a71d7af4f0c760b3e5c69e520
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GOSlippyCompassUI
+  - hash:
+      serializedVersion: 2
+      Hash: c6e4fba7ba2cd58201428ccfd30ae193
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOStreetName
+  - hash:
+      serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GridLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 0246aa8ba919511c8e0b89f20c874c45
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DebugMesh
+  - hash:
+      serializedVersion: 2
+      Hash: f2d46ef72119eab56a7c6a8f7b0602af
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOEnvironmentPro
+  - hash:
+      serializedVersion: 2
+      Hash: acd4fee18762886003fb1ed6915529ab
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FootstepsAlpha
   - hash:
       serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
@@ -320,16 +465,34 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
+      Hash: c7f5a628b43b4e92bf1f6d637097c533
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MaraudersPOI
+  - hash:
+      serializedVersion: 2
       Hash: 7f5c55cb7b3151ce240452eb85500d32
     assemblyName: Unity.XR.ARFoundation.dll
     namespaceName: UnityEngine.XR.ARFoundation
     className: ARPlaneManager
   - hash:
       serializedVersion: 2
+      Hash: f138bd7ab923e5d42fb7b3822a16de8f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOEnvironment
+  - hash:
+      serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AnimationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 773941f6b1b47e6afd49d7a68172517c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoShared
+    className: GOPreloadedMap
   - hash:
       serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
@@ -348,6 +511,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SubMeshUI
+  - hash:
+      serializedVersion: 2
+      Hash: 9a3cdbd95e1a211fbfecc10a9209d6d5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOPlacesPrefab
   - hash:
       serializedVersion: 2
       Hash: 290afc8da8e459e0b8dc7444bfaf5e35
@@ -404,10 +573,22 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: 812d0ea3be9b035d7eb2dbead8cb29c2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoShared
+    className: GOToLocationDemo
+  - hash:
+      serializedVersion: 2
       Hash: 5cc439bf63c0539d39588e69465ac2ab
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAsset
+  - hash:
+      serializedVersion: 2
+      Hash: b9073d02f43ad1583d8a2e8c0031ce7a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoShared
+    className: GOAttributes
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -434,6 +615,12 @@ ScriptsOnlyBuild:
     className: ARCoreLoader
   - hash:
       serializedVersion: 2
+      Hash: 4ac1503ab1ecb4403ad429c261e1b8bd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOMap
+  - hash:
+      serializedVersion: 2
       Hash: 1268406d3f2e4b2c2b670b560b6db769
     assemblyName: Unity.XR.ARFoundation.dll
     namespaceName: UnityEngine.XR.ARFoundation
@@ -458,6 +645,12 @@ ScriptsOnlyBuild:
     className: ARPlaneMeshVisualizer
   - hash:
       serializedVersion: 2
+      Hash: 97e22be359db16807bae9975e3b4aaa4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOMapLoadingScreen
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.XR.ARFoundation.dll
     namespaceName: UnityEngine.XR.ARFoundation
@@ -476,6 +669,12 @@ ScriptsOnlyBuild:
     className: ARCoreLoaderSettings
   - hash:
       serializedVersion: 2
+      Hash: 0b6dae1e3922deb075143610cf8bd038
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FootstepsController
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -488,10 +687,16 @@ ScriptsOnlyBuild:
     className: MunaSpawnScript
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: dff3c0142144a057d15edbfd1e74af37
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AnimatorScript
+  - hash:
+      serializedVersion: 2
+      Hash: 1ccde74b3543f172a321efaf269de698
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: triggerAlert
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -506,10 +711,28 @@ ScriptsOnlyBuild:
     className: ARPointCloud
   - hash:
       serializedVersion: 2
+      Hash: 315ff7cf1af759f5d9495b2c3527289a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GOCarAvatar
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
+  - hash:
+      serializedVersion: 2
+      Hash: aa5365ed6ee7fe5a2dd5e83433620e8d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOPlaces
+  - hash:
+      serializedVersion: 2
+      Hash: 7be8b1ad996cf950a915478d2198d781
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GOSlippyCameraMouse
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -524,10 +747,34 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoShared
+    className: GOCanvasManager
+  - hash:
+      serializedVersion: 2
+      Hash: a4fe686c7abde41846bee9c41afb8df6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoShared
+    className: BaseLocationManager
+  - hash:
+      serializedVersion: 2
       Hash: c1d728126ff1918728036c59106d32b2
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoShared
+    className: GOUtils
+  - hash:
+      serializedVersion: 2
+      Hash: 4f07650053c39e5314b0902a51ad4ed3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FootstepsAvatar
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -555,6 +802,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoShared
+    className: FileHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.XR.ARFoundation.dll
     namespaceName: UnityEngine.XR.ARFoundation
     className: ARPointCloudParticleVisualizer
@@ -570,6 +823,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalReceiver
+  - hash:
+      serializedVersion: 2
+      Hash: cf9629c79efd3deebc609c9132175e02
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GOMatHolder
+  - hash:
+      serializedVersion: 2
+      Hash: 2f51947d520823500c1821d7120136f9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpawnWorldObjects
   - hash:
       serializedVersion: 2
       Hash: 840e65a413cc46ebbbbf200f4362a70c
@@ -620,10 +885,28 @@ ScriptsOnlyBuild:
     className: ARAnchorManager
   - hash:
       serializedVersion: 2
+      Hash: 949ad171675bc199a8db09f08b63203f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GOObject
+  - hash:
+      serializedVersion: 2
       Hash: 290afc8da8e459e0b8dc7444bfaf5e35
     assemblyName: Unity.XR.ARFoundation.dll
     namespaceName: UnityEngine.XR.ARFoundation
     className: ARTrackedImage
+  - hash:
+      serializedVersion: 2
+      Hash: 628b273b59683180caef6f16445cfad4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoShared
+    className: SimpleExtruder
+  - hash:
+      serializedVersion: 2
+      Hash: 7fde82e95cf65ff8457a9ae1420e40b7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOFeatureBehaviour
   - hash:
       serializedVersion: 2
       Hash: ca2a58dd7363525cbd2f65b2a150b41b
@@ -642,6 +925,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.XR.ARFoundation.dll
     namespaceName: UnityEngine.XR.ARFoundation
     className: ARFaceManager
+  - hash:
+      serializedVersion: 2
+      Hash: 219e4a056448aa87cd86cb29bcfcbe24
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOOSMTile
+  - hash:
+      serializedVersion: 2
+      Hash: 219e4a056448aa87cd86cb29bcfcbe24
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOMapzenTile
   - hash:
       serializedVersion: 2
       Hash: 760787567e1b60d64a3e421ab83ee14a
@@ -692,16 +987,40 @@ ScriptsOnlyBuild:
     className: ARPointCloudMeshVisualizer
   - hash:
       serializedVersion: 2
+      Hash: 151f434a3ff4daca56920388ee883b49
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Attributes
+  - hash:
+      serializedVersion: 2
+      Hash: afc5b93a7b192de2dcb3832fe35a5c7e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RotateClouds
+  - hash:
+      serializedVersion: 2
       Hash: 893dbdbfe611d62e230a686ea89f1efd
     assemblyName: UnityEngine.XR.LegacyInputHelpers.dll
     namespaceName: UnityEngine.XR.LegacyInputHelpers
     className: SwingArmModel
   - hash:
       serializedVersion: 2
+      Hash: b0f781a4aceabe636159d95610cc6d63
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoShared
+    className: LocationManager
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
+  - hash:
+      serializedVersion: 2
+      Hash: bf2913000bb6416d8bc17eee5111818a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AnimatePrefab
   - hash:
       serializedVersion: 2
       Hash: d791aa6007fa3640be1164ea75bb087d
@@ -722,6 +1041,18 @@ ScriptsOnlyBuild:
     className: ARMeshManager
   - hash:
       serializedVersion: 2
+      Hash: c3cb48290c3a98df794ad86a81b7eeff
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoShared
+    className: GOCameraLook
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ReverseNormals
+  - hash:
+      serializedVersion: 2
       Hash: a2612813f45d0ced02c3e4bc9dbea8b4
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -732,6 +1063,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ColorGradient
+  - hash:
+      serializedVersion: 2
+      Hash: 2f6802e4c8d122a5d4cbb2bf386cb299
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GODropFeatures
   - hash:
       serializedVersion: 2
       Hash: cbe6deff75fc0987595a61e9510f7917
@@ -782,6 +1119,12 @@ ScriptsOnlyBuild:
     className: TMP_SubMesh
   - hash:
       serializedVersion: 2
+      Hash: 4f07650053c39e5314b0902a51ad4ed3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MoveAvatar
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestRunner.Utils
@@ -792,6 +1135,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.XR.Management.dll
     namespaceName: UnityEngine.XR.Management
     className: XRManagerSettings
+  - hash:
+      serializedVersion: 2
+      Hash: 87dd7ba148abd95fa77ee4361c95e7b1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GOCompassUI
   - hash:
       serializedVersion: 2
       Hash: f1d735cc1a21c3704ab52568f4fbfcf8
@@ -806,10 +1155,28 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
+      Hash: 7559879e592fbaec87d5efaab1c2d4db
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOAlert
+  - hash:
+      serializedVersion: 2
+      Hash: ddbb5b8b37004ac0ca6ad2a133792050
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GO4Square
+  - hash:
+      serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: StandaloneInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoShared
+    className: GOMakePrefab
   - hash:
       serializedVersion: 2
       Hash: 0ffaf073d4b1fa4e8036cf7ad52ddba7
@@ -830,10 +1197,22 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
+      Hash: f4046bdcd348e943faac92d7ef72b4ef
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: GoMap
+    className: GOMapLoadingScene
+  - hash:
+      serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: ToggleGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 628b273b59683180caef6f16445cfad4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SimpleExtruder
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -842,11 +1221,11 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: e02f5cb0584d17417052ce50cf5882ae
+      Hash: 18e509aab5326f6005338959da89b53d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GroundScan
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/19118516/Desktop/arTestBuild.apk
+  playerPath: C:/Users/19118527/Desktop/MaijaPaarma/OutokumpuGOGithub/Outokumpu_Go/ArToimiin/builds/2nd.apk
