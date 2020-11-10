@@ -16,6 +16,7 @@ public class GroundScan : MonoBehaviour
     private ARSessionOrigin arOrigin;
     private ARRaycastManager arRayCastManager;
     private NavMeshSurface navMeshSurface;
+    [HideInInspector]
     public new Camera camera;
     bool navMeshIsActive;
     Vector3 screenCenter;

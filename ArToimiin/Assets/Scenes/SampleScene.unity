@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugLogText: {fileID: 1898735718}
-  prefabCharacter: {fileID: 1420495262814169741, guid: f5df2ab987fd09a49812fade02e731b2, type: 3}
+  prefabCharacter: {fileID: 4127257324417043549, guid: 874c99930b902764fa117457bb535c3d, type: 3}
   prefabMuna: {fileID: 729536665950159814, guid: d90e356f97e83244686240ec3e6083ef, type: 3}
   camera: {fileID: 0}
 --- !u!4 &1198276282
