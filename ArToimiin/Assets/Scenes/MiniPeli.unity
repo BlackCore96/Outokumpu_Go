@@ -765,12 +765,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 648c541e814f7fb49bfeef00eac7b464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD:ArToimiin/Assets/Scenes/MiniPeli.unity
   meshBounds: {x: 0, y: 0, z: 0}
   desiredSize: 30
   meshSize: 0
-=======
->>>>>>> parent of 4c6edb6... asdfgh:ArToimiin/Assets/Scenes/SampleScene.unity
   debugLogText: {fileID: 1898735718}
   prefabCharacter: {fileID: 4127257324417043549, guid: 874c99930b902764fa117457bb535c3d, type: 3}
   prefabMuna: {fileID: 729536665950159814, guid: d90e356f97e83244686240ec3e6083ef, type: 3}
