@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/MiniPeli.unity
+- path: "Assets/Scenes/Flat Map - Poke\u0300mon GO Style.unity"
   isLoaded: 1
   isActive: 1
   isSubScene: 0
