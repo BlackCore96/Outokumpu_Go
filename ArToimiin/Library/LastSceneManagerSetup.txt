@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/MiniPeli.unity
+=======
+- path: Assets/Scenes/TestiScene.unity
+>>>>>>> parent of 4c6edb6... asdfgh
   isLoaded: 1
   isActive: 1
   isSubScene: 0
