@@ -31,17 +31,21 @@ public class MapManager : MonoBehaviour
 
     private void Update()
     {
-        if (stopGrowing)
+        try
         {
-            if (stopTransform.localScale.x < growSizeVector.x)
+            if (stopGrowing)
             {
-                stopTransform.localScale = Vector3.MoveTowards(stopTransform.localScale, growSizeVector, interpolate);
+                if (stopTransform.localScale.x < growSizeVector.x)
+                {
+                    stopTransform.localScale = Vector3.MoveTowards(stopTransform.localScale, growSizeVector, interpolate);
+                }
+            }
+            else if (stopTransform.localScale.x > normalSizeVector.x)
+            {
+                stopTransform.localScale = Vector3.MoveTowards(stopTransform.localScale, normalSizeVector, interpolate);
             }
         }
-        else if (stopTransform.localScale.x > normalSizeVector.x)
-        {
-            stopTransform.localScale = Vector3.MoveTowards(stopTransform.localScale, normalSizeVector, interpolate);
-        }
+        catch {}
     }
 
     public void Trigger(bool state)
