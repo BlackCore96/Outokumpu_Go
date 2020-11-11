@@ -2278,6 +2278,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe37a2253b027143ae47461d73b2ed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stopGrowing: 0
+  stopTransform: {fileID: 0}
+  growSizeVector: {x: 40, y: 40, z: 40}
+  normalSizeVector: {x: 20, y: 20, z: 20}
+  interpolate: 0.5
   miniGameButton: {fileID: 863833471}
   pOIs: []
 --- !u!1 &1955776652

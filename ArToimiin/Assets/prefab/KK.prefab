@@ -5365,9 +5365,8 @@ GameObject:
   - component: {fileID: 7234538800258975931}
   - component: {fileID: 1022673974484649760}
   - component: {fileID: 6321372480345817888}
-  - component: {fileID: 1014549234911885935}
   m_Layer: 0
-  m_Name: KK (1)
+  m_Name: KK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5450,21 +5449,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1014549234911885935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4127257324417043549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b89da2742af7dc4aa7605178e4631ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  catchParticle: {fileID: 7615297826955586180}
-  dustTrailParticle: {fileID: 3867864565084178832}
 --- !u!1 &4553177390071740991
 GameObject:
   m_ObjectHideFlags: 0

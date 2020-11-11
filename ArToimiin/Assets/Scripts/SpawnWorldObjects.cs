@@ -38,6 +38,7 @@ public class SpawnWorldObjects : MonoBehaviour
             mapManager.pOIs.Add(stop); //lisää map managerin listaan kyseisen stopin
             position = coordinates.convertCoordinateToVector();
             stop.transform.position = position; //siirtää stopin oikeaan paikkaan
+            stop.GetComponent<Animator>().SetFloat("Offset", Random.Range(0f, 1f));
         }
     }
 }

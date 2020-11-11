@@ -12,11 +12,11 @@ public class AvatarEvents : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Coll");
         if (other.gameObject.CompareTag("POI"))
         {
             mapManager.Trigger(MapManager.TriggerState.Enter);
-            Debug.Log("Enter");
+            mapManager.stopTransform = other.transform;
+            mapManager.stopGrowing = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -24,7 +24,7 @@ public class AvatarEvents : MonoBehaviour
         if (other.gameObject.CompareTag("POI"))
         {
             mapManager.Trigger(MapManager.TriggerState.Exit);
-            Debug.Log("Exit");
+            mapManager.stopGrowing = false;
         }
     }
 }

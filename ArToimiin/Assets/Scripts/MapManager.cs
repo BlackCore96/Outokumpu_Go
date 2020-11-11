@@ -6,6 +6,14 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
+    [HideInInspector]
+    public bool stopGrowing = false;
+    [HideInInspector]
+    public Transform stopTransform;
+    public Vector3 growSizeVector;
+    public Vector3 normalSizeVector;
+    public float interpolate;
+
     public class TriggerState
     {
         public const bool Enter = true;
@@ -18,6 +26,22 @@ public class MapManager : MonoBehaviour
     private void Start()
     {
         miniGameButton.gameObject.SetActive(false);
+        stopGrowing = false;
+    }
+
+    private void Update()
+    {
+        if (stopGrowing)
+        {
+            if (stopTransform.localScale.x < growSizeVector.x)
+            {
+                stopTransform.localScale = Vector3.MoveTowards(stopTransform.localScale, growSizeVector, interpolate);
+            }
+        }
+        else if (stopTransform.localScale.x > normalSizeVector.x)
+        {
+            stopTransform.localScale = Vector3.MoveTowards(stopTransform.localScale, normalSizeVector, interpolate);
+        }
     }
 
     public void Trigger(bool state)

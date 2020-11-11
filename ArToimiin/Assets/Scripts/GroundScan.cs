@@ -30,6 +30,7 @@ public class GroundScan : MonoBehaviour
         arRayCastManager = FindObjectOfType<ARRaycastManager>();
         camera = arOrigin.GetComponentInChildren<Camera>();
         screenCenter = camera.ViewportToScreenPoint(new Vector3(.5f, .5f));
+        GetComponent<AnimatorScript>().animator = prefabCharacter.GetComponent<Animator>();
         InvokeRepeating("UpdateNavMesh", .5f, .5f);
         InvokeRepeating("SpawnCharacter", .6f, .5f);
     }
