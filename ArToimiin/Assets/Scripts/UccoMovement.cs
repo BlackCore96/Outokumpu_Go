@@ -35,14 +35,14 @@ public class UccoMovement : MonoBehaviour
         navMeshAgent.speed = movementSpeed;
         if (isCaught)
         {
-            transform.LookAt(camera.transform, Vector3.up);
+            transform.LookAt(camera.transform);
         }
         else
         {
             if (!navMeshAgent.hasPath && !IsInvoking("SetDestination"))
             {
                 animatorScript.IsStill();
-                Invoke("SetDestination", 1f);
+                Invoke("SetDestination", 3f);
             }
         }
     }
