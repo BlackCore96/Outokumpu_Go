@@ -1,7 +1,11 @@
 sceneSetups:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 - path: Assets/Scenes/SampleScene.unity
+=======
+- path: "Assets/Scenes/Flat Map - Poke\u0300mon GO Style.unity"
+>>>>>>> parent of dbc2671... Revert "asdfgh"
 =======
 - path: "Assets/Scenes/Flat Map - Poke\u0300mon GO Style.unity"
 >>>>>>> parent of dbc2671... Revert "asdfgh"
