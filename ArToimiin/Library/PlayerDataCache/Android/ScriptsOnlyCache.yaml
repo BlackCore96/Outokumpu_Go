@@ -35,10 +35,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -61,7 +59,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Text
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/MiniPeli.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -163,7 +161,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14990}
     - Class: 114
-      Script: {instanceID: 16002}
+      Script: {instanceID: 18158}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -1237,11 +1235,11 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 0c662c0f0b186a9b5057beb02b2364eb
+      Hash: 084bcc351e1db3b374096bdc9e72c802
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GroundScan
   platform: 13
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
+  - Assets/Scenes/MiniPeli.unity
   playerPath: C:/Users/19118516/Desktop/OkuGoMinipeli.apk

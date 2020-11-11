@@ -2240,10 +2240,6 @@ MonoBehaviour:
   stopPrefab: {fileID: 6138439223090090883, guid: b132162948c43bb4fa86a18f187c77cb, type: 3}
   poiCoordinates: []
   riveriaTestCoordinates:
-  - latitude: 62.732302
-    longitude: 29.054962
-    altitude: 0
-    timestampLastUpdate: 0
   - latitude: 62.731978
     longitude: 29.055226
     altitude: 0
