@@ -11,6 +11,7 @@ public class CatchScript : MonoBehaviour
     public GameObject placeholder;
     public float catchTime;
     public Slider progressSlider;
+    public Button leaveMiniGameButton;
     private new Camera camera;
     private GameObject cameraObject;
     Vector3 characterVector;
@@ -33,6 +34,7 @@ public class CatchScript : MonoBehaviour
         progress = 0;
         progressSlider.maxValue = catchTime;
         animatorScript = FindObjectOfType<AnimatorScript>();
+        leaveMiniGameButton.enabled = false;
     }
 
     private void Update()
@@ -96,10 +98,17 @@ public class CatchScript : MonoBehaviour
         isDecaying = false;
         isCaught = true;
         animatorScript.IsCatched();
+        leaveMiniGameButton.enabled = true;
     }
 
     void ProgressBarDecayDelay()
     {
         isDecaying = true;
+    }
+
+    public void OnButtonPress()
+    {
+        //animaatioo... muuta asiaa
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }

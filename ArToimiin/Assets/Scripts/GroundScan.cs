@@ -81,5 +81,8 @@ public class GroundScan : MonoBehaviour
         debugLogText.text = "Spawned the egg!";
         navMeshIsActive = true;
         GameObject muna = Instantiate(prefabMuna, navMeshSurface.transform.position, Quaternion.identity);
+        var pos = muna.transform.position;
+        pos.y = camera.transform.position.y - .5f;
+        muna.transform.position = pos;
     }
 }

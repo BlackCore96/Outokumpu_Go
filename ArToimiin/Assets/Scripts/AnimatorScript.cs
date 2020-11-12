@@ -10,7 +10,7 @@ public class AnimatorScript : MonoBehaviour
 
     public void IsCatched ()
     {
-        catchParticle.Play();
+        //catchParticle.Play();
         animator.SetBool("IsMoving", false);
         animator.SetBool("IsStill", false);
         animator.SetTrigger("IsCatched");
@@ -20,7 +20,7 @@ public class AnimatorScript : MonoBehaviour
     {
         animator.SetBool("IsMoving", true);
         animator.SetBool("IsStill", false);
-        dustTrailParticle.Play();
+        //dustTrailParticle.Play();
     }
 
     public void IsStill ()
