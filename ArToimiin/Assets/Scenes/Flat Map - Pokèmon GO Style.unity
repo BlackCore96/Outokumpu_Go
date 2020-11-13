@@ -2218,6 +2218,7 @@ GameObject:
   - component: {fileID: 1658062781}
   - component: {fileID: 1658062780}
   - component: {fileID: 1658062782}
+  - component: {fileID: 1658062783}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2240,14 +2241,22 @@ MonoBehaviour:
   stopPrefab: {fileID: 6138439223090090883, guid: b132162948c43bb4fa86a18f187c77cb, type: 3}
   poiCoordinates: []
   riveriaTestCoordinates:
-  - latitude: 62.731978
-    longitude: 29.055226
-    altitude: 0
-    timestampLastUpdate: 0
-  - latitude: 62.731272
-    longitude: 29.053952
-    altitude: 0
-    timestampLastUpdate: 0
+  - pOICoordinate:
+      latitude: 62.732041
+      longitude: 29.055373
+      altitude: 0
+      timestampLastUpdate: 0
+    prefabCharacter: {fileID: 4127257324417043549, guid: 874c99930b902764fa117457bb535c3d, type: 3}
+    stopID: 1
+    isBeaten: 0
+  - pOICoordinate:
+      latitude: 62.731313
+      longitude: 29.054009
+      altitude: 0
+      timestampLastUpdate: 0
+    prefabCharacter: {fileID: 4127257324417043549, guid: 874c99930b902764fa117457bb535c3d, type: 3}
+    stopID: 2
+    isBeaten: 0
 --- !u!4 &1658062781
 Transform:
   m_ObjectHideFlags: 0
@@ -2279,8 +2288,21 @@ MonoBehaviour:
   growSizeVector: {x: 40, y: 40, z: 40}
   normalSizeVector: {x: 20, y: 20, z: 20}
   interpolate: 0.25
+  characterPrefab: {fileID: 4127257324417043549, guid: 874c99930b902764fa117457bb535c3d, type: 3}
   miniGameButton: {fileID: 863833471}
-  pOIs: []
+--- !u!114 &1658062783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658062779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9459bd7e4b10f49aebeaa65db283b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveGame: 0
 --- !u!1 &1955776652
 GameObject:
   m_ObjectHideFlags: 0

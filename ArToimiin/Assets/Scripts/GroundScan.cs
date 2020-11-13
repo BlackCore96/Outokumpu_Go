@@ -34,6 +34,7 @@ public class GroundScan : MonoBehaviour
     void Start()
     {
         navMeshIsActive = false;
+        prefabCharacter = MapManager.prefab;
         arOrigin = FindObjectOfType<ARSessionOrigin>();
         arRayCastManager = FindObjectOfType<ARRaycastManager>();
         camera = arOrigin.GetComponentInChildren<Camera>();

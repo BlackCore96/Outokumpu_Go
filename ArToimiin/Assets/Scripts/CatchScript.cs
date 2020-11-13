@@ -99,6 +99,7 @@ public class CatchScript : MonoBehaviour
         isCaught = true;
         animatorScript.IsCatched();
         leaveMiniGameButton.enabled = true;
+        MapManager.win = true;
     }
 
     void ProgressBarDecayDelay()

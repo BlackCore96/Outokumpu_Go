@@ -11,16 +11,18 @@ public class SpawnWorldObjects : MonoBehaviour
     MapManager mapManager;
     public GameObject stopPrefab;
     [Header("Points of Interest")]
-    public List<Coordinates> poiCoordinates;
+    public List<POIInfo> poiCoordinates;
     [Header("Testing Points of Interest")]
-    public List<Coordinates> riveriaTestCoordinates;
+    public List<POIInfo> riveriaTestCoordinates;
+
+    static public List<POIInfo> pOIInfos;
     bool useTestingPois;
     Vector3 position;
     GameObject stop;
 
     private void Start()
     {
-        Invoke("LateStart", .5f);
+        Invoke("LateStart", .4f);
     }
 
     void LateStart()
@@ -32,13 +34,41 @@ public class SpawnWorldObjects : MonoBehaviour
         {
             poiCoordinates = riveriaTestCoordinates;
         } //testaus stopit
-        foreach (Coordinates coordinates in poiCoordinates)
+        if (SaveManager.firstLaunch)
         {
-            stop = Instantiate(stopPrefab);          
-            mapManager.pOIs.Add(stop); //lisää map managerin listaan kyseisen stopin
-            position = coordinates.convertCoordinateToVector();
-            stop.transform.position = position; //siirtää stopin oikeaan paikkaan
-            stop.GetComponent<Animator>().SetFloat("Offset", Random.Range(0f, 1f));
+            pOIInfos = new List<POIInfo>();
+            pOIInfos = poiCoordinates;
         }
+
+        Invoke("SpawnStops", 1);
+    }
+
+    void SpawnStops()
+    {
+        foreach (POIInfo pOI in pOIInfos)
+        {
+            if (!pOI.isBeaten)
+            {
+                stop = Instantiate(stopPrefab);
+                stop.GetComponent<StopInfoCont>().prefab = pOI.prefabCharacter;
+                stop.GetComponent<StopInfoCont>().stopID = pOI.stopID;
+                position = pOI.pOICoordinate.convertCoordinateToVector();
+                stop.transform.position = position; //siirtää stopin oikeaan paikkaan
+                stop.GetComponent<Animator>().SetFloat("Offset", Random.Range(0f, 1f));
+            }
+        }
+    }
+
+    [System.Serializable]
+    public class POIInfo
+    {
+        [Tooltip("Ignore altitude")]
+        public Coordinates pOICoordinate;
+        [Space]
+        public GameObject prefabCharacter;
+        [Header("Unique ID")]
+        public int stopID;
+        //[HideInInspector]
+        public bool isBeaten;
     }
 }

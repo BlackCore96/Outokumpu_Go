@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using GoShared;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -13,6 +14,11 @@ public class MapManager : MonoBehaviour
     public Vector3 growSizeVector;
     public Vector3 normalSizeVector;
     public float interpolate;
+    [Header("MiniGame")]
+    public GameObject characterPrefab;
+    static public GameObject prefab;
+    static public int stopID;
+    static public bool win;
 
     public class TriggerState
     {
@@ -21,12 +27,31 @@ public class MapManager : MonoBehaviour
     }
 
     public Button miniGameButton;
-    public List<GameObject> pOIs = new List<GameObject>();
 
     private void Start()
     {
         miniGameButton.gameObject.SetActive(false);
         stopGrowing = false;
+        Invoke("LateStart", .45f);
+    }
+
+    void LateStart()
+    {
+        if (win)
+        {
+            Debug.Log(stopID.ToString());
+            foreach (SpawnWorldObjects.POIInfo pOI in SpawnWorldObjects.pOIInfos)
+            {
+                Debug.Log(pOI.stopID.ToString());
+                if (pOI.stopID.Equals(stopID))
+                {
+                    Debug.Log("check2");
+                    pOI.isBeaten = true;
+                    win = false;
+                    break;
+                }
+            }
+        }
     }
 
     private void Update()

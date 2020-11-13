@@ -17,6 +17,8 @@ public class AvatarEvents : MonoBehaviour
             mapManager.Trigger(MapManager.TriggerState.Enter);
             mapManager.stopTransform = other.transform;
             mapManager.stopGrowing = true;
+            MapManager.stopID = other.GetComponent<StopInfoCont>().stopID;//asettaa kyseisen stopin ID:n muistiin
+            MapManager.prefab = other.GetComponent<StopInfoCont>().prefab;//asettaa kyseisen stopin hahmon minipeliin
         }
     }
     private void OnTriggerExit(Collider other)
