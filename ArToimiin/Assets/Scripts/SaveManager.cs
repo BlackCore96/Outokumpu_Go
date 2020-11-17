@@ -23,7 +23,14 @@ public class SaveManager : MonoBehaviour
 
     private void Awake()
     {
-        dataPath = Application.persistentDataPath + "/save";
+        if (!Application.isEditor)
+        {
+            dataPath = Application.persistentDataPath + "/Save";
+        }
+        else
+        {
+            dataPath = "C:/Users/19118516/Desktop/Save";
+        }
         ReadData();
     }
 
@@ -37,6 +44,14 @@ public class SaveManager : MonoBehaviour
             {
                 formatter.Serialize(fileStream, saveFile);
             }
+        }
+        try
+        {
+            
+        }
+        catch
+        {
+            Debug.Log("Error saving the files!");
         }
     }
 
@@ -56,26 +71,33 @@ public class SaveManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        Save();
+        //Save();
     }
 
     void ReadData()
     {
-        if (!Directory.Exists(dataPath))//tarkistaa onko directory olemassa--> jos ei niin tekee
+        try
         {
-            firstLaunch = true;
-            Directory.CreateDirectory(dataPath);
-            saveFile = new SaveInfo();
-            saveFile.pOIs = new List<SpawnWorldObjects.POIInfo>();
-            Debug.Log("First time!");
-        }
-        else
-        {
-            Debug.Log("Load");
-            using (Stream filestream = File.OpenRead(dataPath))//unauthorized access!!
+            if (!Directory.Exists(dataPath))//tarkistaa onko directory olemassa--> jos ei niin tekee
             {
-                saveFile = (SaveInfo)formatter.Deserialize(filestream);
+                firstLaunch = true;
+                Directory.CreateDirectory(dataPath);
+                saveFile = new SaveInfo();
+                saveFile.pOIs = new List<SpawnWorldObjects.POIInfo>();
+                Debug.Log("First time!");
             }
+            else
+            {
+                Debug.Log("Load");
+                using (Stream filestream = File.OpenRead(dataPath))//unauthorized access!!
+                {
+                    saveFile = (SaveInfo)formatter.Deserialize(filestream);
+                }
+            }
+        }
+        catch
+        {
+            Debug.Log("Error reading the files!");
         }
     }
 }

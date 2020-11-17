@@ -18,6 +18,7 @@ ScriptsOnlyBuild:
     - MoveAvatar
     - MunaSpawnScript
     - RotateClouds
+    - SaveManager
     - SpawnWorldObjects
     - StopInfoCont
     - UccoMovement
@@ -151,23 +152,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13914}
     - Class: 114
-      Script: {instanceID: 14310}
+      Script: {instanceID: 13980}
     - Class: 114
-      Script: {instanceID: 14470}
+      Script: {instanceID: 14314}
     - Class: 114
-      Script: {instanceID: 14516}
+      Script: {instanceID: 14474}
     - Class: 114
-      Script: {instanceID: 14810}
+      Script: {instanceID: 14520}
     - Class: 114
-      Script: {instanceID: 14838}
+      Script: {instanceID: 14562}
     - Class: 114
-      Script: {instanceID: 14850}
+      Script: {instanceID: 14816}
     - Class: 114
-      Script: {instanceID: 14872}
+      Script: {instanceID: 14844}
     - Class: 114
-      Script: {instanceID: 20414}
+      Script: {instanceID: 14856}
     - Class: 114
-      Script: {instanceID: 22556}
+      Script: {instanceID: 14878}
+    - Class: 114
+      Script: {instanceID: 18544}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 119
@@ -262,27 +265,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13902}
     - Class: 114
-      Script: {instanceID: 14162}
+      Script: {instanceID: 14062}
     - Class: 114
-      Script: {instanceID: 14254}
+      Script: {instanceID: 14166}
     - Class: 114
-      Script: {instanceID: 14264}
+      Script: {instanceID: 14258}
     - Class: 114
-      Script: {instanceID: 14310}
+      Script: {instanceID: 14268}
     - Class: 114
-      Script: {instanceID: 14338}
+      Script: {instanceID: 14314}
     - Class: 114
-      Script: {instanceID: 14568}
+      Script: {instanceID: 14342}
     - Class: 114
-      Script: {instanceID: 14738}
+      Script: {instanceID: 14574}
     - Class: 114
-      Script: {instanceID: 14872}
+      Script: {instanceID: 14744}
     - Class: 114
-      Script: {instanceID: 14918}
+      Script: {instanceID: 14878}
     - Class: 114
-      Script: {instanceID: 14990}
+      Script: {instanceID: 14924}
     - Class: 114
-      Script: {instanceID: 16378}
+      Script: {instanceID: 14996}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -1004,6 +1007,12 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 48e7637651b176c7d7d597c50c36c473
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StopInfoCont
+  - hash:
+      serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1014,6 +1023,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.XR.ARFoundation.dll
     namespaceName: UnityEngine.XR.ARFoundation
     className: ARAnchorManager
+  - hash:
+      serializedVersion: 2
+      Hash: e8905c0ffb61168413dd70c23a2c867a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MiniGameManager
   - hash:
       serializedVersion: 2
       Hash: 949ad171675bc199a8db09f08b63203f
@@ -1158,6 +1173,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: 2120b33f0bea4035b6d39fb73956f70a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SaveManager
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1356,24 +1377,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GroundScan
-  - hash:
-      serializedVersion: 2
-      Hash: e8905c0ffb61168413dd70c23a2c867a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MiniGameManager
-  - hash:
-      serializedVersion: 2
-      Hash: 48e7637651b176c7d7d597c50c36c473
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: StopInfoCont
-  - hash:
-      serializedVersion: 2
-      Hash: fd8128b51eb6f32c2e465b00a6258dd7
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SaveManager
   platform: 13
   scenePathNames:
   - "Assets/Scenes/Flat Map - Poke\u0300mon GO Style.unity"
