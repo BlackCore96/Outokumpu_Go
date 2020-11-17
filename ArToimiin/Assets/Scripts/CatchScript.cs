@@ -86,7 +86,7 @@ public class CatchScript : MonoBehaviour
                 Caught();
             }
         }
-        progressSlider.value = progress;
+        progressSlider.value = progressSlider.maxValue - progress;
     }
 
     void Caught()

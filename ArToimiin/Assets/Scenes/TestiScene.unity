@@ -923,7 +923,7 @@ MonoBehaviour:
   meshSize: 0
   debugLogText: {fileID: 145520003}
   prefabCharacter: {fileID: 4127257324417043549, guid: 874c99930b902764fa117457bb535c3d, type: 3}
-  prefabMuna: {fileID: 729536665950159814, guid: d90e356f97e83244686240ec3e6083ef, type: 3}
+  prefabMuna: {fileID: 2444786219944538130, guid: d918f1b51a5443e41b95250536e1dfa3, type: 3}
   camera: {fileID: 0}
 --- !u!114 &1423956251
 MonoBehaviour:
@@ -1136,7 +1136,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1597331327}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:

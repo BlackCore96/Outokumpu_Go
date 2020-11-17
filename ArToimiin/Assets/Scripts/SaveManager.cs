@@ -71,7 +71,7 @@ public class SaveManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        //Save();
+        Save();
     }
 
     void ReadData()
