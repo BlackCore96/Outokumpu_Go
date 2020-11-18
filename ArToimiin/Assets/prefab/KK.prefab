@@ -5365,7 +5365,6 @@ GameObject:
   - component: {fileID: 7234538800258975931}
   - component: {fileID: 1022673974484649760}
   - component: {fileID: 6321372480345817888}
-  - component: {fileID: 6722402709482488646}
   m_Layer: 0
   m_Name: KK
   m_TagString: Untagged
@@ -5450,20 +5449,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6722402709482488646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4127257324417043549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8b09b5dee5128409af5b4001c811e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  catchParticle: {fileID: 3666496941203927450, guid: ac4fcc4d6c980454686bf2ae62997b0a, type: 3}
-  runParticle: {fileID: 1934422349340122721, guid: 99c237186c3a0844b9704ff146ffbc25, type: 3}
 --- !u!1 &4553177390071740991
 GameObject:
   m_ObjectHideFlags: 0
@@ -5939,7 +5924,7 @@ GameObject:
   - component: {fileID: 3867864565084178832}
   - component: {fileID: 7607926256206050918}
   m_Layer: 0
-  m_Name: RunDustParticles
+  m_Name: RunParticle
   m_TagString: RunParticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10812,7 +10797,7 @@ GameObject:
   - component: {fileID: 7615297826955586180}
   - component: {fileID: 430990155077146367}
   m_Layer: 0
-  m_Name: KKCatchParticle
+  m_Name: CatchParticle
   m_TagString: CatchParticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

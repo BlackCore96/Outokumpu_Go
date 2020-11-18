@@ -21,6 +21,7 @@ public class AnimatorScript : MonoBehaviour
         animator.SetBool("IsMoving", true);
         animator.SetBool("IsStill", false);
         dustTrailParticle.Play();
+        Debug.Log("run");
     }
 
     public void IsStill ()

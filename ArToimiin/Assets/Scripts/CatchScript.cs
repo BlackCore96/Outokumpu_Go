@@ -91,7 +91,6 @@ public class CatchScript : MonoBehaviour
 
     void Caught()
     {
-        Debug.Log("caught");
         hahmo.GetComponent<UccoMovement>().Stop();
         hahmo.GetComponent<UccoMovement>().isCaught = true;
         isProgressing = false;

@@ -45,8 +45,6 @@ public class GroundScan : MonoBehaviour
         AnimatorScript animatorScript = GetComponent<AnimatorScript>();
 
         animatorScript.animator = prefabCharacter.GetComponent<Animator>();
-        animatorScript.catchParticle = prefabCharacter.GetComponent<ParticleContainer>().catchParticle;
-        animatorScript.dustTrailParticle = prefabCharacter.GetComponent<ParticleContainer>().runParticle;
         if (Application.isEditor)
         {
             Instantiate(groundPrefab, new Vector3(0, -1, 1), Quaternion.identity);
