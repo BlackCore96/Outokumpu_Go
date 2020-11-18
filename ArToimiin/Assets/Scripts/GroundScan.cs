@@ -42,10 +42,7 @@ public class GroundScan : MonoBehaviour
         arRayCastManager = FindObjectOfType<ARRaycastManager>();
         camera = arOrigin.GetComponentInChildren<Camera>();
         screenCenter = camera.ViewportToScreenPoint(new Vector3(.5f, .5f));
-        AnimatorScript animatorScript = GetComponent<AnimatorScript>();
-        animatorScript.animator = prefabCharacter.GetComponent<Animator>();
-        animatorScript.catchParticle = prefabCharacter.GetComponent<ParticleContainer>().catchParticle;
-        animatorScript.dustTrailParticle = prefabCharacter.GetComponent<ParticleContainer>().runParticle;
+        GetComponent<AnimatorScript>().animator = prefabCharacter.GetComponent<Animator>();
         if (Application.isEditor)
         {
             Instantiate(groundPrefab, new Vector3(0, -1, 1), Quaternion.identity);
