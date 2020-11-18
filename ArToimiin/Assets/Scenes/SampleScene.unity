@@ -1258,6 +1258,7 @@ MonoBehaviour:
   debugLogText: {fileID: 1898735718}
   prefabCharacter: {fileID: 0}
   prefabMuna: {fileID: 2444786219944538130, guid: d918f1b51a5443e41b95250536e1dfa3, type: 3}
+  groundPrefab: {fileID: 5077359468732308353, guid: 40e8e2cd707f4574db4d4164ad7b62d8, type: 3}
   camera: {fileID: 0}
 --- !u!4 &1198276282
 Transform:

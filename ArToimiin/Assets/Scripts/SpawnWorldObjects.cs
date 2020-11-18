@@ -39,6 +39,8 @@ public class SpawnWorldObjects : MonoBehaviour
             pOIInfos = new List<POIInfo>();
             pOIInfos = poiCoordinates;
         }
+        pOIInfos = new List<POIInfo>();
+        pOIInfos = poiCoordinates;
 
         Invoke("SpawnStops", 1);
     }
