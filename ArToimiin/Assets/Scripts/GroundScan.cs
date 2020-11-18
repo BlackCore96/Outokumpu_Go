@@ -20,6 +20,9 @@ public class GroundScan : MonoBehaviour
     public Text debugLogText;
     public GameObject prefabCharacter;
     public GameObject prefabMuna;
+
+    [Header("Editor ground")]
+    public GameObject groundPrefab;
     private ARSessionOrigin arOrigin;
     private ARRaycastManager arRayCastManager;
     private MeshFilter navMesh;
@@ -40,6 +43,10 @@ public class GroundScan : MonoBehaviour
         camera = arOrigin.GetComponentInChildren<Camera>();
         screenCenter = camera.ViewportToScreenPoint(new Vector3(.5f, .5f));
         GetComponent<AnimatorScript>().animator = prefabCharacter.GetComponent<Animator>();
+        if (Application.isEditor)
+        {
+            Instantiate(groundPrefab, new Vector3(0, -1, 1), Quaternion.identity);
+        }
         InvokeRepeating("UpdateNavMesh", .5f, .5f);
     }
 
