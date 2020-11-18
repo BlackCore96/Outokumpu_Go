@@ -439,7 +439,6 @@ GameObject:
   - component: {fileID: 2664045091071943418}
   - component: {fileID: 2664045091071943419}
   - component: {fileID: 2664045091071942916}
-  - component: {fileID: 2664045091071942917}
   m_Layer: 0
   m_Name: GraniittiRanka
   m_TagString: Untagged
@@ -525,20 +524,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2664045091071942917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2898628436464879423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8b09b5dee5128409af5b4001c811e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  catchParticle: {fileID: 3666496941203927450, guid: ac4fcc4d6c980454686bf2ae62997b0a, type: 3}
-  runParticle: {fileID: 1934422349340122721, guid: 99c237186c3a0844b9704ff146ffbc25, type: 3}
 --- !u!1 &3229428065392939248
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,14 +760,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4998204592022423377}
-  m_LocalRotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
+  m_LocalRotation: {x: -0.000000052822624, y: 0.70710677, z: 0.7071069, w: 0.0000000074505797}
   m_LocalPosition: {x: 0.001286447, y: 0.2165761, z: 0.035011046}
   m_LocalScale: {x: 189.98225, y: 189.98225, z: 189.98225}
   m_Children:
   - {fileID: 666264510467596844}
   m_Father: {fileID: 2554156268720070021}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
 --- !u!1 &5223208090201634151
 GameObject:
   m_ObjectHideFlags: 0
