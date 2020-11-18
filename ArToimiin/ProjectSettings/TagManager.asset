@@ -7,6 +7,8 @@ TagManager:
   - Hahmo
   - ARPlane
   - POI
+  - CatchParticle
+  - RunParticle
   layers:
   - Default
   - TransparentFX

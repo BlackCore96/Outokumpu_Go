@@ -5365,6 +5365,7 @@ GameObject:
   - component: {fileID: 7234538800258975931}
   - component: {fileID: 1022673974484649760}
   - component: {fileID: 6321372480345817888}
+  - component: {fileID: 6722402709482488646}
   m_Layer: 0
   m_Name: KK
   m_TagString: Untagged
@@ -5389,8 +5390,8 @@ Transform:
   - {fileID: 4846494319690663029}
   - {fileID: 554378158043112811}
   - {fileID: 6355873390530452679}
-  - {fileID: 2370854198419704980}
   - {fileID: 3869905525536220975}
+  - {fileID: 2370854198419704980}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 135.854, z: 0}
@@ -5449,6 +5450,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6722402709482488646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4127257324417043549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8b09b5dee5128409af5b4001c811e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catchParticle: {fileID: 3666496941203927450, guid: ac4fcc4d6c980454686bf2ae62997b0a, type: 3}
+  runParticle: {fileID: 1934422349340122721, guid: 99c237186c3a0844b9704ff146ffbc25, type: 3}
 --- !u!1 &4553177390071740991
 GameObject:
   m_ObjectHideFlags: 0
@@ -5925,7 +5940,7 @@ GameObject:
   - component: {fileID: 7607926256206050918}
   m_Layer: 0
   m_Name: RunDustParticles
-  m_TagString: Untagged
+  m_TagString: RunParticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5942,7 +5957,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 6273726870313155176}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -53.18, z: 0}
 --- !u!198 &3867864565084178832
 ParticleSystem:
@@ -10798,7 +10813,7 @@ GameObject:
   - component: {fileID: 430990155077146367}
   m_Layer: 0
   m_Name: KKCatchParticle
-  m_TagString: Untagged
+  m_TagString: CatchParticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10816,7 +10831,7 @@ Transform:
   m_Children:
   - {fileID: 7186572659688979743}
   m_Father: {fileID: 6273726870313155176}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &7615297826955586180
 ParticleSystem:
