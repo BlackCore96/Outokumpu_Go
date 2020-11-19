@@ -89,9 +89,30 @@ public class SaveManager : MonoBehaviour
             else
             {
                 Debug.Log("Load");
-                using (Stream filestream = File.OpenRead(dataPath))//unauthorized access!!
+                try
                 {
-                    saveFile = (SaveInfo)formatter.Deserialize(filestream);
+                    using (Stream filestream = File.OpenRead(dataPath))//unauthorized access!!
+                    {
+                        saveFile = (SaveInfo)formatter.Deserialize(filestream);
+                        foreach (SpawnWorldObjects.POIInfo pOIInfo in saveFile.pOIs)
+                        {
+                            if (pOIInfo.isBeaten)
+                            {
+                                SpawnWorldObjects.pOIInfos = saveFile.pOIs;
+                                break;
+                            }
+                        }
+                        saveFile = new SaveInfo();
+                        saveFile.pOIs = new List<SpawnWorldObjects.POIInfo>();
+                        firstLaunch = true;
+                    }
+                }
+                catch
+                {
+                    Debug.Log("Error");
+                    saveFile = new SaveInfo();
+                    saveFile.pOIs = new List<SpawnWorldObjects.POIInfo>();
+                    firstLaunch = true;
                 }
             }
         }

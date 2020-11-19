@@ -109,6 +109,6 @@ public class CatchScript : MonoBehaviour
     public void OnButtonPress()
     {
         //animaatioo... muuta asiaa
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 }

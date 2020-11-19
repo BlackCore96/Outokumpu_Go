@@ -80,6 +80,6 @@ public class MapManager : MonoBehaviour
 
     public void MiniGameOnButtonPress()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }
