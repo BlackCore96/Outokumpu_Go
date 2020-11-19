@@ -40,11 +40,6 @@ public class SpawnWorldObjects : MonoBehaviour
             pOIInfos = new List<POIInfo>();
             pOIInfos = poiCoordinates;
         }
-        if (Application.isEditor)
-        {
-            pOIInfos = new List<POIInfo>();
-            pOIInfos = poiCoordinates;
-        }
         Invoke("SpawnStops", 1);
     }
 
@@ -55,7 +50,7 @@ public class SpawnWorldObjects : MonoBehaviour
             if (!pOI.isBeaten)
             {
                 stop = Instantiate(stopPrefab);
-                stop.GetComponent<StopInfoCont>().prefab = pOI.prefabCharacter;
+                stop.GetComponent<StopInfoCont>().prefab = mapManager.characters[pOI.stopID];
                 stop.GetComponent<StopInfoCont>().stopID = pOI.stopID;
                 position = pOI.pOICoordinate.convertCoordinateToVector();
                 stop.transform.position = position; //siirtää stopin oikeaan paikkaan
@@ -69,8 +64,6 @@ public class SpawnWorldObjects : MonoBehaviour
     {
         [Tooltip("Ignore altitude")]
         public Coordinates pOICoordinate;
-        [Space]
-        public GameObject prefabCharacter;
         [Header("Unique ID")]
         public int stopID;
         //[HideInInspector]

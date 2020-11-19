@@ -11,10 +11,13 @@ public class MapManager : MonoBehaviour
     public bool stopGrowing = false;
     [HideInInspector]
     public Transform stopTransform;
+    [Header("MiniPeli ukot")]
+    public GameObject[] characters;
     public Vector3 growSizeVector;
     public Vector3 normalSizeVector;
     public float interpolate;
     [Header("MiniGame")]
+    [HideInInspector]
     public GameObject characterPrefab;
     static public GameObject prefab;
     static public int stopID;

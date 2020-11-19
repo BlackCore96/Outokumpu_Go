@@ -12,11 +12,12 @@ public class SaveManager : MonoBehaviour
         public List<SpawnWorldObjects.POIInfo> pOIs;
     }
 
-    SaveInfo saveFile;
+    List<SpawnWorldObjects.POIInfo> saveFile;
     BinaryFormatter formatter = new BinaryFormatter();
     string dataPath;
 
     static public bool firstLaunch = false;
+    static public bool loadSave = false;
 
     [Header("Save Game")]
     public bool saveGame;
@@ -29,25 +30,29 @@ public class SaveManager : MonoBehaviour
         }
         else
         {
-            dataPath = "C:/Users/19118516/Desktop/Save";
+            dataPath = Application.persistentDataPath + "/Save";
         }
-        ReadData();
+        if (loadSave)
+        {
+            ReadData();
+        }
+
+        Invoke("LateStart", .1f);
+    }
+
+    void LateStart()
+    {
+        Save();
     }
 
     public void Save()
     {
-        if (!saveFile.pOIs.Equals(SpawnWorldObjects.pOIInfos))
-        {
-            Debug.Log("Save");
-            saveFile.pOIs = SpawnWorldObjects.pOIInfos;
-            using (Stream fileStream = File.OpenWrite(dataPath))
-            {
-                formatter.Serialize(fileStream, saveFile);
-            }
-        }
         try
         {
-            
+            Debug.Log("Save");
+            saveFile = SpawnWorldObjects.pOIInfos;
+            FileStream fileStream = File.OpenWrite(dataPath);
+            formatter.Serialize(fileStream, saveFile);
         }
         catch
         {
@@ -76,42 +81,29 @@ public class SaveManager : MonoBehaviour
 
     void ReadData()
     {
+        loadSave = false;
         try
         {
-            if (!Directory.Exists(dataPath))//tarkistaa onko directory olemassa--> jos ei niin tekee
+            if (!File.Exists(dataPath))//tarkistaa onko directory olemassa--> jos ei niin tekee
             {
                 firstLaunch = true;
-                Directory.CreateDirectory(dataPath);
-                saveFile = new SaveInfo();
-                saveFile.pOIs = new List<SpawnWorldObjects.POIInfo>();
+                File.Create(dataPath);
+                saveFile = new List<SpawnWorldObjects.POIInfo>();
                 Debug.Log("First time!");
             }
             else
             {
-                Debug.Log("Load");
                 try
                 {
-                    using (Stream filestream = File.OpenRead(dataPath))//unauthorized access!!
-                    {
-                        saveFile = (SaveInfo)formatter.Deserialize(filestream);
-                        foreach (SpawnWorldObjects.POIInfo pOIInfo in saveFile.pOIs)
-                        {
-                            if (pOIInfo.isBeaten)
-                            {
-                                SpawnWorldObjects.pOIInfos = saveFile.pOIs;
-                                break;
-                            }
-                        }
-                        saveFile = new SaveInfo();
-                        saveFile.pOIs = new List<SpawnWorldObjects.POIInfo>();
-                        firstLaunch = true;
-                    }
+                    Debug.Log("Load");
+                    FileStream filestream = File.OpenRead(dataPath);
+                    saveFile = (List<SpawnWorldObjects.POIInfo>)formatter.Deserialize(filestream);
+                    SpawnWorldObjects.pOIInfos = saveFile;
                 }
                 catch
                 {
                     Debug.Log("Error");
-                    saveFile = new SaveInfo();
-                    saveFile.pOIs = new List<SpawnWorldObjects.POIInfo>();
+                    saveFile = new List<SpawnWorldObjects.POIInfo>();
                     firstLaunch = true;
                 }
             }
