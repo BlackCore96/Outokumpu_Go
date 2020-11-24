@@ -9,6 +9,7 @@ TagManager:
   - POI
   - CatchParticle
   - RunParticle
+  - ParticleTarget
   layers:
   - Default
   - TransparentFX
