@@ -738,7 +738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &741274055
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -747,8 +747,8 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741274054}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
+  m_Alpha: 0
+  m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &741274056
@@ -1387,6 +1387,7 @@ MonoBehaviour:
   catchTime: 5
   progressSlider: {fileID: 1429062049}
   leaveMiniGameButton: {fileID: 346941153}
+  progress: 0
 --- !u!114 &1198276284
 MonoBehaviour:
   m_ObjectHideFlags: 0

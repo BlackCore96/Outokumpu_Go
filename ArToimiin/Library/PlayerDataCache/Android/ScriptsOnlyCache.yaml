@@ -375,7 +375,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15422}
     - Class: 114
-      Script: {instanceID: 19684}
+      Script: {instanceID: 19680}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1405,7 +1405,7 @@ ScriptsOnlyBuild:
     className: GOAlert
   - hash:
       serializedVersion: 2
-      Hash: 9a770cb0ba9a067449b67b893519328e
+      Hash: d1872cef6e4b2f871fbff5ea2dbf9d9c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ParticlesystemAngle

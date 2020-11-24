@@ -19,6 +19,7 @@ public class AvatarEvents : MonoBehaviour
             mapManager.stopGrowing = true;
             MapManager.stopID = other.GetComponent<StopInfoCont>().stopID;//asettaa kyseisen stopin ID:n muistiin
             MapManager.prefab = other.GetComponent<StopInfoCont>().prefab;//asettaa kyseisen stopin hahmon minipeliin
+            Debug.Log("prefab!");
         }
     }
     private void OnTriggerExit(Collider other)

@@ -5,22 +5,27 @@ using UnityEngine;
 public class ParticleEmissionStrenght : MonoBehaviour
 {
     public ParticleSystem ps;
+    new Camera camera;
+    float distance = .65f;
     CatchScript catchScript;
     public float strenght;
 
-    // Start is called before the first frame update
     void Start()
     {
         ps = GetComponent<ParticleSystem>();
         catchScript = FindObjectOfType<CatchScript>();
+        camera = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
         var em = ps.emission;
         em.enabled = true;
+        var shape = ps.shape;
 
-        em.rateOverTime = strenght * catchScript.progress;
+        float distanceToCamera = Vector3.Distance(camera.transform.position, transform.position);
+
+        shape.angle = Mathf.Rad2Deg * Mathf.Atan2(distance, distanceToCamera);
+        em.rateOverTime = strenght * catchScript.progress * 10;
     }
 }

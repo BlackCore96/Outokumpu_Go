@@ -39,16 +39,6 @@ public class MapManager : MonoBehaviour
     {
         miniGameButton.gameObject.SetActive(false);
         stopGrowing = false;
-        progressMeter.maxValue = SpawnWorldObjects.pOIInfos.Count;
-        progressMeter.value = 0;
-        foreach (SpawnWorldObjects.POIInfo pOI in SpawnWorldObjects.pOIInfos)
-        {
-            if (pOI.isBeaten)
-            {
-                progressMeter.value++;
-            }
-        }
-        progressPercentage.text = (progressMeter.value / progressMeter.maxValue * 100).ToString() + "%";
         Invoke("LateStart", .45f);
     }
 
@@ -69,6 +59,16 @@ public class MapManager : MonoBehaviour
                 }
             }
         }
+        progressMeter.maxValue = SpawnWorldObjects.pOIInfos.Count;
+        progressMeter.value = 0;
+        foreach (SpawnWorldObjects.POIInfo pOI in SpawnWorldObjects.pOIInfos)
+        {
+            if (pOI.isBeaten)
+            {
+                progressMeter.value++;
+            }
+        }
+        progressPercentage.text = (progressMeter.value / progressMeter.maxValue * 100).ToString() + "%";
     }
 
     private void Update()

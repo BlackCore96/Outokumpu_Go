@@ -16,6 +16,8 @@ public class SaveManager : MonoBehaviour
     BinaryFormatter formatter = new BinaryFormatter();
     string dataPath;
 
+    bool quitQithoutSaving = false;
+
     static public bool firstLaunch = false;
     static public bool loadSave = false;
 
@@ -29,8 +31,8 @@ public class SaveManager : MonoBehaviour
         {
             ReadData();
         }
-
-        Invoke("LateStart", .1f);
+        quitQithoutSaving = false;
+        Invoke("LateStart", .5f);
     }
 
     void LateStart()
@@ -69,7 +71,17 @@ public class SaveManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        Save();
+        if (!quitQithoutSaving)
+        {
+            Save();
+        }
+    }
+
+    public void ResetSave()
+    {
+        File.Delete(dataPath);
+        quitQithoutSaving = true;
+        Application.Quit();
     }
 
     void ReadData()

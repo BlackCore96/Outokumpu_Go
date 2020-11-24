@@ -16,7 +16,7 @@ public class ParticlesystemAngle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 directionToTarget = (target.position - pSystem.position).normalized;
+        Vector3 directionToTarget = (target.position - transform.position).normalized;
         Quaternion rottation = Quaternion.LookRotation(directionToTarget, Vector3.forward);
         transform.rotation = rottation;
     }
