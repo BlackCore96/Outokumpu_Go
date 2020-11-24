@@ -19,6 +19,8 @@ ScriptsOnlyBuild:
     - MiniGameManager
     - MoveAvatar
     - MunaSpawnScript
+    - ParticleEmissionStrenght
+    - ParticlesystemAngle
     - RotateClouds
     - SaveManager
     - SpawnWorldObjects
@@ -50,12 +52,6 @@ ScriptsOnlyBuild:
     Unity.XR.Management.dll:
     - UnityEngine.XR.Management.XRGeneralSettings
     - UnityEngine.XR.Management.XRManagerSettings
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -119,75 +115,67 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 12370}
+      Script: {instanceID: 12374}
     - Class: 114
-      Script: {instanceID: 12398}
+      Script: {instanceID: 12402}
     - Class: 114
-      Script: {instanceID: 12488}
+      Script: {instanceID: 12492}
     - Class: 114
-      Script: {instanceID: 12558}
+      Script: {instanceID: 12562}
     - Class: 114
-      Script: {instanceID: 12632}
+      Script: {instanceID: 12636}
     - Class: 114
-      Script: {instanceID: 12640}
+      Script: {instanceID: 12644}
     - Class: 114
-<<<<<<< Updated upstream
-      Script: {instanceID: 12650}
-=======
-      Script: {instanceID: 12170}
+      Script: {instanceID: 12648}
     - Class: 114
-      Script: {instanceID: 12170}
+      Script: {instanceID: 12654}
     - Class: 114
-      Script: {instanceID: 12176}
->>>>>>> Stashed changes
+      Script: {instanceID: 12684}
     - Class: 114
-      Script: {instanceID: 12680}
+      Script: {instanceID: 12698}
     - Class: 114
-      Script: {instanceID: 12694}
+      Script: {instanceID: 12706}
     - Class: 114
-      Script: {instanceID: 12702}
+      Script: {instanceID: 12764}
     - Class: 114
-      Script: {instanceID: 12760}
+      Script: {instanceID: 12806}
     - Class: 114
-      Script: {instanceID: 12802}
+      Script: {instanceID: 12872}
     - Class: 114
-      Script: {instanceID: 12868}
+      Script: {instanceID: 12910}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 13062}
     - Class: 114
-<<<<<<< Updated upstream
-      Script: {instanceID: 13354}
-=======
-      Script: {instanceID: 12584}
+      Script: {instanceID: 13358}
     - Class: 114
-      Script: {instanceID: 12584}
+      Script: {instanceID: 13524}
     - Class: 114
-      Script: {instanceID: 12878}
->>>>>>> Stashed changes
+      Script: {instanceID: 14072}
     - Class: 114
-      Script: {instanceID: 13520}
+      Script: {instanceID: 14410}
     - Class: 114
-      Script: {instanceID: 14068}
+      Script: {instanceID: 14498}
     - Class: 114
-      Script: {instanceID: 14406}
+      Script: {instanceID: 14844}
     - Class: 114
-      Script: {instanceID: 14494}
+      Script: {instanceID: 15008}
     - Class: 114
-      Script: {instanceID: 14840}
+      Script: {instanceID: 15058}
     - Class: 114
-      Script: {instanceID: 15004}
+      Script: {instanceID: 15102}
     - Class: 114
-      Script: {instanceID: 15054}
+      Script: {instanceID: 15162}
     - Class: 114
-      Script: {instanceID: 15098}
+      Script: {instanceID: 15358}
     - Class: 114
-      Script: {instanceID: 15352}
+      Script: {instanceID: 15386}
     - Class: 114
-      Script: {instanceID: 15380}
+      Script: {instanceID: 15404}
     - Class: 114
-      Script: {instanceID: 15414}
+      Script: {instanceID: 15422}
     - Class: 114
-      Script: {instanceID: 15460}
+      Script: {instanceID: 15468}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 119
@@ -252,59 +240,59 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 12370}
+      Script: {instanceID: 12374}
     - Class: 114
-      Script: {instanceID: 12390}
+      Script: {instanceID: 12394}
     - Class: 114
-      Script: {instanceID: 12640}
+      Script: {instanceID: 12644}
     - Class: 114
-      Script: {instanceID: 12694}
+      Script: {instanceID: 12698}
     - Class: 114
-      Script: {instanceID: 12752}
+      Script: {instanceID: 12756}
     - Class: 114
-      Script: {instanceID: 12972}
+      Script: {instanceID: 12976}
     - Class: 114
-      Script: {instanceID: 13278}
+      Script: {instanceID: 13282}
     - Class: 114
-      Script: {instanceID: 13354}
+      Script: {instanceID: 13358}
     - Class: 114
-      Script: {instanceID: 13666}
+      Script: {instanceID: 13670}
     - Class: 114
-      Script: {instanceID: 13770}
+      Script: {instanceID: 13774}
     - Class: 114
-      Script: {instanceID: 13804}
+      Script: {instanceID: 13808}
     - Class: 114
-      Script: {instanceID: 13918}
+      Script: {instanceID: 13922}
     - Class: 114
-      Script: {instanceID: 14068}
+      Script: {instanceID: 14072}
     - Class: 114
-      Script: {instanceID: 14226}
+      Script: {instanceID: 14230}
     - Class: 114
-      Script: {instanceID: 14336}
+      Script: {instanceID: 14340}
     - Class: 114
-      Script: {instanceID: 14414}
+      Script: {instanceID: 14418}
     - Class: 114
-      Script: {instanceID: 14582}
+      Script: {instanceID: 14586}
     - Class: 114
-      Script: {instanceID: 14686}
+      Script: {instanceID: 14690}
     - Class: 114
-      Script: {instanceID: 14784}
+      Script: {instanceID: 14788}
     - Class: 114
-      Script: {instanceID: 14794}
+      Script: {instanceID: 14798}
     - Class: 114
-      Script: {instanceID: 14840}
+      Script: {instanceID: 14844}
     - Class: 114
-      Script: {instanceID: 14868}
+      Script: {instanceID: 14872}
     - Class: 114
-      Script: {instanceID: 15110}
+      Script: {instanceID: 15114}
     - Class: 114
-      Script: {instanceID: 15280}
+      Script: {instanceID: 15286}
     - Class: 114
-      Script: {instanceID: 15414}
+      Script: {instanceID: 15422}
     - Class: 114
-      Script: {instanceID: 15460}
+      Script: {instanceID: 15468}
     - Class: 114
-      Script: {instanceID: 15534}
+      Script: {instanceID: 15542}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -355,47 +343,39 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 12370}
+      Script: {instanceID: 12374}
     - Class: 114
-      Script: {instanceID: 12640}
+      Script: {instanceID: 12644}
     - Class: 114
-      Script: {instanceID: 12694}
+      Script: {instanceID: 12698}
     - Class: 114
-      Script: {instanceID: 12868}
+      Script: {instanceID: 12872}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12910}
     - Class: 114
-      Script: {instanceID: 13208}
+      Script: {instanceID: 13212}
     - Class: 114
-      Script: {instanceID: 13236}
+      Script: {instanceID: 13240}
     - Class: 114
-      Script: {instanceID: 13354}
+      Script: {instanceID: 13358}
     - Class: 114
-      Script: {instanceID: 13718}
+      Script: {instanceID: 13722}
     - Class: 114
-      Script: {instanceID: 14068}
+      Script: {instanceID: 14072}
     - Class: 114
-      Script: {instanceID: 14230}
+      Script: {instanceID: 14234}
     - Class: 114
-      Script: {instanceID: 14428}
+      Script: {instanceID: 14432}
     - Class: 114
-      Script: {instanceID: 14832}
+      Script: {instanceID: 14836}
     - Class: 114
-      Script: {instanceID: 14840}
+      Script: {instanceID: 14844}
     - Class: 114
-      Script: {instanceID: 15392}
+      Script: {instanceID: 15398}
     - Class: 114
-      Script: {instanceID: 15414}
+      Script: {instanceID: 15422}
     - Class: 114
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      Script: {instanceID: 19488}
-=======
-      Script: {instanceID: 105980}
->>>>>>> Stashed changes
-=======
-      Script: {instanceID: 105980}
->>>>>>> Stashed changes
+      Script: {instanceID: 19684}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -633,15 +613,7 @@ ScriptsOnlyBuild:
     className: ARRaycastManager
   - hash:
       serializedVersion: 2
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      Hash: 8c4ce22b8538134278c47e78504e28cd
-=======
       Hash: c5aeef695915c67da682aec307ee3745
->>>>>>> Stashed changes
-=======
-      Hash: c5aeef695915c67da682aec307ee3745
->>>>>>> Stashed changes
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MapManager
@@ -1025,7 +997,7 @@ ScriptsOnlyBuild:
     className: ARFaceMeshVisualizer
   - hash:
       serializedVersion: 2
-      Hash: fee46fb91cf753f544182a559f539cef
+      Hash: 6fa50886b66102e66efa1792b05a2cdf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CatchScript
@@ -1307,6 +1279,12 @@ ScriptsOnlyBuild:
     className: ARMeshManager
   - hash:
       serializedVersion: 2
+      Hash: 1d8365e5ca24aa2ae78f2f9d7e6e48fd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ParticleEmissionStrenght
+  - hash:
+      serializedVersion: 2
       Hash: c3cb48290c3a98df794ad86a81b7eeff
     assemblyName: Assembly-CSharp.dll
     namespaceName: GoShared
@@ -1427,6 +1405,12 @@ ScriptsOnlyBuild:
     className: GOAlert
   - hash:
       serializedVersion: 2
+      Hash: 9a770cb0ba9a067449b67b893519328e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ParticlesystemAngle
+  - hash:
+      serializedVersion: 2
       Hash: ddbb5b8b37004ac0ca6ad2a133792050
     assemblyName: Assembly-CSharp.dll
     namespaceName: GoMap
@@ -1491,21 +1475,9 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GroundScan
-  - hash:
-      serializedVersion: 2
-      Hash: 9a770cb0ba9a067449b67b893519328e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ParticlesystemAngle
-  - hash:
-      serializedVersion: 2
-      Hash: 1d8365e5ca24aa2ae78f2f9d7e6e48fd
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ParticleEmissionStrenght
   platform: 13
   scenePathNames:
   - Assets/Scenes/StartUp.unity
   - "Assets/Scenes/Flat Map - Poke\u0300mon GO Style.unity"
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/19118527/Desktop/MaijaPaarma/OutokumpuGOGithub/Outokumpu_Go/ArToimiin/builds/3rd.apk
+  playerPath: C:/Users/19118516/Desktop/Outokumpu_Go/ArToimiin/OkuGO.apk

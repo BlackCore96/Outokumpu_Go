@@ -17,7 +17,7 @@ public class CatchScript : MonoBehaviour
     Vector3 characterVector;
     Vector3 cameraVector;
     float characterAngleDistance;
-    float progress;
+    public float progress;
     bool isDecaying;
     bool isProgressing;
     bool isCaught;
