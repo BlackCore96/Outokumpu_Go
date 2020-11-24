@@ -71,7 +71,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.Mask
+    - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Shadow
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
@@ -129,7 +131,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12640}
     - Class: 114
+<<<<<<< Updated upstream
       Script: {instanceID: 12650}
+=======
+      Script: {instanceID: 12170}
+    - Class: 114
+      Script: {instanceID: 12176}
+>>>>>>> Stashed changes
     - Class: 114
       Script: {instanceID: 12680}
     - Class: 114
@@ -145,7 +153,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12906}
     - Class: 114
+<<<<<<< Updated upstream
       Script: {instanceID: 13354}
+=======
+      Script: {instanceID: 12584}
+    - Class: 114
+      Script: {instanceID: 12878}
+>>>>>>> Stashed changes
     - Class: 114
       Script: {instanceID: 13520}
     - Class: 114
@@ -369,7 +383,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15414}
     - Class: 114
+<<<<<<< Updated upstream
       Script: {instanceID: 19488}
+=======
+      Script: {instanceID: 105980}
+>>>>>>> Stashed changes
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -607,7 +625,11 @@ ScriptsOnlyBuild:
     className: ARRaycastManager
   - hash:
       serializedVersion: 2
+<<<<<<< Updated upstream
       Hash: 8c4ce22b8538134278c47e78504e28cd
+=======
+      Hash: c5aeef695915c67da682aec307ee3745
+>>>>>>> Stashed changes
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MapManager

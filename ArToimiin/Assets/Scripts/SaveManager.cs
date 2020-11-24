@@ -24,14 +24,7 @@ public class SaveManager : MonoBehaviour
 
     private void Awake()
     {
-        if (!Application.isEditor)
-        {
-            dataPath = Application.persistentDataPath + "/Save";
-        }
-        else
-        {
-            dataPath = Application.persistentDataPath + "/Save";
-        }
+        dataPath = Application.persistentDataPath + "/Save";
         if (loadSave)
         {
             ReadData();
@@ -49,10 +42,10 @@ public class SaveManager : MonoBehaviour
     {
         try
         {
-            Debug.Log("Save");
             saveFile = SpawnWorldObjects.pOIInfos;
             FileStream fileStream = File.OpenWrite(dataPath);
             formatter.Serialize(fileStream, saveFile);
+            Debug.Log("Saved successfully");
         }
         catch
         {
@@ -84,7 +77,7 @@ public class SaveManager : MonoBehaviour
         loadSave = false;
         try
         {
-            if (!File.Exists(dataPath))//tarkistaa onko directory olemassa--> jos ei niin tekee
+            if (!File.Exists(dataPath))//tarkistaa onko file olemassa--> jos ei niin tekee
             {
                 firstLaunch = true;
                 File.Create(dataPath);

@@ -19,6 +19,10 @@ public class MapManager : MonoBehaviour
     [Header("MiniGame")]
     [HideInInspector]
     public GameObject characterPrefab;
+
+    public Slider progressMeter;
+    public Text progressPercentage;
+
     static public GameObject prefab;
     static public int stopID;
     static public bool win;
@@ -35,12 +39,22 @@ public class MapManager : MonoBehaviour
     {
         miniGameButton.gameObject.SetActive(false);
         stopGrowing = false;
+        progressMeter.maxValue = SpawnWorldObjects.pOIInfos.Count;
+        progressMeter.value = 0;
+        foreach (SpawnWorldObjects.POIInfo pOI in SpawnWorldObjects.pOIInfos)
+        {
+            if (pOI.isBeaten)
+            {
+                progressMeter.value++;
+            }
+        }
+        progressPercentage.text = (progressMeter.value / progressMeter.maxValue * 100).ToString() + "%";
         Invoke("LateStart", .45f);
     }
 
     void LateStart()
     {
-        if (win)
+        if (win) //asettaa juuri voitetun stopin voitettujen listaan
         {
             Debug.Log(stopID.ToString());
             foreach (SpawnWorldObjects.POIInfo pOI in SpawnWorldObjects.pOIInfos)
