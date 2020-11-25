@@ -20,6 +20,10 @@ public class MapManager : MonoBehaviour
     [HideInInspector]
     public GameObject characterPrefab;
 
+    public Sprite[] unlockedImages;
+    public Sprite[] lockedImages;
+    public Image[] libraryCharacters;
+
     public Slider progressMeter;
     public Text progressPercentage;
     public Transform characterLibraryTransform;
@@ -52,13 +56,11 @@ public class MapManager : MonoBehaviour
     {
         if (win) //asettaa juuri voitetun stopin voitettujen listaan
         {
-            Debug.Log(stopID.ToString());
             foreach (SpawnWorldObjects.POIInfo pOI in SpawnWorldObjects.pOIInfos)
             {
                 Debug.Log(pOI.stopID.ToString());
                 if (pOI.stopID.Equals(stopID))
                 {
-                    Debug.Log("check2");
                     pOI.isBeaten = true;
                     win = false;
                     break;
@@ -66,15 +68,27 @@ public class MapManager : MonoBehaviour
             }
         }
         progressMeter.maxValue = SpawnWorldObjects.pOIInfos.Count;
-        progressMeter.value = 0;
+        progressMeter.value = progressMeter.maxValue;
         foreach (SpawnWorldObjects.POIInfo pOI in SpawnWorldObjects.pOIInfos)
         {
             if (pOI.isBeaten)
             {
-                progressMeter.value++;
+                progressMeter.value--;
             }
         }
-        progressPercentage.text = (progressMeter.value / progressMeter.maxValue * 100).ToString() + "%";
+        progressPercentage.text = (100 -(progressMeter.value / progressMeter.maxValue * 100)).ToString() + "%";
+
+        for (int i = 0; i < libraryCharacters.Length; i++)
+        {
+            if (SpawnWorldObjects.pOIInfos[i].isBeaten)
+            {
+                libraryCharacters[i].sprite = unlockedImages[i];
+            }
+            else
+            {
+                libraryCharacters[i].sprite = lockedImages[i];
+            }
+        }
     }
 
     private void Update()

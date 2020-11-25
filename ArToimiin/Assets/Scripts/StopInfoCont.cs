@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class StopInfoCont : MonoBehaviour
 {
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject prefab;
-    //[HideInInspector]
+    [HideInInspector]
     public int stopID;
 }

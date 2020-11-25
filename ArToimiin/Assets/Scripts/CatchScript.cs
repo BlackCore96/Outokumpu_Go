@@ -8,7 +8,6 @@ public class CatchScript : MonoBehaviour
     [HideInInspector]
     public GameObject hahmo;
     public float angle = 45f;
-    public GameObject placeholder;
     public float catchTime;
     public Slider progressSlider;
     public Button leaveMiniGameButton;
@@ -27,7 +26,6 @@ public class CatchScript : MonoBehaviour
     {
         camera = Camera.main;
         cameraObject = camera.gameObject;
-        placeholder.SetActive(false);
         isProgressing = false;
         isDecaying = false;
         isCaught = false;
@@ -49,7 +47,6 @@ public class CatchScript : MonoBehaviour
                 if (characterAngleDistance <= angle)
                 {
                     isProgressing = true;
-                    placeholder.SetActive(true);
                     StopCoroutine("ProgressBarDecayDelay");
                     isDecaying = false;
                 }
@@ -61,7 +58,6 @@ public class CatchScript : MonoBehaviour
                     {
                         Invoke("ProgressBarDecayDelay", .3f);
                     }
-                    placeholder.SetActive(false);
                 }
             }
         }
@@ -72,7 +68,7 @@ public class CatchScript : MonoBehaviour
 
         if (isDecaying)
         {
-            progress -= Time.deltaTime;
+            progress -= Time.deltaTime * 1.5f;
             if (progress <= 0)
             {
                 progress = 0;

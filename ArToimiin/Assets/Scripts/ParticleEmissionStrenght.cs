@@ -26,6 +26,6 @@ public class ParticleEmissionStrenght : MonoBehaviour
         float distanceToCamera = Vector3.Distance(camera.transform.position, transform.position);
 
         shape.angle = Mathf.Rad2Deg * Mathf.Atan2(distance, distanceToCamera);
-        em.rateOverTime = strenght * catchScript.progress * 10;
+        em.rateOverTime = strenght * Mathf.Pow(catchScript.progress, 2) * .5f;
     }
 }

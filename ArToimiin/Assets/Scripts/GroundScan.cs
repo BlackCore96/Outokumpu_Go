@@ -11,7 +11,6 @@ using System;
 public class GroundScan : MonoBehaviour
 {
     public Vector3 meshBounds;
-    private GameObject meshObject;
     [Space, Header("Size in m^2 until scanning is complete")]
     public float desiredSize;
     [Space]
@@ -21,13 +20,14 @@ public class GroundScan : MonoBehaviour
     public GameObject prefabCharacter;
     public GameObject prefabMuna;
     public GameObject ground;
-
-    [Header("Editor ground")]
     public GameObject groundPrefab;
+
+    [Header("Editor Spawn Object")]
+    public GameObject editorObject;
     private ARSessionOrigin arOrigin;
     private ARRaycastManager arRayCastManager;
     private MeshFilter mesh;
-    private ARPlane meshSurface;
+    private GameObject meshSurface;
     [HideInInspector]
     public new Camera camera;
     bool navMeshIsActive;
@@ -46,12 +46,14 @@ public class GroundScan : MonoBehaviour
         AnimatorScript animatorScript = GetComponent<AnimatorScript>();
 
         animatorScript.animator = prefabCharacter.GetComponent<Animator>();
+        InvokeRepeating("UpdateNavMesh", .5f, .5f);
         if (Application.isEditor)
         {
-            ground = Instantiate(groundPrefab, new Vector3(0, -1, 1), Quaternion.identity);
-            ground.GetComponent<NavMeshSurface>().BuildNavMesh();
+            meshSurface = Instantiate(editorObject, new Vector3(0, -.5f, 1), Quaternion.identity);
+            SpawnGround();
+            CancelInvoke("UpdateNavMesh");
         }
-        InvokeRepeating("UpdateNavMesh", .5f, .5f);
+        
     }
 
     void UpdateNavMesh()
@@ -60,36 +62,31 @@ public class GroundScan : MonoBehaviour
         {
             if (!navMeshIsActive)
             {
-                try
-                {
-                    meshBounds = new Vector3(mesh.mesh.bounds.size.x * meshObject.transform.localScale.x, 1, mesh.mesh.bounds.size.z * meshObject.transform.localScale.z);
-                    meshSize = meshBounds.x * meshBounds.z;
-                }
-                catch
-                {
+                //try
+                //{
+                    //meshBounds = new Vector3(mesh.mesh.bounds.size.x * meshSurface.transform.localScale.x, 1, mesh.mesh.bounds.size.z * meshSurface.transform.localScale.z);
+                    //meshSize = meshBounds.x * meshBounds.z;
+                //}
+                //catch
+                //{
                     Debug.Log("Searching NavMesh...");
                     debugLogText.text = "Searching NavMesh...";
-                    meshSurface = FindObjectOfType<ARPlane>();
+                    meshSurface = GameObject.FindGameObjectWithTag("Plane");
                     try
                     {
-                        meshObject = meshSurface.gameObject;
-                        mesh = meshObject.GetComponent<MeshFilter>();
+                        mesh = meshSurface.GetComponent<MeshFilter>();
                         Debug.Log("NavMesh Found!");
                         debugLogText.text += "NavMesh Found!";
+                        SpawnGround();
                     }
                     catch { }
-                }
+                //}
 
-                if (meshSize >= desiredSize)
-                {
-                    SpawnGround();
-                }
+                //if (meshSize >= desiredSize)
+                //{
+                //    SpawnGround();
+                //}
             }
-        }
-        else
-        {
-            CancelInvoke("UpdateNavMesh");
-            SpawnEgg();
         }
     }
 

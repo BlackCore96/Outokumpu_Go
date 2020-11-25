@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AnimateAvatar
     - AnimateProjector
     - AnimatorScript
     - AvatarEvents
@@ -29,8 +30,6 @@ ScriptsOnlyBuild:
     - UccoMovement
     NavMeshComponents.dll:
     - UnityEngine.AI.NavMeshSurface
-    NavMeshComponentsEditor.dll:
-    - UnityEditor.AI.NavMeshSurfaceEditor
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.XR.ARCore.Editor.dll:
@@ -108,8 +107,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -186,6 +183,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14944}
     - Class: 114
       Script: {instanceID: 14990}
+    - Class: 114
+      Script: {instanceID: 578358}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 119
@@ -337,6 +336,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 225
       Script: {instanceID: 0}
+    - Class: 238
+      Script: {instanceID: 0}
     - Class: 850595691
       Script: {instanceID: 0}
     Assets/Scenes/StartUp.unity:
@@ -391,7 +392,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14944}
     - Class: 114
-      Script: {instanceID: 198322}
+      Script: {instanceID: 174748}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -635,7 +636,7 @@ ScriptsOnlyBuild:
     className: ARRaycastManager
   - hash:
       serializedVersion: 2
-      Hash: 7adff1cdfede9be449f0bc1ab1d34e47
+      Hash: 712c91fe814c2b68be04f93fcb073756
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MapManager
@@ -1013,7 +1014,7 @@ ScriptsOnlyBuild:
     className: ARFaceMeshVisualizer
   - hash:
       serializedVersion: 2
-      Hash: 6fa50886b66102e66efa1792b05a2cdf
+      Hash: 9ef4b3a1b3db2412663b04b06f0b5547
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CatchScript
@@ -1487,10 +1488,16 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 4f0bf4ad247616cef0cd1a1118f2f5e3
+      Hash: f6026326257996cbf0d9212f26088bd6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GroundScan
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AnimateAvatar
   platform: 13
   scenePathNames:
   - Assets/Scenes/StartUp.unity
