@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 3073267704277248680}
   - component: {fileID: 1254188460922161772}
   - component: {fileID: 3526560638540395014}
+  - component: {fileID: -997352405376128628}
   m_Layer: 0
   m_Name: munataikivi
   m_TagString: Untagged
@@ -92,6 +93,25 @@ CapsuleCollider:
   m_Height: 0.67234683
   m_Direction: 1
   m_Center: {x: 0.00048218668, y: 0.35431552, z: 0}
+--- !u!95 &-997352405376128628
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2444786219944538130}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6beba5956f9e39645bd931e086c676f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3092620819403137469
 GameObject:
   m_ObjectHideFlags: 0

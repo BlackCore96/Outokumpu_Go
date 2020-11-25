@@ -22,6 +22,11 @@ public class MapManager : MonoBehaviour
 
     public Slider progressMeter;
     public Text progressPercentage;
+    public Transform characterLibraryTransform;
+    public Scrollbar scrollbar;
+
+    private float multiplier = 100;
+    private float libraryStartHeight;
 
     static public GameObject prefab;
     static public int stopID;
@@ -40,6 +45,7 @@ public class MapManager : MonoBehaviour
         miniGameButton.gameObject.SetActive(false);
         stopGrowing = false;
         Invoke("LateStart", .45f);
+        libraryStartHeight = characterLibraryTransform.position.y;
     }
 
     void LateStart()
@@ -98,5 +104,12 @@ public class MapManager : MonoBehaviour
     public void MiniGameOnButtonPress()
     {
         SceneManager.LoadScene(2);
+    }
+
+    public void LibrarySlider()
+    {
+        Vector3 newPos = characterLibraryTransform.position;
+        newPos.y = libraryStartHeight + (scrollbar.value * multiplier);
+        characterLibraryTransform.position = newPos;
     }
 }

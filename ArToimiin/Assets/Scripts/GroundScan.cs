@@ -11,7 +11,7 @@ using System;
 public class GroundScan : MonoBehaviour
 {
     public Vector3 meshBounds;
-    private GameObject navMeshObject;
+    private GameObject meshObject;
     [Space, Header("Size in m^2 until scanning is complete")]
     public float desiredSize;
     [Space]
@@ -20,13 +20,14 @@ public class GroundScan : MonoBehaviour
     public Text debugLogText;
     public GameObject prefabCharacter;
     public GameObject prefabMuna;
+    public GameObject ground;
 
     [Header("Editor ground")]
     public GameObject groundPrefab;
     private ARSessionOrigin arOrigin;
     private ARRaycastManager arRayCastManager;
-    private MeshFilter navMesh;
-    private NavMeshSurface navMeshSurface;
+    private MeshFilter mesh;
+    private ARPlane meshSurface;
     [HideInInspector]
     public new Camera camera;
     bool navMeshIsActive;
@@ -47,52 +48,64 @@ public class GroundScan : MonoBehaviour
         animatorScript.animator = prefabCharacter.GetComponent<Animator>();
         if (Application.isEditor)
         {
-            Instantiate(groundPrefab, new Vector3(0, -1, 1), Quaternion.identity);
+            ground = Instantiate(groundPrefab, new Vector3(0, -1, 1), Quaternion.identity);
+            ground.GetComponent<NavMeshSurface>().BuildNavMesh();
         }
         InvokeRepeating("UpdateNavMesh", .5f, .5f);
     }
 
     void UpdateNavMesh()
     {
-        if (!navMeshIsActive)
+        if (!Application.isEditor)
         {
-            try
+            if (!navMeshIsActive)
             {
-                navMeshSurface.BuildNavMesh();
-                meshBounds = new Vector3(navMesh.mesh.bounds.size.x * navMeshObject.transform.localScale.x, 1, navMesh.mesh.bounds.size.z * navMeshObject.transform.localScale.z);
-                meshSize = meshBounds.x * meshBounds.z;
-            }
-            catch
-            {
-                Debug.Log("Searching NavMesh...");
-                debugLogText.text = "Searching NavMesh...";
-                navMeshSurface = FindObjectOfType<NavMeshSurface>();
                 try
                 {
-                    navMeshSurface.BuildNavMesh();
-                    navMeshObject = navMeshSurface.gameObject;
-                    navMesh = navMeshObject.GetComponent<MeshFilter>();
-                    Debug.Log("NavMesh Found!");
-                    debugLogText.text += "NavMesh Found!";
+                    meshBounds = new Vector3(mesh.mesh.bounds.size.x * meshObject.transform.localScale.x, 1, mesh.mesh.bounds.size.z * meshObject.transform.localScale.z);
+                    meshSize = meshBounds.x * meshBounds.z;
                 }
-                catch { }
-            }
+                catch
+                {
+                    Debug.Log("Searching NavMesh...");
+                    debugLogText.text = "Searching NavMesh...";
+                    meshSurface = FindObjectOfType<ARPlane>();
+                    try
+                    {
+                        meshObject = meshSurface.gameObject;
+                        mesh = meshObject.GetComponent<MeshFilter>();
+                        Debug.Log("NavMesh Found!");
+                        debugLogText.text += "NavMesh Found!";
+                    }
+                    catch { }
+                }
 
-            if (meshSize >= desiredSize)
-            {
-                SpawnCharacter();
+                if (meshSize >= desiredSize)
+                {
+                    SpawnGround();
+                }
             }
+        }
+        else
+        {
+            CancelInvoke("UpdateNavMesh");
+            SpawnEgg();
         }
     }
 
-    void SpawnCharacter()
+    void SpawnGround()
+    {
+        CancelInvoke("UpdateNavMesh");
+        ground = Instantiate(groundPrefab, meshSurface.transform.position, Quaternion.identity);
+        ground.GetComponent<NavMeshSurface>().BuildNavMesh();
+        SpawnEgg();
+    }
+
+    void SpawnEgg()
     {
         Debug.Log("Spawned the egg!");
         debugLogText.text = "Spawned the egg!";
         navMeshIsActive = true;
-        GameObject muna = Instantiate(prefabMuna, navMeshSurface.transform.position, Quaternion.identity);
-        var pos = muna.transform.position;
-        pos.y = camera.transform.position.y - .5f;
-        muna.transform.position = pos;
+        GameObject muna = Instantiate(prefabMuna, ground.transform.position, Quaternion.identity);
     }
 }

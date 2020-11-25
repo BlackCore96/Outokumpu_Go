@@ -748,7 +748,7 @@ CanvasGroup:
   m_GameObject: {fileID: 741274054}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 0
+  m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &741274056
@@ -1348,11 +1348,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshBounds: {x: 0, y: 0, z: 0}
-  desiredSize: 25
+  desiredSize: 2.5
   meshSize: 0
   debugLogText: {fileID: 1898735718}
   prefabCharacter: {fileID: 0}
   prefabMuna: {fileID: 2444786219944538130, guid: d918f1b51a5443e41b95250536e1dfa3, type: 3}
+  ground: {fileID: 0}
   groundPrefab: {fileID: 5077359468732308353, guid: 40e8e2cd707f4574db4d4164ad7b62d8, type: 3}
   camera: {fileID: 0}
 --- !u!4 &1198276282
