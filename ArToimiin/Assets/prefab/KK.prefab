@@ -15276,7 +15276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b21eaa117cecc74a94c22edfd700e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2.08
+  movementSpeed: 3.07
   isCaught: 0
 --- !u!195 &3607680829455783170
 NavMeshAgent:

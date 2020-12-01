@@ -23,6 +23,6 @@ public class MiniGameManager : MonoBehaviour
 
     public void ConfirmExit()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

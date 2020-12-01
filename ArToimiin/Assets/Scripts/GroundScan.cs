@@ -16,7 +16,6 @@ public class GroundScan : MonoBehaviour
     [Space]
     public float meshSize;
     [Space]
-    public Text debugLogText;
     public GameObject prefabCharacter;
     public GameObject prefabMuna;
     public GameObject ground;
@@ -24,28 +23,43 @@ public class GroundScan : MonoBehaviour
 
     [Header("Editor Spawn Object")]
     public GameObject editorObject;
+
+    [Header("Boss Fight Scene")]
+    public bool isBossFight;
+    public GameObject prefabBoss;
+    public GameObject prefabKolo;
+    [Space]
     private ARSessionOrigin arOrigin;
     private ARRaycastManager arRayCastManager;
     private MeshFilter mesh;
     private GameObject meshSurface;
     [HideInInspector]
     public new Camera camera;
-    bool navMeshIsActive;
+    //bool navMeshIsActive;
     Vector3 screenCenter;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
+    AnimatorScript animatorScript;
 
+    GameObject kolo;
+    bool removeKolo = false;
 
     void Start()
     {
-        navMeshIsActive = false;
+        //navMeshIsActive = false;
         prefabCharacter = MapManager.prefab;
         arOrigin = FindObjectOfType<ARSessionOrigin>();
         arRayCastManager = FindObjectOfType<ARRaycastManager>();
         camera = arOrigin.GetComponentInChildren<Camera>();
         screenCenter = camera.ViewportToScreenPoint(new Vector3(.5f, .5f));
-        AnimatorScript animatorScript = GetComponent<AnimatorScript>();
-
-        animatorScript.animator = prefabCharacter.GetComponent<Animator>();
+        animatorScript = GetComponent<AnimatorScript>();
+        if (isBossFight)
+        {
+            animatorScript.animator = prefabBoss.GetComponent<Animator>();
+        }
+        else
+        {
+            animatorScript.animator = prefabCharacter.GetComponent<Animator>();
+        }
         InvokeRepeating("UpdateNavMesh", .5f, .5f);
         if (Application.isEditor)
         {
@@ -53,15 +67,15 @@ public class GroundScan : MonoBehaviour
             SpawnGround();
             CancelInvoke("UpdateNavMesh");
         }
-        
+        removeKolo = false;
     }
 
     void UpdateNavMesh()
     {
         if (!Application.isEditor)
         {
-            if (!navMeshIsActive)
-            {
+            //if (!navMeshIsActive)
+            //{
                 //try
                 //{
                     //meshBounds = new Vector3(mesh.mesh.bounds.size.x * meshSurface.transform.localScale.x, 1, mesh.mesh.bounds.size.z * meshSurface.transform.localScale.z);
@@ -69,14 +83,10 @@ public class GroundScan : MonoBehaviour
                 //}
                 //catch
                 //{
-                    Debug.Log("Searching NavMesh...");
-                    debugLogText.text = "Searching NavMesh...";
                     meshSurface = GameObject.FindGameObjectWithTag("Plane");
                     try
                     {
                         mesh = meshSurface.GetComponent<MeshFilter>();
-                        Debug.Log("NavMesh Found!");
-                        debugLogText.text += "NavMesh Found!";
                         SpawnGround();
                     }
                     catch { }
@@ -86,6 +96,19 @@ public class GroundScan : MonoBehaviour
                 //{
                 //    SpawnGround();
                 //}
+            //}
+        }
+    }
+
+    private void Update()
+    {
+        if (removeKolo)
+        {
+            kolo.transform.localScale = kolo.transform.localScale - (Vector3.one * Time.deltaTime * .5f);
+            if (kolo.transform.localScale.x < 0)
+            {
+                removeKolo = false;
+                Destroy(kolo);
             }
         }
     }
@@ -95,14 +118,36 @@ public class GroundScan : MonoBehaviour
         CancelInvoke("UpdateNavMesh");
         ground = Instantiate(groundPrefab, meshSurface.transform.position, Quaternion.identity);
         ground.GetComponent<NavMeshSurface>().BuildNavMesh();
-        SpawnEgg();
+        if (isBossFight)
+        {
+            StartCoroutine("SpawnKolo");
+        }
+        else
+        {
+            SpawnEgg();
+        }
+    }
+
+    IEnumerator SpawnKolo()
+    {
+        GameObject spawn = ground.transform.GetChild(0).gameObject;
+        kolo = Instantiate(prefabKolo, spawn.transform.position, spawn.transform.rotation);
+        yield return new WaitForSeconds(4);
+        SpawnBoss();
+        yield return new WaitForSeconds(4);
+        removeKolo = true;
+    }
+
+    void SpawnBoss()
+    {
+        GameObject spawn = ground.transform.GetChild(0).gameObject;
+        GameObject boss = Instantiate(prefabBoss, spawn.transform.position, spawn.transform.rotation);
+        animatorScript.animator = boss.GetComponent<Animator>();
     }
 
     void SpawnEgg()
     {
-        Debug.Log("Spawned the egg!");
-        debugLogText.text = "Spawned the egg!";
-        navMeshIsActive = true;
+        //navMeshIsActive = true;
         GameObject muna = Instantiate(prefabMuna, ground.transform.position, Quaternion.identity);
     }
 }
