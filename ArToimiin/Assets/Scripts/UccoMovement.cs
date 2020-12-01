@@ -42,7 +42,7 @@ public class UccoMovement : MonoBehaviour
             if (!navMeshAgent.hasPath && !IsInvoking("SetDestination"))
             {
                 animatorScript.IsStill();
-                Invoke("SetDestination", 3f);
+                Invoke("SetDestination", 1.5f);
             }
         }
     }

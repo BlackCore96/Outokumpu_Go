@@ -16,7 +16,6 @@ public class GroundScan : MonoBehaviour
     [Space]
     public float meshSize;
     [Space]
-    public Text debugLogText;
     public GameObject prefabCharacter;
     public GameObject prefabMuna;
     public GameObject ground;
@@ -24,28 +23,39 @@ public class GroundScan : MonoBehaviour
 
     [Header("Editor Spawn Object")]
     public GameObject editorObject;
+
+    [Header("Boss Fight Scene")]
+    public bool isBossFight;
+    public GameObject prefabBoss;
+    [Space]
     private ARSessionOrigin arOrigin;
     private ARRaycastManager arRayCastManager;
     private MeshFilter mesh;
     private GameObject meshSurface;
     [HideInInspector]
     public new Camera camera;
-    bool navMeshIsActive;
+    //bool navMeshIsActive;
     Vector3 screenCenter;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
 
     void Start()
     {
-        navMeshIsActive = false;
+        //navMeshIsActive = false;
         prefabCharacter = MapManager.prefab;
         arOrigin = FindObjectOfType<ARSessionOrigin>();
         arRayCastManager = FindObjectOfType<ARRaycastManager>();
         camera = arOrigin.GetComponentInChildren<Camera>();
         screenCenter = camera.ViewportToScreenPoint(new Vector3(.5f, .5f));
         AnimatorScript animatorScript = GetComponent<AnimatorScript>();
-
-        animatorScript.animator = prefabCharacter.GetComponent<Animator>();
+        if (isBossFight)
+        {
+            animatorScript.animator = prefabBoss.GetComponent<Animator>();
+        }
+        else
+        {
+            animatorScript.animator = prefabCharacter.GetComponent<Animator>();
+        }
         InvokeRepeating("UpdateNavMesh", .5f, .5f);
         if (Application.isEditor)
         {
@@ -60,8 +70,8 @@ public class GroundScan : MonoBehaviour
     {
         if (!Application.isEditor)
         {
-            if (!navMeshIsActive)
-            {
+            //if (!navMeshIsActive)
+            //{
                 //try
                 //{
                     //meshBounds = new Vector3(mesh.mesh.bounds.size.x * meshSurface.transform.localScale.x, 1, mesh.mesh.bounds.size.z * meshSurface.transform.localScale.z);
@@ -69,14 +79,10 @@ public class GroundScan : MonoBehaviour
                 //}
                 //catch
                 //{
-                    Debug.Log("Searching NavMesh...");
-                    debugLogText.text = "Searching NavMesh...";
                     meshSurface = GameObject.FindGameObjectWithTag("Plane");
                     try
                     {
                         mesh = meshSurface.GetComponent<MeshFilter>();
-                        Debug.Log("NavMesh Found!");
-                        debugLogText.text += "NavMesh Found!";
                         SpawnGround();
                     }
                     catch { }
@@ -86,7 +92,7 @@ public class GroundScan : MonoBehaviour
                 //{
                 //    SpawnGround();
                 //}
-            }
+            //}
         }
     }
 
@@ -95,14 +101,24 @@ public class GroundScan : MonoBehaviour
         CancelInvoke("UpdateNavMesh");
         ground = Instantiate(groundPrefab, meshSurface.transform.position, Quaternion.identity);
         ground.GetComponent<NavMeshSurface>().BuildNavMesh();
-        SpawnEgg();
+        if (isBossFight)
+        {
+            SpawnBoss();
+        }
+        else
+        {
+            SpawnEgg();
+        }
+    }
+
+    void SpawnBoss()
+    {
+        GameObject boss = Instantiate(prefabBoss, ground.transform.position, Quaternion.identity);
     }
 
     void SpawnEgg()
     {
-        Debug.Log("Spawned the egg!");
-        debugLogText.text = "Spawned the egg!";
-        navMeshIsActive = true;
+        //navMeshIsActive = true;
         GameObject muna = Instantiate(prefabMuna, ground.transform.position, Quaternion.identity);
     }
 }
