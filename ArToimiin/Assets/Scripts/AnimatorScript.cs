@@ -61,7 +61,7 @@ public class AnimatorScript : MonoBehaviour
         }
     }
 
-    public void BossAnimationChange(BossAnimation animation)
+    public void PlayBossAnimation(BossAnimation animation)
     {
         string s = Animation(animation);
         animator.SetTrigger(s);

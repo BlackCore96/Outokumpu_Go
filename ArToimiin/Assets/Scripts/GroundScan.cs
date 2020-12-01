@@ -27,6 +27,7 @@ public class GroundScan : MonoBehaviour
     [Header("Boss Fight Scene")]
     public bool isBossFight;
     public GameObject prefabBoss;
+    public GameObject prefabKolo;
     [Space]
     private ARSessionOrigin arOrigin;
     private ARRaycastManager arRayCastManager;
@@ -37,7 +38,10 @@ public class GroundScan : MonoBehaviour
     //bool navMeshIsActive;
     Vector3 screenCenter;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
+    AnimatorScript animatorScript;
 
+    GameObject kolo;
+    bool removeKolo = false;
 
     void Start()
     {
@@ -47,7 +51,7 @@ public class GroundScan : MonoBehaviour
         arRayCastManager = FindObjectOfType<ARRaycastManager>();
         camera = arOrigin.GetComponentInChildren<Camera>();
         screenCenter = camera.ViewportToScreenPoint(new Vector3(.5f, .5f));
-        AnimatorScript animatorScript = GetComponent<AnimatorScript>();
+        animatorScript = GetComponent<AnimatorScript>();
         if (isBossFight)
         {
             animatorScript.animator = prefabBoss.GetComponent<Animator>();
@@ -63,7 +67,7 @@ public class GroundScan : MonoBehaviour
             SpawnGround();
             CancelInvoke("UpdateNavMesh");
         }
-        
+        removeKolo = false;
     }
 
     void UpdateNavMesh()
@@ -96,6 +100,19 @@ public class GroundScan : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (removeKolo)
+        {
+            kolo.transform.localScale = kolo.transform.localScale - (Vector3.one * Time.deltaTime * .5f);
+            if (kolo.transform.localScale.x < 0)
+            {
+                removeKolo = false;
+                Destroy(kolo);
+            }
+        }
+    }
+
     void SpawnGround()
     {
         CancelInvoke("UpdateNavMesh");
@@ -103,7 +120,7 @@ public class GroundScan : MonoBehaviour
         ground.GetComponent<NavMeshSurface>().BuildNavMesh();
         if (isBossFight)
         {
-            SpawnBoss();
+            StartCoroutine("SpawnKolo");
         }
         else
         {
@@ -111,9 +128,21 @@ public class GroundScan : MonoBehaviour
         }
     }
 
+    IEnumerator SpawnKolo()
+    {
+        GameObject spawn = ground.transform.GetChild(0).gameObject;
+        kolo = Instantiate(prefabKolo, spawn.transform.position, spawn.transform.rotation);
+        yield return new WaitForSeconds(4);
+        SpawnBoss();
+        yield return new WaitForSeconds(4);
+        removeKolo = true;
+    }
+
     void SpawnBoss()
     {
-        GameObject boss = Instantiate(prefabBoss, ground.transform.position, Quaternion.identity);
+        GameObject spawn = ground.transform.GetChild(0).gameObject;
+        GameObject boss = Instantiate(prefabBoss, spawn.transform.position, spawn.transform.rotation);
+        animatorScript.animator = boss.GetComponent<Animator>();
     }
 
     void SpawnEgg()
