@@ -11,8 +11,9 @@ public class BossFightManager : MonoBehaviour
 
     List<Touch> touches = new List<Touch>();
     public float waitTime = 2;
+    public float reactionTime = 1.5f;
     [HideInInspector]
-    public bool canSwipe;
+    bool canSwipe = true;
     public PeikkoState peikkoState;
     public PeikkoState dodgeCommand;
     bool correctCommand;
@@ -43,8 +44,7 @@ public class BossFightManager : MonoBehaviour
                 switch (touch.phase)
                 {
                     case TouchPhase.Began:
-                        var t = touch;
-                        touches.Add(t);
+                        touches.Add(touch);
                         break;
                     case TouchPhase.Ended:
                         CheckForFinger(touch);
@@ -56,14 +56,16 @@ public class BossFightManager : MonoBehaviour
 
     void CheckForFinger(Touch touch)
     {
+        Touch remove = new Touch();
         foreach (Touch t in touches)
         {
             if (t.fingerId.Equals(touch.fingerId))
             {
                 CheckForSwipe(t, touch);
-                touches.Remove(t);
+                remove = t;
             }
         }
+        touches.Remove(remove);
     }
 
     void CheckForSwipe(Touch start, Touch end)
@@ -97,13 +99,13 @@ public class BossFightManager : MonoBehaviour
                     animationManager.PlayAnimation(AnimatorScript.HeroAnimation.DODGE_LEFT);
                     break;
             }
-            setHeroDefault();
+            StartCoroutine("SetHeroDefault");
         }
     }
 
-    IEnumerator setHeroDefault()
+    IEnumerator SetHeroDefault()
     {
-        yield return new WaitForSeconds(waitTime / 2);
+        yield return new WaitForSeconds(waitTime);
         dodgeCommand = PeikkoState.DEFAULT;
     }
 
@@ -117,8 +119,9 @@ public class BossFightManager : MonoBehaviour
         animationManager.PlayAnimation(animation);
     }
 
-    void ResolveCommand()
+    IEnumerator ResolveCommand()
     {
+        yield return new WaitForSeconds(reactionTime);
         if (peikkoState.Equals(PeikkoState.ATTACK))
         {
             if (peikkoState == dodgeCommand)
@@ -169,8 +172,7 @@ public class BossFightManager : MonoBehaviour
         {
             ChangePeikkoState();
         }
-        yield return new WaitForSeconds(waitTime / 2);
-        ResolveCommand();
+        StartCoroutine("ResolveCommand");
         StartCoroutine("PeikkoRandom");
     }
 }
