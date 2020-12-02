@@ -110,6 +110,7 @@ public class GroundScan : MonoBehaviour
             {
                 removeKolo = false;
                 Destroy(kolo);
+                BossFightManager.instance.StartCoroutine("PeikkoRandom");
             }
         }
     }
