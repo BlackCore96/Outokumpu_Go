@@ -7,6 +7,8 @@ public class BossFightManager : MonoBehaviour
     AudioManagerScript audioManager;
     AnimatorScript animationManager;
 
+    public float waitTime;
+
     [Header("Testi animaatio toggle napit")]
     public bool swing = false;
     public bool death = false;
@@ -31,5 +33,11 @@ public class BossFightManager : MonoBehaviour
             animationManager.PlayBossAnimation(AnimatorScript.BossAnimation.DEATH);
             death = false;
         }
+    }
+
+    IEnumerator PeikkoRandom()
+    {
+        yield return new WaitForSeconds(waitTime);
+        StartCoroutine("PeikkoRandom");
     }
 }
