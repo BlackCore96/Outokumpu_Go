@@ -7,11 +7,8 @@ public class BossFightManager : MonoBehaviour
     AudioManagerScript audioManager;
     AnimatorScript animationManager;
 
+    List<Touch> touches = new List<Touch>();
     public float waitTime;
-
-    [Header("Testi animaatio toggle napit")]
-    public bool swing = false;
-    public bool death = false;
 
     private void Start()
     {
@@ -21,18 +18,52 @@ public class BossFightManager : MonoBehaviour
 
     private void Update()
     {
-        if (swing)
+        foreach (Touch touch in Input.touches)
         {
-            audioManager.PlaySound(AudioManagerScript.SoundClip.SWING);
-            animationManager.PlayBossAnimation(AnimatorScript.BossAnimation.HIT_LEFT);
-            swing = false;
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    var t = touch;
+                    touches.Add(t);
+                    break;
+                case TouchPhase.Ended:
+                    CheckForFinger(touch);
+                    touches.Remove(touch);
+                    break;
+            }
         }
-        if (death)
+    }
+
+    void CheckForFinger(Touch touch)
+    {
+        foreach (Touch t in touches)
         {
-            audioManager.PlaySound(AudioManagerScript.SoundClip.DEATH);
-            animationManager.PlayBossAnimation(AnimatorScript.BossAnimation.DEATH);
-            death = false;
+            if (t.fingerId.Equals(touch.fingerId))
+            {
+                CheckForSwipe(t, touch);
+            }
         }
+    }
+
+    void CheckForSwipe(Touch start, Touch end)
+    {
+        Vector2 swipeDirection = end.position - start.position;
+        if (Mathf.Abs(swipeDirection.x) - Mathf.Abs(swipeDirection.y) > 20)
+        {
+            if (swipeDirection.x >= 0)
+            {
+                //right
+            }
+            else
+            {
+                //left
+            }
+        }
+    }
+
+    void Swipe()
+    {
+
     }
 
     IEnumerator PeikkoRandom()
