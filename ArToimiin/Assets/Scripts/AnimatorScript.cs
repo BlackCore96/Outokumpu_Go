@@ -5,17 +5,27 @@ using UnityEngine;
 public class AnimatorScript : MonoBehaviour
 {
     public Animator animator;
+    public Animator heroAnimator;
     public ParticleSystem catchParticle;
     public ParticleSystem dustTrailParticle;
 
     public enum BossAnimation
     {
-        ATTACK = 0,
-        HIT_LEFT = 1,
-        HIT_RIGHT = 2,
-        DAMAGE = 3,
-        ROAR = 4,
-        DEATH = 5
+        ATTACK,
+        HIT_LEFT,
+        HIT_RIGHT,
+        DAMAGE,
+        ROAR,
+        DEATH
+    }
+
+    public enum HeroAnimation
+    {
+        ATTACK,
+        DODGE_LEFT,
+        DODGE_RIGHT,
+        VICTORY,
+        DEFEAT
     }
 
     public void IsCatched ()
@@ -61,7 +71,32 @@ public class AnimatorScript : MonoBehaviour
         }
     }
 
-    public void PlayBossAnimation(BossAnimation animation)
+    string Animation(HeroAnimation a)
+    {
+        switch (a)
+        {
+            case HeroAnimation.ATTACK:
+                return "Attack";
+            case HeroAnimation.DEFEAT:
+                return "Defeat";
+            case HeroAnimation.DODGE_LEFT:
+                return "EvadeLeft";
+            case HeroAnimation.DODGE_RIGHT:
+                return "EvadeRight";
+            case HeroAnimation.VICTORY:
+                return "Victory";
+            default:
+                return "Victory";
+        }
+    }
+
+    public void PlayAnimation(HeroAnimation animation)
+    {
+        string s = Animation(animation);
+        heroAnimator.SetTrigger(s);
+    }
+
+    public void PlayAnimation(BossAnimation animation)
     {
         string s = Animation(animation);
         animator.SetTrigger(s);

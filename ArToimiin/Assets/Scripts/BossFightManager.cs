@@ -9,6 +9,7 @@ public class BossFightManager : MonoBehaviour
 
     List<Touch> touches = new List<Touch>();
     public float waitTime;
+    public bool canSwipe;
 
     private void Start()
     {
@@ -18,20 +19,22 @@ public class BossFightManager : MonoBehaviour
 
     private void Update()
     {
-        foreach (Touch touch in Input.touches)
+        if (canSwipe)
         {
-            switch (touch.phase)
+            foreach (Touch touch in Input.touches)
             {
-                case TouchPhase.Began:
-                    var t = touch;
-                    touches.Add(t);
-                    break;
-                case TouchPhase.Ended:
-                    CheckForFinger(touch);
-                    touches.Remove(touch);
-                    break;
+                switch (touch.phase)
+                {
+                    case TouchPhase.Began:
+                        var t = touch;
+                        touches.Add(t);
+                        break;
+                    case TouchPhase.Ended:
+                        CheckForFinger(touch);
+                        break;
+                }
             }
-        }
+        }        
     }
 
     void CheckForFinger(Touch touch)
@@ -41,6 +44,7 @@ public class BossFightManager : MonoBehaviour
             if (t.fingerId.Equals(touch.fingerId))
             {
                 CheckForSwipe(t, touch);
+                touches.Remove(t);
             }
         }
     }
@@ -52,18 +56,30 @@ public class BossFightManager : MonoBehaviour
         {
             if (swipeDirection.x >= 0)
             {
-                //right
+                Swipe("right");
             }
             else
             {
-                //left
+                Swipe("left");
             }
         }
     }
 
-    void Swipe()
+    void Swipe(string direction)
     {
-
+        if (animationManager.heroAnimator.GetCurrentAnimatorStateInfo(0).IsName("IdleHero"))
+        {
+            switch (direction)
+            {
+                case "right":
+                    animationManager.PlayAnimation(AnimatorScript.HeroAnimation.DODGE_RIGHT);
+                    break;
+                case "left":
+                    animationManager.PlayAnimation(AnimatorScript.HeroAnimation.DODGE_LEFT);
+                    break;
+            }
+        }
+        
     }
 
     IEnumerator PeikkoRandom()

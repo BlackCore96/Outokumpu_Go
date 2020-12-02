@@ -28,6 +28,7 @@ public class GroundScan : MonoBehaviour
     public bool isBossFight;
     public GameObject prefabBoss;
     public GameObject prefabKolo;
+    public GameObject prefabHero;
     [Space]
     private ARSessionOrigin arOrigin;
     private ARRaycastManager arRayCastManager;
@@ -121,6 +122,7 @@ public class GroundScan : MonoBehaviour
         if (isBossFight)
         {
             StartCoroutine("SpawnKolo");
+            SpawnHero();
         }
         else
         {
@@ -136,6 +138,13 @@ public class GroundScan : MonoBehaviour
         SpawnBoss();
         yield return new WaitForSeconds(4);
         removeKolo = true;
+    }
+
+    void SpawnHero()
+    {
+        GameObject spawn = ground.transform.GetChild(1).gameObject;
+        GameObject hero = Instantiate(prefabHero, spawn.transform.position, spawn.transform.rotation);
+        animatorScript.heroAnimator = hero.GetComponent<Animator>();
     }
 
     void SpawnBoss()
