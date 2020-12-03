@@ -1249,6 +1249,8 @@ GameObject:
   - component: {fileID: 1198276283}
   - component: {fileID: 1198276284}
   - component: {fileID: 1198276285}
+  - component: {fileID: 1198276287}
+  - component: {fileID: 1198276286}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -1277,6 +1279,9 @@ MonoBehaviour:
   groundPrefab: {fileID: 5077359468732308353, guid: 40e8e2cd707f4574db4d4164ad7b62d8, type: 3}
   editorObject: {fileID: 4644970359863695689, guid: 373858b80341a5a44bf7816aaf01ba3b, type: 3}
   isBossFight: 0
+  prefabBoss: {fileID: 0}
+  prefabKolo: {fileID: 0}
+  prefabHero: {fileID: 0}
   camera: {fileID: 0}
 --- !u!4 &1198276282
 Transform:
@@ -1323,6 +1328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  heroAnimator: {fileID: 0}
   catchParticle: {fileID: 4713616923847460960, guid: f5df2ab987fd09a49812fade02e731b2, type: 3}
   dustTrailParticle: {fileID: 576574809524391736, guid: f5df2ab987fd09a49812fade02e731b2, type: 3}
 --- !u!114 &1198276285
@@ -1339,6 +1345,117 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exitGroup: {fileID: 741274055}
   isMiniGame: 1
+--- !u!114 &1198276286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198276280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb5433add0d69f4595714d0f8ef8ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  peikkoSwing: []
+  peikkoDeath: []
+  peikkoRoar: []
+--- !u!82 &1198276287
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198276280}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1207409700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,6 +1876,7 @@ GameObject:
   - component: {fileID: 1577749887}
   - component: {fileID: 1577749886}
   - component: {fileID: 1577749885}
+  - component: {fileID: 1577749889}
   m_Layer: 0
   m_Name: AR Camera
   m_TagString: MainCamera
@@ -1864,6 +1982,14 @@ Transform:
   m_Father: {fileID: 1114040582}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1577749889
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577749883}
+  m_Enabled: 1
 --- !u!1 &1687012872
 GameObject:
   m_ObjectHideFlags: 0

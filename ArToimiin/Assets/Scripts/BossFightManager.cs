@@ -119,9 +119,8 @@ public class BossFightManager : MonoBehaviour
         animationManager.PlayAnimation(animation);
     }
 
-    IEnumerator ResolveCommand()
+    void ResolveCommand()
     {
-        yield return new WaitForSeconds(reactionTime);
         if (peikkoState.Equals(PeikkoState.ATTACK))
         {
             if (peikkoState == dodgeCommand)
@@ -143,11 +142,6 @@ public class BossFightManager : MonoBehaviour
 
     void ChangePeikkoState()
     {
-        GetRandomPeikkoState();
-    }
-
-    void GetRandomPeikkoState()
-    {
         switch (Random.Range(0, 2))
         {
             case 0:
@@ -167,12 +161,10 @@ public class BossFightManager : MonoBehaviour
 
     public IEnumerator PeikkoRandom()
     {
+        ChangePeikkoState();
+        yield return new WaitForSeconds(reactionTime);
+        ResolveCommand();
         yield return new WaitForSeconds(waitTime);
-        if (peikkoState.Equals(PeikkoState.DEFAULT))
-        {
-            ChangePeikkoState();
-        }
-        StartCoroutine("ResolveCommand");
         StartCoroutine("PeikkoRandom");
     }
 }

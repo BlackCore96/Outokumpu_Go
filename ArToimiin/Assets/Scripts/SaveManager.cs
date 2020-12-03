@@ -92,12 +92,14 @@ public class SaveManager : MonoBehaviour
             if (!File.Exists(dataPath))//tarkistaa onko file olemassa--> jos ei niin tekee
             {
                 firstLaunch = true;
+                MapManager.mapTutorialDone = false;
                 File.Create(dataPath);
                 saveFile = new List<SpawnWorldObjects.POIInfo>();
                 Debug.Log("First time!");
             }
             else
             {
+                MapManager.mapTutorialDone = true;
                 try
                 {
                     Debug.Log("Load");

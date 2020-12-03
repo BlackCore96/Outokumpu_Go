@@ -5,15 +5,21 @@ using UnityEngine;
 
 public class HelpperiScript : MonoBehaviour
 {
+    public static HelpperiScript instanse;
     CanvasGroup canvasGroup;
     Text text;
     public float typeSpeed;
+    public float sentenceEnd;
+    public float space;
 
     [Header("Helpperi tekstit")]
     public string[] allCharactersCollected;
     public string[] firstLaunch;
     public string[] firstMinigame;
     public string[] error;
+
+    bool isWriting;
+    bool touched;
 
     public enum HelperText
     {
@@ -39,19 +45,71 @@ public class HelpperiScript : MonoBehaviour
 
     void Start()
     {
+        instanse = this;
         canvasGroup = GetComponent<CanvasGroup>();
         text = GetComponentInChildren<Text>();
     }
 
+    void ToggleCanvasGroup()
+    {
+        canvasGroup.alpha = Mathf.Abs(canvasGroup.alpha - 1);
+        canvasGroup.blocksRaycasts = !canvasGroup.blocksRaycasts;
+    }
+
+    public void StartTutorial(HelperText tutorial)
+    {
+        StartCoroutine("ShowTutorial", tutorial);
+    }
+
+    IEnumerator ShowTutorial(HelperText tutorial)
+    {
+        ToggleCanvasGroup();
+        string[] vs = GetHelperText(tutorial);
+        foreach (string s in vs)
+        {
+            StartCoroutine("WriteText", s);
+            yield return new WaitUntil(() => !isWriting);
+            if (!Application.isEditor)
+            {
+                yield return new WaitUntil(() => !Input.touchCount.Equals(0));
+            }
+            else
+            {
+                yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+            }
+        }
+        ToggleCanvasGroup();
+    }
+
     IEnumerator WriteText(string s)
     {
+        isWriting = true;
+        char[] characters = s.ToCharArray();
         text.text = "";
-        int i = 0;
-        foreach (char character in s)
+        foreach (char character in characters)
         {
-            text.text.Insert(i, character.ToString());
-            i++;
-            yield return new WaitForSeconds(typeSpeed);
+            text.text = text.text.Insert(text.text.Length, character.ToString());
+            float waitTime;
+            switch (character.ToString())
+            {
+                case "!":
+                    waitTime = sentenceEnd;
+                    break;
+                case "?":
+                    waitTime = sentenceEnd;
+                    break;
+                case ".":
+                    waitTime = sentenceEnd;
+                    break;
+                case " ":
+                    waitTime = space;
+                    break;
+                default:
+                    waitTime = typeSpeed;
+                    break;
+            }
+            yield return new WaitForSeconds(waitTime);
         }
+        isWriting = false;
     }
 }
