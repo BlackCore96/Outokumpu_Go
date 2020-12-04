@@ -32,6 +32,7 @@ public class MapManager : MonoBehaviour
     private float multiplier = 100;
     private float libraryStartHeight;
 
+    static public bool mapTutorialDone;
     static public GameObject prefab;
     static public int stopID;
     static public bool win;
@@ -77,6 +78,12 @@ public class MapManager : MonoBehaviour
             }
         }
         progressPercentage.text = (100 -(progressMeter.value / progressMeter.maxValue * 100)).ToString() + "%";
+
+        if (!mapTutorialDone)
+        {
+            mapTutorialDone = true;
+            HelpperiScript.instanse.StartTutorial(HelpperiScript.HelperText.FIRST_LAUNCH);
+        }
 
         for (int i = 0; i < libraryCharacters.Length; i++)
         {

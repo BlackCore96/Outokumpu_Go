@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class AudioManagerScript : MonoBehaviour
 {
+    public static AudioManagerScript instanse;
+
     AudioSource audioSource;
-    public AudioClip[] swing;
-    public AudioClip[] death;
+    public AudioClip[] peikkoSwing;
+    public AudioClip[] peikkoDeath;
+    public AudioClip[] peikkoRoar;
 
     public enum SoundClip
     {
-        SWING = 0,
-        DEATH = 1
+        PEIKKO_SWING = 0,
+        PEIKKO_DEATH = 1
     }
 
     AudioClip GetAudioClip(SoundClip clip)
@@ -19,14 +22,14 @@ public class AudioManagerScript : MonoBehaviour
         var a = new AudioClip[0];
         switch (clip)
         {
-            case SoundClip.SWING:
-                a = swing;
+            case SoundClip.PEIKKO_SWING:
+                a = peikkoSwing;
                 break;
-            case SoundClip.DEATH:
-                a = death;
+            case SoundClip.PEIKKO_DEATH:
+                a = peikkoDeath;
                 break;
             default:
-                a = swing;
+                a = peikkoRoar;
                 break;
         }
         return a[Random.Range(0, a.Length)];
@@ -34,6 +37,7 @@ public class AudioManagerScript : MonoBehaviour
 
     private void Start()
     {
+        instanse = this;
         audioSource = GetComponent<AudioSource>();
     }
 

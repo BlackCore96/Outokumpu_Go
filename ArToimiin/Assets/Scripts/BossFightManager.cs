@@ -12,7 +12,6 @@ public class BossFightManager : MonoBehaviour
     List<Touch> touches = new List<Touch>();
     public float waitTime = 2;
     public float reactionTime = 1.5f;
-    [HideInInspector]
     bool canSwipe = true;
     public PeikkoState peikkoState;
     public PeikkoState dodgeCommand;
@@ -71,7 +70,7 @@ public class BossFightManager : MonoBehaviour
     void CheckForSwipe(Touch start, Touch end)
     {
         Vector2 swipeDirection = end.position - start.position;
-        if (Mathf.Abs(swipeDirection.x) - Mathf.Abs(swipeDirection.y) > 20)
+        if (Mathf.Abs(swipeDirection.x) - Mathf.Abs(swipeDirection.y) >= Screen.width / 6)
         {
             if (swipeDirection.x >= 0)
             {
@@ -82,6 +81,11 @@ public class BossFightManager : MonoBehaviour
                 Swipe("left");
             }
         }
+    }
+
+    public void AttackButton()
+    {
+        Swipe("Attack");
     }
 
     void Swipe(string direction)
@@ -97,6 +101,10 @@ public class BossFightManager : MonoBehaviour
                 case "left":
                     dodgeCommand = PeikkoState.LEFT;
                     animationManager.PlayAnimation(AnimatorScript.HeroAnimation.DODGE_LEFT);
+                    break;
+                case "Attack":
+                    dodgeCommand = PeikkoState.ATTACK;
+                    animationManager.PlayAnimation(AnimatorScript.HeroAnimation.ATTACK);
                     break;
             }
             StartCoroutine("SetHeroDefault");
@@ -119,9 +127,8 @@ public class BossFightManager : MonoBehaviour
         animationManager.PlayAnimation(animation);
     }
 
-    IEnumerator ResolveCommand()
+    void ResolveCommand()
     {
-        yield return new WaitForSeconds(reactionTime);
         if (peikkoState.Equals(PeikkoState.ATTACK))
         {
             if (peikkoState == dodgeCommand)
@@ -143,12 +150,7 @@ public class BossFightManager : MonoBehaviour
 
     void ChangePeikkoState()
     {
-        GetRandomPeikkoState();
-    }
-
-    void GetRandomPeikkoState()
-    {
-        switch (Random.Range(0, 2))
+        switch (Random.Range(0, 3))
         {
             case 0:
                 PlayAnimation(AnimatorScript.BossAnimation.ATTACK);
@@ -167,12 +169,10 @@ public class BossFightManager : MonoBehaviour
 
     public IEnumerator PeikkoRandom()
     {
+        ChangePeikkoState();
+        yield return new WaitForSeconds(reactionTime);
+        ResolveCommand();
         yield return new WaitForSeconds(waitTime);
-        if (peikkoState.Equals(PeikkoState.DEFAULT))
-        {
-            ChangePeikkoState();
-        }
-        StartCoroutine("ResolveCommand");
         StartCoroutine("PeikkoRandom");
     }
 }
