@@ -36,7 +36,6 @@ public class GroundScan : MonoBehaviour
     private GameObject meshSurface;
     [HideInInspector]
     public new Camera camera;
-    //bool navMeshIsActive;
     Vector3 screenCenter;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
     AnimatorScript animatorScript;
@@ -46,7 +45,6 @@ public class GroundScan : MonoBehaviour
 
     void Start()
     {
-        //navMeshIsActive = false;
         prefabCharacter = MapManager.prefab;
         arOrigin = FindObjectOfType<ARSessionOrigin>();
         arRayCastManager = FindObjectOfType<ARRaycastManager>();
@@ -75,29 +73,13 @@ public class GroundScan : MonoBehaviour
     {
         if (!Application.isEditor)
         {
-            //if (!navMeshIsActive)
-            //{
-                //try
-                //{
-                    //meshBounds = new Vector3(mesh.mesh.bounds.size.x * meshSurface.transform.localScale.x, 1, mesh.mesh.bounds.size.z * meshSurface.transform.localScale.z);
-                    //meshSize = meshBounds.x * meshBounds.z;
-                //}
-                //catch
-                //{
-                    meshSurface = GameObject.FindGameObjectWithTag("Plane");
-                    try
-                    {
-                        mesh = meshSurface.GetComponent<MeshFilter>();
-                        SpawnGround();
-                    }
-                    catch { }
-                //}
-
-                //if (meshSize >= desiredSize)
-                //{
-                //    SpawnGround();
-                //}
-            //}
+            meshSurface = GameObject.FindGameObjectWithTag("Plane");
+            try
+            {
+                mesh = meshSurface.GetComponent<MeshFilter>();
+                SpawnGround();
+            }
+            catch { }
         }
     }
 

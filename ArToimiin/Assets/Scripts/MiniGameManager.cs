@@ -13,6 +13,15 @@ public class MiniGameManager : MonoBehaviour
     {
         exitGroup.alpha = 0;
         exitGroup.blocksRaycasts = false;
+        if (!MapManager.minigameTutorialDone)
+        {
+            Invoke("LateStart", .2f);
+        }
+    }
+
+    void LateStart()
+    {
+        HelpperiScript.instanse.StartTutorial(HelpperiScript.HelperText.FIRST_MINIGAME);
     }
 
     public void ExitButton()

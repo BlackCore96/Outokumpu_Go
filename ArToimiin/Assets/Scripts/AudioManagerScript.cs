@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class AudioManagerScript : MonoBehaviour
 {
+    //Kun haluat pyörittää ääntä, kutsu "AudioManagerScript.instance.PlaySound(AudioManagerScript.SoundClip.*PEIKKO_SWING*)"
     public static AudioManagerScript instanse;
 
     AudioSource audioSource;
+    //Tee tänne uusille äänille oma group!
     public AudioClip[] peikkoSwing;
+    public AudioClip[] peikkoDamage;
     public AudioClip[] peikkoDeath;
     public AudioClip[] peikkoRoar;
 
+    //Tee tänne uusi tunnus!
     public enum SoundClip
     {
-        PEIKKO_SWING = 0,
-        PEIKKO_DEATH = 1
+        PEIKKO_SWING,
+        PEIKKO_DEATH,
+        PEIKKO_DAMAGE
     }
 
     AudioClip GetAudioClip(SoundClip clip)
@@ -22,11 +27,15 @@ public class AudioManagerScript : MonoBehaviour
         var a = new AudioClip[0];
         switch (clip)
         {
+            //Tee tänne uusi case (ennen default casea)!
             case SoundClip.PEIKKO_SWING:
                 a = peikkoSwing;
                 break;
             case SoundClip.PEIKKO_DEATH:
                 a = peikkoDeath;
+                break;
+            case SoundClip.PEIKKO_DAMAGE:
+                a = peikkoDamage;
                 break;
             default:
                 a = peikkoRoar;

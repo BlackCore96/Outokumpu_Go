@@ -16,6 +16,7 @@ public class BossFightManager : MonoBehaviour
     public PeikkoState peikkoState;
     public PeikkoState dodgeCommand;
     bool correctCommand;
+    int peikkoActionCount;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class BossFightManager : MonoBehaviour
         instance = this;
         peikkoState = PeikkoState.DEFAULT;
         dodgeCommand = PeikkoState.DEFAULT;
+        peikkoActionCount = 0;
     }
 
     public enum PeikkoState
@@ -31,7 +33,8 @@ public class BossFightManager : MonoBehaviour
         ATTACK,
         LEFT,
         RIGHT,
-        DEFAULT
+        DEFAULT,
+        VULNERABLE
     }
 
     private void Update()
@@ -150,6 +153,14 @@ public class BossFightManager : MonoBehaviour
 
     void ChangePeikkoState()
     {
+        peikkoActionCount++;
+        if (peikkoActionCount.Equals(5))
+        {
+            peikkoActionCount = 0;
+            PlayAnimation(AnimatorScript.BossAnimation.VULNERABLE);
+            peikkoState = PeikkoState.VULNERABLE;
+            return;
+        }
         switch (Random.Range(0, 3))
         {
             case 0:

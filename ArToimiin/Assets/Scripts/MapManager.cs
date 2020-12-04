@@ -33,6 +33,7 @@ public class MapManager : MonoBehaviour
     private float libraryStartHeight;
 
     static public bool mapTutorialDone;
+    static public bool minigameTutorialDone;
     static public GameObject prefab;
     static public int stopID;
     static public bool win;
@@ -85,11 +86,13 @@ public class MapManager : MonoBehaviour
             HelpperiScript.instanse.StartTutorial(HelpperiScript.HelperText.FIRST_LAUNCH);
         }
 
+        minigameTutorialDone = false;
         for (int i = 0; i < libraryCharacters.Length; i++)
         {
             if (SpawnWorldObjects.pOIInfos[i].isBeaten)
             {
                 libraryCharacters[i].sprite = unlockedImages[i];
+                minigameTutorialDone = true;
             }
             else
             {

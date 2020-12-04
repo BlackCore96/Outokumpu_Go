@@ -16,7 +16,8 @@ public class AnimatorScript : MonoBehaviour
         HIT_RIGHT,
         DAMAGE,
         ROAR,
-        DEATH
+        DEATH,
+        VULNERABLE
     }
 
     public enum HeroAnimation
@@ -64,6 +65,8 @@ public class AnimatorScript : MonoBehaviour
                 return "HitL";
             case BossAnimation.HIT_RIGHT:
                 return "HitR";
+            case BossAnimation.VULNERABLE:
+                return "Vul";
             case BossAnimation.ROAR:
                 return "Roar";
             default:
