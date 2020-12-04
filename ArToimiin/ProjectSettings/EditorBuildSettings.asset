@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/StartUp.unity
     guid: 730cabc65e2051a4fbd33861d19785f5
-  - enabled: 0
+  - enabled: 1
     path: "Assets/Scenes/Flat Map - Poke\u0300mon GO Style.unity"
     guid: 331e65508a1194ad58e0fcfb4ca518b4
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
