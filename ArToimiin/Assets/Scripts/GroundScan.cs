@@ -101,7 +101,7 @@ public class GroundScan : MonoBehaviour
     {
         CancelInvoke("UpdateNavMesh");
         ground = Instantiate(groundPrefab, meshSurface.transform.position, Quaternion.identity);
-        ground.GetComponent<NavMeshSurface>().BuildNavMesh();
+
         if (isBossFight)
         {
             StartCoroutine("SpawnKolo");
@@ -109,6 +109,7 @@ public class GroundScan : MonoBehaviour
         }
         else
         {
+            ground.GetComponent<NavMeshSurface>().BuildNavMesh();
             SpawnEgg();
         }
     }

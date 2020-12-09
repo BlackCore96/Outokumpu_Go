@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class BossFightManager : MonoBehaviour
@@ -13,6 +14,8 @@ public class BossFightManager : MonoBehaviour
     public float waitTime = 2;
     public float reactionTime = 1.5f;
     bool canSwipe = true;
+    public Image attackButton;
+
     public PeikkoState peikkoState;
     public PeikkoState dodgeCommand;
     bool correctCommand;
@@ -26,6 +29,10 @@ public class BossFightManager : MonoBehaviour
         peikkoState = PeikkoState.DEFAULT;
         dodgeCommand = PeikkoState.DEFAULT;
         peikkoActionCount = 0;
+        Color color = attackButton.color;
+        color.a = 0;
+        attackButton.color = color;
+        attackButton.transform.GetComponent<Button>().interactable = false;
     }
 
     public enum PeikkoState
@@ -132,21 +139,40 @@ public class BossFightManager : MonoBehaviour
 
     void ResolveCommand()
     {
-        if (peikkoState.Equals(PeikkoState.ATTACK))
+        if (peikkoActionCount.Equals(0))
         {
-            if (peikkoState == dodgeCommand)
-            {
-                //tee damagee
-                Debug.Log("tee damagee");
-            }
+            Color color = attackButton.color;
+            color.a = 0;
+            attackButton.color = color;
+            attackButton.transform.GetComponent<Button>().interactable = false;
         }
-        else
+        
+        switch (peikkoState)
         {
-            if (peikkoState != dodgeCommand)
-            {
-                //ota damagee
-                Debug.Log("ota damagee");
-            }
+            case PeikkoState.ATTACK:
+                if (!dodgeCommand.Equals(PeikkoState.LEFT) && !dodgeCommand.Equals(PeikkoState.RIGHT))
+                {
+                    TakeDamage();
+                }
+                return;
+            case PeikkoState.RIGHT:
+                if (!dodgeCommand.Equals(PeikkoState.RIGHT))
+                {
+                    TakeDamage();
+                }
+                return;
+            case PeikkoState.LEFT:
+                if (!dodgeCommand.Equals(PeikkoState.LEFT))
+                {
+                    TakeDamage();
+                }
+                return;
+            case PeikkoState.VULNERABLE:
+                if (dodgeCommand.Equals(PeikkoState.ATTACK))
+                {
+                    //tee damagee
+                }
+                return;
         }
         peikkoState = PeikkoState.DEFAULT;
     }
@@ -159,6 +185,10 @@ public class BossFightManager : MonoBehaviour
             peikkoActionCount = 0;
             PlayAnimation(AnimatorScript.BossAnimation.VULNERABLE);
             peikkoState = PeikkoState.VULNERABLE;
+            Color color = attackButton.color;
+            color.a = 1;
+            attackButton.color = color;
+            attackButton.transform.GetComponent<Button>().interactable = true;
             return;
         }
         switch (Random.Range(0, 3))
@@ -176,6 +206,11 @@ public class BossFightManager : MonoBehaviour
                 peikkoState = PeikkoState.RIGHT;
                 break;
         }
+    }
+
+    void TakeDamage()
+    {
+        Debug.Log("Take Damage");
     }
 
     public IEnumerator PeikkoRandom()
