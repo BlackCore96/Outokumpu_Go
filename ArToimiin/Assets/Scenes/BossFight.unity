@@ -1201,9 +1201,93 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb5433add0d69f4595714d0f8ef8ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  peikkoSwing: []
-  peikkoDeath: []
-  peikkoRoar: []
+  peikkoSwing:
+  - {fileID: 8300000, guid: 2c30a99585c0fe44092313ec480b1f71, type: 3}
+  peikkoDamage:
+  - {fileID: 8300000, guid: 750256f8d1719254c96cc6b45d35a32d, type: 3}
+  - {fileID: 8300000, guid: 7e35a9a96dbc30a4c914b785369310a0, type: 3}
+  - {fileID: 8300000, guid: 17ebb27cd26d735469000d25970148cb, type: 3}
+  - {fileID: 8300000, guid: 34b024c680f97ae42b94b4eff4a492e5, type: 3}
+  - {fileID: 8300000, guid: d4c517ec903fedc4d8797ef664bf10a9, type: 3}
+  peikkoDeath:
+  - {fileID: 8300000, guid: cb0c5f6ac5a49d940be5f68059119964, type: 3}
+  - {fileID: 8300000, guid: 782e31748764eae49a2b0d189b3e6e2c, type: 3}
+  - {fileID: 8300000, guid: 000e89f35d97aae4bad592d3b494a82a, type: 3}
+  peikkoRoar:
+  - {fileID: 8300000, guid: e486d84831076204b86cbb6b9c172fc7, type: 3}
+  peikkoSmash:
+  - {fileID: 8300000, guid: 238e684ea461e7744add34692074d978, type: 3}
+  peikkoIntroLaugh:
+  - {fileID: 8300000, guid: b7fbeeb294ae3ec4dba7da8e3cf3951b, type: 3}
+  heroSpawn:
+  - {fileID: 8300000, guid: a84beccc8f3798744bb0e5ad7e16b5cd, type: 3}
+  heroShoot:
+  - {fileID: 8300000, guid: f54981f22ccab77419d7481554b6d331, type: 3}
+  - {fileID: 8300000, guid: 94e266de82ec4d440a5472e88cf95e81, type: 3}
+  heroWin:
+  - {fileID: 8300000, guid: ada918df92818bc4d96505d88a71c081, type: 3}
+  heroLose:
+  - {fileID: 8300000, guid: 0175f70e637027e47bece960d744fbf4, type: 3}
+  heroSwipe:
+  - {fileID: 8300000, guid: 3315f471caeb55546bf3ebdde95d70b2, type: 3}
+  - {fileID: 8300000, guid: eb0abb4795f124a4bbe9a427875b21d7, type: 3}
+  - {fileID: 8300000, guid: dd053582d3f81c64aabe79bd567c08a5, type: 3}
+  - {fileID: 8300000, guid: b356e522bbb6db74e864633935ca48bf, type: 3}
+  catchCreature:
+  - {fileID: 8300000, guid: 2110d910bf54d5a4fbe07687dfc83dbe, type: 3}
+  eggSpawn:
+  - {fileID: 8300000, guid: fc8646d72e1921c4a9a95bfef70b2c3b, type: 3}
+  eggBreak:
+  - {fileID: 8300000, guid: 5695a1d9486c3a94dbb9021c7450da1b, type: 3}
+  jumpSound:
+  - {fileID: 8300000, guid: 7aae27bf1c3dd8041abb9bcb1fddb5a4, type: 3}
+  succesMusic:
+  - {fileID: 8300000, guid: 278564e725db47e47aaa16214ec1fa85, type: 3}
+  succesSound:
+  - {fileID: 8300000, guid: 501491515a0971a4bb301054f3d1873a, type: 3}
+  piruetti:
+  - {fileID: 8300000, guid: 2110d910bf54d5a4fbe07687dfc83dbe, type: 3}
+  granittiRunSound:
+  - {fileID: 8300000, guid: cb2228e7b846e294491293488e8c4685, type: 3}
+  rautaRunSound:
+  - {fileID: 8300000, guid: 9bfd7d6180f00fb4bb1c5eaf9700823a, type: 3}
+  scanningSound:
+  - {fileID: 8300000, guid: be416178061ae7c44b1011cd38a19584, type: 3}
+  singleStep:
+  - {fileID: 8300000, guid: f40d92d7f13ed49459f906d07a93d018, type: 3}
+  talkingSound:
+  - {fileID: 8300000, guid: a9e37e6269d5ac140855415f22edd099, type: 3}
+  - {fileID: 8300000, guid: 96daf488fff6d5d448825374716f79fd, type: 3}
+  - {fileID: 8300000, guid: 6274298dce4571b46b3dd07efdb0f9f8, type: 3}
+  - {fileID: 8300000, guid: e5a1a16d79b6be141955a8219bcdbe58, type: 3}
+  - {fileID: 8300000, guid: e0850738fe114ec41b8f0ed507a244c6, type: 3}
+  - {fileID: 8300000, guid: e929bca55ca88be44a8d1f05a49e25ac, type: 3}
+  - {fileID: 8300000, guid: b2726fdd9140ca14cae9f57342e1916b, type: 3}
+  - {fileID: 8300000, guid: abd32a5cf6e4e6e49bfd1a84d4ebf651, type: 3}
+  - {fileID: 8300000, guid: 26245294164edb94ab5cae696dc64c84, type: 3}
+  - {fileID: 8300000, guid: 8712c8bd9ad56b44c959d2654d573016, type: 3}
+  - {fileID: 8300000, guid: 3d979abc900be3343a23271d67ba7511, type: 3}
+  - {fileID: 8300000, guid: 3bddb25e5e6ecf34e8655a2a4def0807, type: 3}
+  - {fileID: 8300000, guid: 1c0d32e443beb2942891695c016dbee9, type: 3}
+  steps:
+  - {fileID: 8300000, guid: dca24e653f15372498d22d223aa296be, type: 3}
+  - {fileID: 8300000, guid: cd5c911f14421da4d9e58e4403ab8c75, type: 3}
+  - {fileID: 8300000, guid: 0ff68ea23ed79a4499b958ffe28d2392, type: 3}
+  - {fileID: 8300000, guid: 8da3a58fc9a70c64b9d10496787c4ba0, type: 3}
+  - {fileID: 8300000, guid: aa49a9a084963ec41b599d4b5d3b039a, type: 3}
+  - {fileID: 8300000, guid: 2c14a093be328aa43afe01c252a7b02c, type: 3}
+  - {fileID: 8300000, guid: a4e319a9b62801d4f85e7abedae92c2b, type: 3}
+  catchMeterSound:
+  - {fileID: 8300000, guid: 4d9cbbf01d7303b4992bde736ca83bec, type: 3}
+  puhekuplaAuki:
+  - {fileID: 8300000, guid: dbface666c4306346b4a8cc2199f1195, type: 3}
+  - {fileID: 8300000, guid: 391c69e86f3c7e34ea8a57aeb539595b, type: 3}
+  puhekuplaKiinni:
+  - {fileID: 8300000, guid: 68964451dd3072e4c9fc941de0926844, type: 3}
+  stepsLoop:
+  - {fileID: 8300000, guid: a52fb484b96d5bf46823869c3cf97b5f, type: 3}
+  stopOpen:
+  - {fileID: 8300000, guid: 6d2077bb585ad7c44ae6e595bc1b0564, type: 3}
 --- !u!82 &1230013571
 AudioSource:
   m_ObjectHideFlags: 0
