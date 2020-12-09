@@ -7,14 +7,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-<<<<<<< Updated upstream
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: IsCatched
     m_EventTreshold: 0
-=======
-  m_Conditions: []
->>>>>>> Stashed changes
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8836095460806549228}
   m_Solo: 0
@@ -63,7 +59,6 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-<<<<<<< Updated upstream
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: IsMoving
@@ -71,9 +66,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: IsStill
     m_EventTreshold: 0
-=======
-  m_Conditions: []
->>>>>>> Stashed changes
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2391152239606781603}
   m_Solo: 0
@@ -83,11 +75,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.8235294
-<<<<<<< Updated upstream
   m_HasExitTime: 0
-=======
-  m_HasExitTime: 1
->>>>>>> Stashed changes
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -106,32 +94,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-<<<<<<< Updated upstream
     m_Controller: {fileID: 9100000}
-=======
-    m_Controller: {fileID: 0}
->>>>>>> Stashed changes
   - m_Name: IsMoving
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-<<<<<<< Updated upstream
     m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
-=======
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
->>>>>>> Stashed changes
   - m_Name: IsStill
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-<<<<<<< Updated upstream
     m_Controller: {fileID: 9100000}
-=======
-    m_Controller: {fileID: 0}
->>>>>>> Stashed changes
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -228,7 +203,6 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-<<<<<<< Updated upstream
   m_Conditions:
   - m_ConditionMode: 2
     m_ConditionEvent: IsMoving
@@ -236,9 +210,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: IsStill
     m_EventTreshold: 0
-=======
-  m_Conditions: []
->>>>>>> Stashed changes
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 629657080136299820}
   m_Solo: 0
@@ -248,11 +219,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.6
-<<<<<<< Updated upstream
   m_HasExitTime: 0
-=======
-  m_HasExitTime: 1
->>>>>>> Stashed changes
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1

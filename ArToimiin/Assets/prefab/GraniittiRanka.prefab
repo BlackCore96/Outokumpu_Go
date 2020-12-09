@@ -439,10 +439,6 @@ GameObject:
   - component: {fileID: 2664045091071943418}
   - component: {fileID: 2664045091071943419}
   - component: {fileID: 2664045091071942916}
-<<<<<<< Updated upstream
-=======
-  - component: {fileID: 2664045091071942917}
->>>>>>> Stashed changes
   m_Layer: 0
   m_Name: GraniittiRanka
   m_TagString: Untagged
@@ -470,11 +466,8 @@ Transform:
   - {fileID: 717153540159602531}
   - {fileID: 1811340305418563927}
   - {fileID: 2774008051451182449}
-<<<<<<< Updated upstream
   - {fileID: 9119396529879224200}
   - {fileID: 3449819585104943620}
-=======
->>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -533,23 +526,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
-<<<<<<< Updated upstream
-=======
---- !u!114 &2664045091071942917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2898628436464879423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8b09b5dee5128409af5b4001c811e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  catchParticle: {fileID: 3666496941203927450, guid: ac4fcc4d6c980454686bf2ae62997b0a, type: 3}
-  runParticle: {fileID: 1934422349340122721, guid: 99c237186c3a0844b9704ff146ffbc25, type: 3}
->>>>>>> Stashed changes
 --- !u!1 &3229428065392939248
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +557,6 @@ Transform:
   m_Father: {fileID: 3286596324437326153}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
 --- !u!1 &3971937744031921241
 GameObject:
   m_ObjectHideFlags: 0
@@ -5453,8 +5428,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
-=======
->>>>>>> Stashed changes
 --- !u!1 &4580801567514474068
 GameObject:
   m_ObjectHideFlags: 0
@@ -5546,7 +5519,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000104232226, y: 0.020350862, z: 0.0029636298}
     m_Extent: {x: 0.0035430915, y: 0.0037109088, z: 0.0038365053}
   m_DirtyAABB: 0
-<<<<<<< Updated upstream
 --- !u!1 &4764159150464676869
 GameObject:
   m_ObjectHideFlags: 0
@@ -10359,8 +10331,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
-=======
->>>>>>> Stashed changes
 --- !u!1 &4939607642634053380
 GameObject:
   m_ObjectHideFlags: 0
@@ -10475,22 +10445,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4998204592022423377}
-<<<<<<< Updated upstream
   m_LocalRotation: {x: -0.000000052822624, y: 0.70710677, z: 0.7071069, w: 0.0000000074505797}
-=======
-  m_LocalRotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
->>>>>>> Stashed changes
   m_LocalPosition: {x: 0.001286447, y: 0.2165761, z: 0.035011046}
   m_LocalScale: {x: 189.98225, y: 189.98225, z: 189.98225}
   m_Children:
   - {fileID: 666264510467596844}
   m_Father: {fileID: 2554156268720070021}
   m_RootOrder: 0
-<<<<<<< Updated upstream
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
-=======
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!1 &5223208090201634151
 GameObject:
   m_ObjectHideFlags: 0
@@ -10704,7 +10666,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000018453691, y: 0.048083257, z: 0.0017212499}
     m_Extent: {x: 0.0067206174, y: 0.010644339, z: 0.010892831}
   m_DirtyAABB: 0
-<<<<<<< Updated upstream
 --- !u!1 &6547465109678455139
 GameObject:
   m_ObjectHideFlags: 0
@@ -15575,8 +15536,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
-=======
->>>>>>> Stashed changes
 --- !u!1 &7626447137992191848
 GameObject:
   m_ObjectHideFlags: 0
