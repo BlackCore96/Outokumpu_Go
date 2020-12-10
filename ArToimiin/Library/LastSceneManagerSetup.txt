@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/TestiScene.unity
+- path: Assets/Scenes/StartUp.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
