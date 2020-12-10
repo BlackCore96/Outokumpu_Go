@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CatchScript : MonoBehaviour
 {
+    AudioManagerScript audioManager = AudioManagerScript.instanse;
+
     [HideInInspector]
     public GameObject hahmo;
     public float angle = 45f;
@@ -89,6 +91,7 @@ public class CatchScript : MonoBehaviour
     {
         hahmo.GetComponent<UccoMovement>().Stop();
         hahmo.GetComponent<UccoMovement>().isCaught = true;
+        audioManager.PlaySound(AudioManagerScript.SoundClip.PIRUETTI);
         isProgressing = false;
         isDecaying = false;
         isCaught = true;
@@ -104,7 +107,6 @@ public class CatchScript : MonoBehaviour
 
     public void OnButtonPress()
     {
-        //animaatioo... muuta asiaa
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 }

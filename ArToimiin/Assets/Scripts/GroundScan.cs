@@ -51,6 +51,7 @@ public class GroundScan : MonoBehaviour
         camera = arOrigin.GetComponentInChildren<Camera>();
         screenCenter = camera.ViewportToScreenPoint(new Vector3(.5f, .5f));
         animatorScript = GetComponent<AnimatorScript>();
+
         if (isBossFight)
         {
             animatorScript.animator = prefabBoss.GetComponent<Animator>();
@@ -128,6 +129,7 @@ public class GroundScan : MonoBehaviour
     {
         GameObject spawn = ground.transform.GetChild(1).gameObject;
         GameObject hero = Instantiate(prefabHero, spawn.transform.position, spawn.transform.rotation);
+        AudioManagerScript.instanse.PlaySound(AudioManagerScript.SoundClip.HERO_SPAWN);
         animatorScript.heroAnimator = hero.GetComponent<Animator>();
     }
 
@@ -135,12 +137,13 @@ public class GroundScan : MonoBehaviour
     {
         GameObject spawn = ground.transform.GetChild(0).gameObject;
         GameObject boss = Instantiate(prefabBoss, spawn.transform.position, spawn.transform.rotation);
+        AudioManagerScript.instanse.PlaySound(AudioManagerScript.SoundClip.PEIKKO_INTROLAUGH);
         animatorScript.animator = boss.GetComponent<Animator>();
     }
 
     void SpawnEgg()
     {
-        //navMeshIsActive = true;
+        AudioManagerScript.instanse.PlaySound(AudioManagerScript.SoundClip.EGG_SPAWN);
         GameObject muna = Instantiate(prefabMuna, ground.transform.position, Quaternion.identity);
     }
 }

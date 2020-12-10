@@ -107,14 +107,17 @@ public class BossFightManager : MonoBehaviour
                 case "right":
                     dodgeCommand = PeikkoState.RIGHT;
                     animationManager.PlayAnimation(AnimatorScript.HeroAnimation.DODGE_RIGHT);
+                    audioManager.PlaySound(AudioManagerScript.SoundClip.HERO_SWIPE);
                     break;
                 case "left":
                     dodgeCommand = PeikkoState.LEFT;
                     animationManager.PlayAnimation(AnimatorScript.HeroAnimation.DODGE_LEFT);
+                    audioManager.PlaySound(AudioManagerScript.SoundClip.HERO_SWIPE);
                     break;
                 case "Attack":
                     dodgeCommand = PeikkoState.ATTACK;
                     animationManager.PlayAnimation(AnimatorScript.HeroAnimation.ATTACK);
+                    audioManager.PlaySound(AudioManagerScript.SoundClip.HERO_SWIPE);
                     break;
             }
             StartCoroutine("SetHeroDefault");
