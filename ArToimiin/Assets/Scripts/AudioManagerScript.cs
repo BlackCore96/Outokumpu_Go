@@ -7,7 +7,7 @@ public class AudioManagerScript : MonoBehaviour
     //Kun haluat pyörittää ääntä, kutsu "AudioManagerScript.instance.PlaySound(AudioManagerScript.SoundClip.*PEIKKO_SWING*)"
     public static AudioManagerScript instanse;
 
-    AudioSource audioSource;
+    List<AudioSource> audioSources = new List<AudioSource>();
     //Tee tänne uusille äänille oma group!
     public AudioClip[] peikkoSwing;
     public AudioClip[] peikkoDamage;
@@ -179,11 +179,25 @@ public class AudioManagerScript : MonoBehaviour
     private void Start()
     {
         instanse = this;
-        audioSource = GetComponent<AudioSource>();
+        foreach (AudioSource audioSource in transform.GetComponents<AudioSource>())
+        {
+            audioSources.Add(audioSource);
+        }
     }
 
     public void PlaySound(SoundClip clip)
     {
-        audioSource.PlayOneShot(GetAudioClip(clip));
+        foreach (AudioSource source in audioSources)
+        {
+            try
+            {
+                if (!source.isPlaying)
+                {
+                    source.PlayOneShot(GetAudioClip(clip));
+                    break;
+                }
+            }
+            catch { }
+        }
     }
 }

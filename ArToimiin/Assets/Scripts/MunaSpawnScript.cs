@@ -37,6 +37,7 @@ public class MunaSpawnScript : MonoBehaviour
         if (!isAnimating)
         {
             isAnimating = true;
+            AudioManagerScript.instanse.PlaySound(AudioManagerScript.SoundClip.EGG_BREAK);
             GameObject spawnUkko = Instantiate(spawnattavaUkko, transform.position, transform.rotation);
             catchScript.hahmo = spawnUkko;
             animatorScript.dustTrailParticle = spawnUkko.gameObject.transform.Find("RunParticle").GetComponent<ParticleSystem>();

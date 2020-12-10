@@ -15,6 +15,7 @@ public class AvatarEvents : MonoBehaviour
         if (other.gameObject.CompareTag("POI"))
         {
             mapManager.Trigger(MapManager.TriggerState.Enter);
+            AudioManagerScript.instanse.PlaySound(AudioManagerScript.SoundClip.STOP_OPEN);
             mapManager.stopTransform = other.transform;
             mapManager.stopGrowing = true;
             MapManager.stopID = other.GetComponent<StopInfoCont>().stopID;//asettaa kyseisen stopin ID:n muistiin

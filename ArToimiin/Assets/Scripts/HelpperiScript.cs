@@ -61,6 +61,14 @@ public class HelpperiScript : MonoBehaviour
     {
         canvasGroup.alpha = Mathf.Abs(canvasGroup.alpha - 1);
         canvasGroup.blocksRaycasts = !canvasGroup.blocksRaycasts;
+        if (canvasGroup.alpha.Equals(0))
+        {
+            AudioManagerScript.instanse.PlaySound(AudioManagerScript.SoundClip.PUHEKUPLA_AUKI);
+        }
+        else
+        {
+            AudioManagerScript.instanse.PlaySound(AudioManagerScript.SoundClip.PUHEKUPLA_KIINNI);
+        }
     }
 
     IEnumerator juggleSprites()
