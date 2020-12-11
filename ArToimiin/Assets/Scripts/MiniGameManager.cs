@@ -13,7 +13,7 @@ public class MiniGameManager : MonoBehaviour
     {
         exitGroup.alpha = 0;
         exitGroup.blocksRaycasts = false;
-        if (!MapManager.minigameTutorialDone)
+        if (isMiniGame && !MapManager.minigameTutorialDone)
         {
             Invoke("LateStart", .2f);
         }

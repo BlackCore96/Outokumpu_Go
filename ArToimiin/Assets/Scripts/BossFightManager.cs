@@ -8,6 +8,9 @@ public class BossFightManager : MonoBehaviour
     AudioManagerScript audioManager;
     AnimatorScript animationManager;
 
+    AudioSource music;
+
+    int peikkoDamage;
     public static BossFightManager instance;
 
     List<Touch> touches = new List<Touch>();
@@ -23,8 +26,10 @@ public class BossFightManager : MonoBehaviour
 
     private void Start()
     {
+        peikkoDamage = 0;
         audioManager = GetComponent<AudioManagerScript>();
         animationManager = GetComponent<AnimatorScript>();
+        music = Camera.main.GetComponent<AudioSource>();
         instance = this;
         peikkoState = PeikkoState.DEFAULT;
         dodgeCommand = PeikkoState.DEFAULT;
@@ -153,27 +158,30 @@ public class BossFightManager : MonoBehaviour
         switch (peikkoState)
         {
             case PeikkoState.ATTACK:
+                audioManager.PlaySound(AudioManagerScript.SoundClip.PEIKKO_SMASH);
                 if (!dodgeCommand.Equals(PeikkoState.LEFT) && !dodgeCommand.Equals(PeikkoState.RIGHT))
                 {
-                    TakeDamage();
+                    //TakeDamage();
                 }
                 return;
             case PeikkoState.RIGHT:
+                audioManager.PlaySound(AudioManagerScript.SoundClip.PEIKKO_SWING);
                 if (!dodgeCommand.Equals(PeikkoState.RIGHT))
                 {
-                    TakeDamage();
+                    //TakeDamage();
                 }
                 return;
             case PeikkoState.LEFT:
+                audioManager.PlaySound(AudioManagerScript.SoundClip.PEIKKO_SWING);
                 if (!dodgeCommand.Equals(PeikkoState.LEFT))
                 {
-                    TakeDamage();
+                    //TakeDamage();
                 }
                 return;
             case PeikkoState.VULNERABLE:
                 if (dodgeCommand.Equals(PeikkoState.ATTACK))
                 {
-                    //tee damagee
+                    DoDamage();
                 }
                 return;
         }
@@ -211,8 +219,36 @@ public class BossFightManager : MonoBehaviour
         }
     }
 
+    void DoDamage()
+    {
+        audioManager.PlaySound(AudioManagerScript.SoundClip.PEIKKO_DAMAGE);
+        animationManager.animator.SetTrigger("Damage");
+        peikkoDamage++;
+        if (peikkoDamage >= 3)
+        {
+            StartCoroutine("Victory");
+        }
+    }
+
+    IEnumerator Victory()
+    {
+        StopCoroutine("PeikkoRandom");
+        yield return new WaitForSeconds(1.5f);
+        animationManager.animator.SetTrigger("Death");
+        animationManager.heroAnimator.SetTrigger("Victory");
+        audioManager.PlaySound(AudioManagerScript.SoundClip.HERO_WIN);
+        audioManager.PlaySound(AudioManagerScript.SoundClip.PEIKKO_DEATH);
+        music.Stop();
+        yield return new WaitForSeconds(8);
+        animationManager.animator.enabled = false;
+    }
+
     void TakeDamage()
     {
+        StopCoroutine("PeikkoRandom");
+        animationManager.heroAnimator.SetTrigger("Defeat");
+        audioManager.PlaySound(AudioManagerScript.SoundClip.HERO_LOSE);
+        music.Stop();
         Debug.Log("Take Damage");
     }
 

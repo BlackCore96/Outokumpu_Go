@@ -176,9 +176,13 @@ public class AudioManagerScript : MonoBehaviour
         return a[Random.Range(0, a.Length)];
     }
 
-    private void Start()
+    private void Awake()
     {
         instanse = this;
+    }
+
+    private void Start()
+    {
         foreach (AudioSource audioSource in transform.GetComponents<AudioSource>())
         {
             audioSources.Add(audioSource);
@@ -193,6 +197,7 @@ public class AudioManagerScript : MonoBehaviour
             {
                 if (!source.isPlaying)
                 {
+                    Debug.Log(clip);
                     source.PlayOneShot(GetAudioClip(clip));
                     break;
                 }
