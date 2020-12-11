@@ -1182,7 +1182,7 @@ MonoBehaviour:
   isBossFight: 1
   prefabBoss: {fileID: 7932107159512635026, guid: f540067c6bb52e3498b8182cec21c914, type: 3}
   prefabKolo: {fileID: 274262889346123713, guid: f9d62af7dc33e254c9a09b3801afa542, type: 3}
-  prefabHero: {fileID: 1668498231300411566, guid: 1b6817f1805665e44b52c726f3ae8891, type: 3}
+  prefabHero: {fileID: 7863575847349602804, guid: 55a54435345819c4d9ad4a69b4c4b910, type: 3}
   camera: {fileID: 0}
 --- !u!4 &1230013569
 Transform:

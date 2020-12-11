@@ -286,7 +286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3746186392814192661}
   m_LocalRotation: {x: 0.99999946, y: 0, z: 0, w: 0.0010473087}
-  m_LocalPosition: {x: 0, y: 0.0005, z: 0.1084}
+  m_LocalPosition: {x: -0, y: -0.0001, z: 0.0768}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3746186393346109515}
@@ -5047,7 +5047,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 4
+  m_RenderMode: 3
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -14767,7 +14767,7 @@ GameObject:
   - component: {fileID: 3746186393346109519}
   - component: {fileID: 3746186393346109518}
   m_Layer: 0
-  m_Name: "TraktoriS\xE4de"
+  m_Name: AttackBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14780,14 +14780,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3746186393346109514}
-  m_LocalRotation: {x: -0.9761691, y: 0.0049354313, z: 0.00007467493, w: 0.21695536}
-  m_LocalPosition: {x: 0, y: 0.003249948, z: 0.004089856}
+  m_LocalRotation: {x: -0.9535671, y: 0.004821161, z: 0.000072945775, w: 0.30114198}
+  m_LocalPosition: {x: -0.000029503643, y: -0.0025343634, z: 0.00073255366}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3746186392814192874}
   m_Father: {fileID: 3746186393598583497}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -154.94, y: -0.12600708, z: 0.6069946}
+  m_LocalEulerAnglesHint: {x: -144.948, y: -0.19400024, z: 0.6399994}
 --- !u!198 &3746186393346109519
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -14924,7 +14924,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30.56
+      scalar: 24.43
       minScalar: 5
       maxCurve:
         serializedVersion: 2

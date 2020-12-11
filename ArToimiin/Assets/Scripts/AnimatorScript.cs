@@ -8,6 +8,8 @@ public class AnimatorScript : MonoBehaviour
     public Animator heroAnimator;
     public ParticleSystem catchParticle;
     public ParticleSystem dustTrailParticle;
+    public ParticleSystem AttackPowerUp;
+
 
     public enum BossAnimation
     {
@@ -79,6 +81,7 @@ public class AnimatorScript : MonoBehaviour
         switch (a)
         {
             case HeroAnimation.ATTACK:
+                AttackPowerUp.Play();
                 return "Attack";
             case HeroAnimation.DEFEAT:
                 return "Defeat";
