@@ -20,6 +20,8 @@ public class MapManager : MonoBehaviour
     [HideInInspector]
     public GameObject characterPrefab;
 
+    static public bool loadBossScene;
+
     public Sprite[] unlockedImages;
     public Sprite[] lockedImages;
     public Image[] libraryCharacters;
@@ -48,6 +50,7 @@ public class MapManager : MonoBehaviour
 
     private void Start()
     {
+        loadBossScene = false;
         miniGameButton.gameObject.SetActive(false);
         stopGrowing = false;
         Invoke("LateStart", .45f);
@@ -127,7 +130,14 @@ public class MapManager : MonoBehaviour
 
     public void MiniGameOnButtonPress()
     {
-        SceneManager.LoadScene(2);
+        if (loadBossScene)
+        {
+            SceneManager.LoadScene(3);
+        }
+        else
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 
     public void LibrarySlider()

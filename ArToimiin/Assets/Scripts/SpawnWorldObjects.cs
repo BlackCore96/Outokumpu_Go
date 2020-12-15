@@ -11,12 +11,15 @@ public class SpawnWorldObjects : MonoBehaviour
     BaseLocationManager locationManager;
     MapManager mapManager;
     public GameObject stopPrefab;
+    public GameObject bossStopPrefab;
     [Header("Points of Interest")]
     public List<POIInfo> poiCoordinates;
     [Header("Testing Points of Interest")]
     public List<POIInfo> riveriaTestCoordinates;
 
     static public List<POIInfo> pOIInfos;
+    public POIInfo bossPOI;
+    
     bool useTestingPois;
     Vector3 position;
     GameObject stop;
@@ -45,10 +48,12 @@ public class SpawnWorldObjects : MonoBehaviour
 
     void SpawnStops()
     {
+        int i = 0;
         foreach (POIInfo pOI in pOIInfos)
         {
             if (!pOI.isBeaten)
             {
+                i++;
                 stop = Instantiate(stopPrefab);
                 stop.GetComponent<StopInfoCont>().prefab = mapManager.characters[pOI.stopID];
                 stop.GetComponent<StopInfoCont>().stopID = pOI.stopID;
@@ -56,6 +61,12 @@ public class SpawnWorldObjects : MonoBehaviour
                 stop.transform.position = position; //siirtää stopin oikeaan paikkaan
                 stop.GetComponent<Animator>().SetFloat("Offset", Random.Range(0f, 1f));
             }
+        }
+        if (i.Equals(0))
+        {
+            stop = Instantiate(bossStopPrefab);
+            position = bossPOI.pOICoordinate.convertCoordinateToVector();
+            stop.transform.position = position; //siirtää stopin oikeaan paikkaan
         }
     }
 

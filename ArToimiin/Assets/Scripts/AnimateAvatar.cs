@@ -7,9 +7,23 @@ public class AnimateAvatar : MonoBehaviour
     Animator animator;
     public AudioSource audioSource;
     public AudioClip clip;
+    public bool isAudioPlaying;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (audioSource.isPlaying)
+        {
+            isAudioPlaying = true;
+        }
+        else
+        {
+            isAudioPlaying = false;
+        }
     }
 
     public void OnAnimationStateChange(MoveAvatar.AvatarAnimationState animationState)
@@ -20,8 +34,7 @@ public class AnimateAvatar : MonoBehaviour
 
             case MoveAvatar.AvatarAnimationState.Walk:
             case MoveAvatar.AvatarAnimationState.Run:
-                audioSource.clip = clip;
-                if (!audioSource.isPlaying)
+                if (!isAudioPlaying)
                 {
                     audioSource.Play();
                 }

@@ -18,9 +18,15 @@ public class AvatarEvents : MonoBehaviour
             AudioManagerScript.instanse.PlaySound(AudioManagerScript.SoundClip.STOP_OPEN);
             mapManager.stopTransform = other.transform;
             mapManager.stopGrowing = true;
-            MapManager.stopID = other.GetComponent<StopInfoCont>().stopID;//asettaa kyseisen stopin ID:n muistiin
-            MapManager.prefab = other.GetComponent<StopInfoCont>().prefab;//asettaa kyseisen stopin hahmon minipeliin
-            Debug.Log("prefab!");
+            try
+            {
+                MapManager.stopID = other.GetComponent<StopInfoCont>().stopID;//asettaa kyseisen stopin ID:n muistiin
+                MapManager.prefab = other.GetComponent<StopInfoCont>().prefab;//asettaa kyseisen stopin hahmon minipeliin
+            }
+            catch
+            {
+                MapManager.loadBossScene = true;
+            }
         }
     }
     private void OnTriggerExit(Collider other)
