@@ -30,6 +30,11 @@ public class MiniGameManager : MonoBehaviour
         exitGroup.blocksRaycasts = !exitGroup.blocksRaycasts;
     }
 
+    public void ResetBoss()
+    {
+        SceneManager.LoadScene(3);
+    }
+
     public void ConfirmExit()
     {
         SceneManager.LoadScene(1);

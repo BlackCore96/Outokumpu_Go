@@ -8,6 +8,7 @@ public class BossFightManager : MonoBehaviour
     AudioManagerScript audioManager;
     AnimatorScript animationManager;
 
+    public Button resetButton;
     AudioSource music;
 
     int peikkoDamage;
@@ -65,7 +66,7 @@ public class BossFightManager : MonoBehaviour
                         break;
                 }
             }
-        }        
+        }
     }
 
     void CheckForFinger(Touch touch)
@@ -161,21 +162,21 @@ public class BossFightManager : MonoBehaviour
                 audioManager.PlaySound(AudioManagerScript.SoundClip.PEIKKO_SMASH);
                 if (!dodgeCommand.Equals(PeikkoState.LEFT) && !dodgeCommand.Equals(PeikkoState.RIGHT))
                 {
-                    //TakeDamage();
+                    TakeDamage();
                 }
                 return;
             case PeikkoState.RIGHT:
                 audioManager.PlaySound(AudioManagerScript.SoundClip.PEIKKO_SWING);
                 if (!dodgeCommand.Equals(PeikkoState.RIGHT))
                 {
-                    //TakeDamage();
+                    TakeDamage();
                 }
                 return;
             case PeikkoState.LEFT:
                 audioManager.PlaySound(AudioManagerScript.SoundClip.PEIKKO_SWING);
                 if (!dodgeCommand.Equals(PeikkoState.LEFT))
                 {
-                    //TakeDamage();
+                    TakeDamage();
                 }
                 return;
             case PeikkoState.VULNERABLE:
@@ -249,7 +250,7 @@ public class BossFightManager : MonoBehaviour
         animationManager.heroAnimator.SetTrigger("Defeat");
         audioManager.PlaySound(AudioManagerScript.SoundClip.HERO_LOSE);
         music.Stop();
-        Debug.Log("Take Damage");
+        resetButton.interactable = true;
     }
 
     public IEnumerator PeikkoRandom()
