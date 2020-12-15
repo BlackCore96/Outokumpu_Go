@@ -250,7 +250,7 @@ public class BossFightManager : MonoBehaviour
         animationManager.heroAnimator.SetTrigger("Defeat");
         audioManager.PlaySound(AudioManagerScript.SoundClip.HERO_LOSE);
         music.Stop();
-        resetButton.interactable = true;
+        resetButton.GetComponent<Image>().enabled = true;
     }
 
     public IEnumerator PeikkoRandom()

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class AnimatorScript : MonoBehaviour
 {
+    public bool bossScene;
     public Animator animator;
     public Animator heroAnimator;
     public ParticleSystem catchParticle;
     public ParticleSystem dustTrailParticle;
-    public ParticleSystem AttackPowerUp;
-
+    public ParticleSystem attackPowerUp;
 
     public enum BossAnimation
     {
@@ -81,7 +81,7 @@ public class AnimatorScript : MonoBehaviour
         switch (a)
         {
             case HeroAnimation.ATTACK:
-                AttackPowerUp.Play();
+                attackPowerUp.Play();
                 return "Attack";
             case HeroAnimation.DEFEAT:
                 return "Defeat";

@@ -131,6 +131,8 @@ public class GroundScan : MonoBehaviour
         GameObject hero = Instantiate(prefabHero, spawn.transform.position, spawn.transform.rotation);
         AudioManagerScript.instanse.PlaySound(AudioManagerScript.SoundClip.HERO_SPAWN);
         animatorScript.heroAnimator = hero.GetComponent<Animator>();
+        Debug.Log(hero.transform.ToString());
+        animatorScript.attackPowerUp = hero.transform.Find("Armature").Find("SkullBone").GetChild(0).Find("AttackPowerUpParticle").GetComponent<ParticleSystem>();
     }
 
     void SpawnBoss()
