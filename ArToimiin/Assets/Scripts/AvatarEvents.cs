@@ -5,6 +5,7 @@ using UnityEngine;
 public class AvatarEvents : MonoBehaviour
 {
     MapManager mapManager;
+    GameObject current;
 
     private void Start()
     {
@@ -14,6 +15,8 @@ public class AvatarEvents : MonoBehaviour
     {
         if (other.gameObject.CompareTag("POI"))
         {
+            try { if (!current.Equals(null)) { } } catch { Exit(); }
+            current = other.gameObject;
             mapManager.Trigger(MapManager.TriggerState.Enter);
             AudioManagerScript.instanse.PlaySound(AudioManagerScript.SoundClip.STOP_OPEN);
             mapManager.stopTransform = other.transform;
@@ -29,12 +32,19 @@ public class AvatarEvents : MonoBehaviour
             }
         }
     }
+
+    void Exit()
+    {
+        mapManager.Trigger(MapManager.TriggerState.Exit);
+        mapManager.stopGrowing = false;
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("POI"))
         {
-            mapManager.Trigger(MapManager.TriggerState.Exit);
-            mapManager.stopGrowing = false;
+            current = null;
+            Exit();
         }
     }
 }

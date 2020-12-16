@@ -64,7 +64,7 @@ public class GroundScan : MonoBehaviour
         if (Application.isEditor)
         {
             meshSurface = Instantiate(editorObject, new Vector3(0, -.5f, 1), Quaternion.identity);
-            SpawnGround();
+            StartCoroutine("SpawnGround");
             CancelInvoke("UpdateNavMesh");
         }
         removeKolo = false;
@@ -78,7 +78,7 @@ public class GroundScan : MonoBehaviour
             try
             {
                 mesh = meshSurface.GetComponent<MeshFilter>();
-                SpawnGround();
+                StartCoroutine("SpawnGround");
             }
             catch { }
         }
@@ -98,10 +98,20 @@ public class GroundScan : MonoBehaviour
         }
     }
 
-    void SpawnGround()
+    IEnumerator SpawnGround()
     {
         CancelInvoke("UpdateNavMesh");
         ground = Instantiate(groundPrefab, meshSurface.transform.position, Quaternion.identity);
+
+        if (!MapManager.minigameTutorialDone)
+        {
+            yield return new WaitUntil(() => HelpperiScript.instanse.done.Equals(true));
+        }
+        else
+        {
+            yield return new WaitForSeconds(0);
+        }
+        
 
         if (isBossFight)
         {

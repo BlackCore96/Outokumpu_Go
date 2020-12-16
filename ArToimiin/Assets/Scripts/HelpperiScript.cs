@@ -14,6 +14,12 @@ public class HelpperiScript : MonoBehaviour
     public float sentenceEnd;
     public float space;
 
+    public bool done;
+
+    float tempTypeSpeed;
+    float tempSentenceEnd;
+    float tempSpace;
+
     [Header("Helpperi tekstit")]
     public string[] allCharactersCollected;
     public string[] firstLaunch;
@@ -51,6 +57,7 @@ public class HelpperiScript : MonoBehaviour
     void Start()
     {
         instanse = this;
+        done = false;
         isJuggling = false;
         canvasGroup = GetComponent<CanvasGroup>();
         text = GetComponentInChildren<Text>();
@@ -86,6 +93,25 @@ public class HelpperiScript : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (!Application.isEditor)
+        {
+            if (!Input.touchCount.Equals(0))
+            {
+                tempTypeSpeed = 0;
+                tempSentenceEnd = 0;
+                tempSpace = 0;
+            }
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            tempTypeSpeed = 0;
+            tempSentenceEnd = 0;
+            tempSpace = 0;
+        }
+    }
+
     public void StartTutorial(HelperText tutorial)
     {
         StartCoroutine("ShowTutorial", tutorial);
@@ -97,6 +123,9 @@ public class HelpperiScript : MonoBehaviour
         string[] vs = GetHelperText(tutorial);
         foreach (string s in vs)
         {
+            tempTypeSpeed = typeSpeed;
+            tempSentenceEnd = sentenceEnd;
+            tempSpace = space;
             isJuggling = true;
             i = 0;
             StartCoroutine("juggleSprites");
@@ -113,6 +142,7 @@ public class HelpperiScript : MonoBehaviour
             }
         }
         ToggleCanvasGroup();
+        done = true;
     }
 
     IEnumerator WriteText(string s)
@@ -127,19 +157,19 @@ public class HelpperiScript : MonoBehaviour
             switch (character.ToString())
             {
                 case "!":
-                    waitTime = sentenceEnd;
+                    waitTime = tempSentenceEnd;
                     break;
                 case "?":
-                    waitTime = sentenceEnd;
+                    waitTime = tempSentenceEnd;
                     break;
                 case ".":
-                    waitTime = sentenceEnd;
+                    waitTime = tempSentenceEnd;
                     break;
                 case " ":
-                    waitTime = space;
+                    waitTime = tempSpace;
                     break;
                 default:
-                    waitTime = typeSpeed;
+                    waitTime = tempTypeSpeed;
                     break;
             }
             yield return new WaitForSeconds(waitTime);
