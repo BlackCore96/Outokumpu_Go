@@ -10,9 +10,15 @@ public class StartUp : MonoBehaviour
         SaveManager.loadSave = true;
         if (!Application.isEditor)
         {
-            Permission.RequestUserPermission(Permission.Camera);
-            Permission.RequestUserPermission(Permission.FineLocation);
+            StartCoroutine("Permissions");
         }
+    }
+
+    IEnumerator Permissions()
+    {
+        Permission.RequestUserPermission(Permission.Camera);
+        yield return new WaitUntil(() => Permission.HasUserAuthorizedPermission(Permission.Camera));
+        Permission.RequestUserPermission(Permission.FineLocation);
     }
 
     private void Update()

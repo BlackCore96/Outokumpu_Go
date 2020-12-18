@@ -18,6 +18,7 @@ public class SpawnWorldObjects : MonoBehaviour
     public List<POIInfo> riveriaTestCoordinates;
 
     static public List<POIInfo> pOIInfos;
+    public List<POIInfo> debug;
     public POIInfo bossPOI;
     
     bool useTestingPois;
@@ -27,6 +28,11 @@ public class SpawnWorldObjects : MonoBehaviour
     private void Start()
     {
         Invoke("LateStart", .4f);
+    }
+
+    private void Update()
+    {
+        debug = pOIInfos;
     }
 
     void LateStart()

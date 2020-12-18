@@ -47,6 +47,7 @@ public class SaveManager : MonoBehaviour
             saveFile = SpawnWorldObjects.pOIInfos;
             FileStream fileStream = File.OpenWrite(dataPath);
             formatter.Serialize(fileStream, saveFile);
+            fileStream.Close();
             Debug.Log("Saved successfully");
         }
         catch
@@ -105,6 +106,7 @@ public class SaveManager : MonoBehaviour
                     Debug.Log("Load");
                     FileStream filestream = File.OpenRead(dataPath);
                     saveFile = (List<SpawnWorldObjects.POIInfo>)formatter.Deserialize(filestream);
+                    filestream.Close();
                     SpawnWorldObjects.pOIInfos = saveFile;
                 }
                 catch
